@@ -34,8 +34,11 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     [SerializeField, Header("LaserLeft")]
     Attack_Laser l_Laser;
 
-    [SerializeField, Header("CameraSystem")]
-    CameraSystem C_System;
+    [SerializeField, Header("エレクトロモード用エフェクト")]
+    GameObject Effect_Electric;
+
+    [SerializeField, Header("エレクトロモード用攻撃エフェクト")]
+    GameObject Effect_Electric_Attack;
 
     //最終角度
     float m_TurnAmount;
@@ -55,14 +58,14 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     Animator PlayerAnim;
 
-    //モード：レーザー攻撃
+    //モード：レーザー
     bool Mode_Laser = false;
 
-    private bool modeN = true;
-    private bool modeE = false;
-    private bool modeQ = false;
-    private bool attackE = false;
-    private float count = 0.5f;
+    //モード：エレクトリ
+    bool Mode_Electric = false;
+
+    //各モードでの攻撃中かどうか
+    bool LaserAttacking = false, ElectricAttacking = false;
 
     void Start()
     {
@@ -76,27 +79,14 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     void FixedUpdate()
     {
-        PlayerInput();
+        PlayerMove();
+
+        PlayerAnimation();
+
+        PlayerCommand();
     }
 
-    /// <summary>
-    /// プレイヤーの入力
-    /// </summary>
-    private void PlayerInput()
-    {
-        if (PlayerControle)
-        {
-            PlayerMove();
-
-            PlayerAnimation();
-        }    
-
-        PlayerCommand();        
-    }
-
-    /// <summary>
-    /// 移動入力
-    /// </summary>
+    #region 移動入力
     private void PlayerMove()
     {
         //カメラの方向ベクトルを取得
@@ -105,14 +95,20 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
         if (DATABASE.PlayIsGamePad)
         {
-            //Axisにカメラの方向ベクトルを掛ける
-            moveDirection = GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).x * right +
-                            GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).y * forward;
+            if (!LaserAttacking && !ElectricAttacking && PlayerControle)
+            {
+                //Axisにカメラの方向ベクトルを掛ける
+                moveDirection = GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).x * right +
+                                GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).y * forward;
+            }           
         }
         else
         {
-            //Axisにカメラの方向ベクトルを掛ける
-            moveDirection = InputManager.Horizontal * right + InputManager.Vertical * forward;
+            if (!LaserAttacking && !ElectricAttacking && PlayerControle)
+            {
+                //Axisにカメラの方向ベクトルを掛ける
+                moveDirection = InputManager.Horizontal * right + InputManager.Vertical * forward;
+            }           
         }
 
         //１以上ならば、正規化(Normalize)をする
@@ -142,61 +138,63 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //プレイヤーを移動させる
         transform.position += moveDirection;
     }
+    #endregion
 
     private void PlayerCommand()
     {
-        if (PlayIsGamePad)
+        if (DATABASE.PlayIsGamePad)
         {
-            //RTボタンで発射
-            if (GamePad.GetButton(GamePad.Button.RightShoulder, GamePad.Index.One))
-            {
-                Debug.Log("レーザー攻撃");
+            Input_GamePad();
+        }
+        else
+        {
+            Input_KeyBoard();
+        }
+    }
 
+    private void Input_GamePad()
+    {
+        #region 攻撃
+        //RBボタンで攻撃
+        if (GamePad.GetButton(GamePad.Button.RightShoulder, GamePad.Index.One))
+        {
+            //レーザー
+            if (Mode_Laser && !ElectricAttacking)
+            {
+                LaserAttacking = true;
                 LazerAttack(true);
             }
-            else
+
+            //エレクトロ
+            if (Mode_Electric && !LaserAttacking && !Mode_Laser)
             {
-                LazerAttack(false);
-            }
-
-            //LTボタンで発射準備
-            if (GamePad.GetButton(GamePad.Button.LeftShoulder, GamePad.Index.One))
-            {
-                PlayerControle = false;
-
-                Mode_Laser = true;
-
-                ReticleSystem.Instance.ReticleEnable(true);
-
-                ReticleSystem.Instance.ReticleMove();         
-            }
-            else
-            {
-                PlayerControle = true;
-
-                Mode_Laser = false;
-
-                ReticleSystem.Instance.ReticleEnable(false);
-
-                ReticleSystem.Instance.ResetPosition();
+                ElectricAttacking = true;
+                ElectricAttack(true);
             }
         }
         else
         {
-            //右クリックで発射
-            if (InputManager.click_Right)
+            //レーザー
+            if (Mode_Laser && LaserAttacking)
             {
-                Debug.Log("レーザー攻撃");
-
-                LazerAttack(true);
-            }
-            else
-            {
+                LaserAttacking = false;
                 LazerAttack(false);
             }
 
-            //左クリックで発射準備
-            if (InputManager.click_Left)
+            //エレクトロ
+            if (Mode_Electric && ElectricAttacking && !Mode_Laser)
+            {
+                ElectricAttacking = false;
+                ElectricAttack(false);
+            }
+        }
+        #endregion
+
+        #region エイム
+        //LBボタンでエイム
+        if (GamePad.GetButton(GamePad.Button.LeftShoulder, GamePad.Index.One))
+        {
+            if (!ElectricAttacking)
             {
                 PlayerControle = false;
 
@@ -206,7 +204,10 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                 ReticleSystem.Instance.ReticleMove();
             }
-            else
+        }
+        else
+        {
+            if (!ElectricAttacking && Mode_Laser)
             {
                 PlayerControle = true;
 
@@ -214,15 +215,171 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                 ReticleSystem.Instance.ReticleEnable(false);
 
+                LazerAttack(false);
+
                 ReticleSystem.Instance.ResetPosition();
             }
         }
+        #endregion
+
+        #region モード切替
+        //モード切替
+        if (GamePad.GetButtonDown(GamePad.Button.X, GamePad.Index.One))
+        {
+            if (!Mode_Electric && !ElectricAttacking)
+            {
+                foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Play();
+                }
+
+                Mode_Electric = true;
+            }
+            else if (Mode_Electric && !ElectricAttacking)
+            {
+                foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Stop();
+                }
+
+                Mode_Electric = false;
+            }
+        }
+        #endregion
     }
 
-    private void LazerAttack(bool fire)
+    private void Input_KeyBoard()
     {
-        r_Laser.fire = fire;
-        l_Laser.fire = fire;
+        #region 攻撃
+        //右クリックで攻撃
+        if (InputManager.click_Right)
+        {
+            //レーザー
+            if (Mode_Laser && !ElectricAttacking)
+            {
+                LaserAttacking = true;
+                LazerAttack(true);
+            }
+
+            //エレクトロ
+            if (Mode_Electric && !LaserAttacking && !Mode_Laser)
+            {
+                ElectricAttacking = true;
+                ElectricAttack(true);
+            }
+        }
+        else
+        {
+            //レーザー
+            if (Mode_Laser && LaserAttacking)
+            {
+                LaserAttacking = false;
+                LazerAttack(false);
+            }
+
+            //エレクトロ
+            if (Mode_Electric && ElectricAttacking && !Mode_Laser)
+            {
+                ElectricAttacking = false;
+                ElectricAttack(false);
+            }
+        }
+        #endregion
+
+        #region エイム
+        //左クリックでエイム
+        if (InputManager.click_Left)
+        {
+            if (!ElectricAttacking)
+            {
+                PlayerControle = false;
+
+                Mode_Laser = true;
+
+                ReticleSystem.Instance.ReticleEnable(true);
+
+                ReticleSystem.Instance.ReticleMove();
+            }
+        }
+        else
+        {
+            if (!ElectricAttacking && Mode_Laser)
+            {
+                PlayerControle = true;
+
+                Mode_Laser = false;
+
+                ReticleSystem.Instance.ReticleEnable(false);
+
+                LazerAttack(false);
+
+                ReticleSystem.Instance.ResetPosition();
+            }
+        }
+        #endregion
+
+        #region モード切替
+        //モード切替
+        if (InputManager.Key_E)
+        {
+            if (!Mode_Electric && !ElectricAttacking)
+            {
+                foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Play();
+                }
+
+                Mode_Electric = true;
+            }
+            else if (Mode_Electric && !ElectricAttacking)
+            {
+                foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Stop();
+                }
+
+                Mode_Electric = false;
+            }
+        }
+        #endregion
+    }
+
+    /// <summary>
+    /// レーザー攻撃
+    /// </summary>
+    /// <param name="atk"></param>
+    private void LazerAttack(bool atk)
+    {
+        r_Laser.fire = atk;
+        l_Laser.fire = atk;
+    }
+
+    /// <summary>
+    /// 電撃攻撃
+    /// </summary>
+    /// <param name="atk"></param>
+    private void ElectricAttack(bool atk)
+    {
+        //攻撃
+        PlayerAnim.SetBool("ElectricAttack", atk);        
+
+        WaitAfter(0.3f, () =>
+        {
+            if (atk)
+            {
+                foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Play();
+                }
+            }
+            else
+            {
+                foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Stop();
+                }
+            }
+        });
     }
 
     /// <summary>
@@ -231,59 +388,6 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     private void PlayerAnimation()
     {
         //移動
-        PlayerAnim.SetFloat("Speed", moveDirection.magnitude * 10);
-
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-
-        //    if (modeE == false)
-        //    {
-        //        modeE = true;
-        //        modeN = false;
-        //        modeQ = false;
-        //    }
-
-        //    else if (modeE == true)
-        //    {
-        //        modeE = false;
-        //        modeN = true;
-        //    }
-
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    if (modeQ == false)
-        //    {
-        //        modeQ = true;
-        //        modeE = false;
-        //    }
-        //    else if (modeQ == true)
-        //    {
-        //        modeQ = false;
-        //        modeN = true;
-        //    }
-        //}
-
-        //if (Input.GetButton("Fire1") && Input.GetButton("Fire2"))
-        //    PlayerAnim.SetBool("Spark", true);
-
-        //if (modeE == false && !Input.GetButton("Fire1"))
-        //    PlayerAnim.SetBool("Spark", false);
-
-        //if (modeE == true && Input.GetButton("Fire2"))
-        //{
-        //    PlayerAnim.SetBool("Spark", true);
-        //    count -= Time.deltaTime;
-        //    if (count <= 0)
-        //        attackE = true;
-        //}
-
-        //if (Input.GetButtonUp("Fire2"))
-        //{
-        //    PlayerAnim.SetBool("Spark", false);
-        //    attackE = false;
-        //    count = 0.5f;
-        //}
+        PlayerAnim.SetFloat("Speed", moveDirection.magnitude * 10);        
     }
 }

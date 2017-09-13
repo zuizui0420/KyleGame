@@ -10,6 +10,11 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 
     float RayDistance = 100f;
 
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
     public void ResetPosition()
     {
         transform.localPosition = new Vector3(0f, 0f, 0.5f);
@@ -22,21 +27,22 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 
     public void ReticleMove()
     {
-        float X = 0f;
-        float Y = 0f;
-
-        Vector2 Pos = transform.localPosition;
-
         if (DATABASE.PlayIsGamePad)
         {
+            float X = 0f;
+            float Y = 0f;
+
+            Vector3 Pos = transform.localPosition;
+
             X = GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).x;
             Y = GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).y;
 
-            Pos.x += X * 0.01f;
-            Pos.y += Y * 0.01f;
+            Pos.x += X;
+            Pos.y += Y;
+            Pos.z = 50.0f;
 
-            Pos.x = Mathf.Clamp(Pos.x, -0.4f, 0.4f);
-            Pos.y = Mathf.Clamp(Pos.y, -0.2f, 0.2f);
+            Pos.x = Mathf.Clamp(Pos.x, -50f, 50f);
+            Pos.y = Mathf.Clamp(Pos.y, -25f, 25f);
             transform.localPosition = Pos;
         }
         else
@@ -62,13 +68,13 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
 
-        if(Physics.Raycast(transform.position, transform.forward, out hit, RayDistance))
-        {           
-            Debug.Log(hit.point);
-        }
-        else
-        {
-            Debug.Log(RayDistance);
-        }
+        //if(Physics.Raycast(transform.position, transform.forward, out hit, RayDistance))
+        //{           
+        //    Debug.Log(hit.point);
+        //}
+        //else
+        //{
+        //    Debug.Log(RayDistance);
+        //}
     }
 }

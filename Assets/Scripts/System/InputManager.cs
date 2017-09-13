@@ -11,6 +11,9 @@ public class InputManager : MonoBehaviour
     //キーボード用 Axisインプット変数
     public static float Horizontal, Vertical;
 
+    //キーボード用 Keyインプット変数
+    public static bool Key_E;
+
     //キーボード用 Clickインプット変数
     public static bool click_Right, click_Left;
 
@@ -37,6 +40,9 @@ public class InputManager : MonoBehaviour
         //移動
         Horizontal = Input.GetAxisRaw("Horizontal");
         Vertical = Input.GetAxisRaw("Vertical");
+
+        //キー
+        Key_E = Input.GetKeyDown(KeyCode.E);
 
         //クリック
         click_Left = Input.GetMouseButton(0);
