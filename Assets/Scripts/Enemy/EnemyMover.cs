@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-	[RequireComponent(typeof(PlayerCharacterController))]
-	public class PlayerMover : BasePlayerComponent
+	[RequireComponent(typeof(EnemyCharacterController))]
+	public class EnemyMover : BaseEnemyComponent
 	{
 		private readonly BoolReactiveProperty _isRunning = new BoolReactiveProperty();
 
-		private PlayerCharacterController _playerCharacterController;
+		private EnemyCharacterController _playerCharacterController;
 
 		protected override void OnInitialize()
 		{
-			_playerCharacterController = GetComponent<PlayerCharacterController>();
-
+			_playerCharacterController = GetComponent<EnemyCharacterController>();
+	
 			InputEventProvider.MoveDirection
 				.Subscribe(x =>
 				{
@@ -22,7 +22,10 @@ namespace Assets.Scripts
 				});
 
 			InputEventProvider.MoveDirection
-				.Subscribe(x => { _isRunning.Value = x.magnitude >= 0.1f; });
+				.Subscribe(x =>
+				{
+					_isRunning.Value = x.magnitude >= 0.1f;
+				});
 		}
 	}
 }

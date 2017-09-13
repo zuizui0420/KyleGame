@@ -3,14 +3,15 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-	public abstract class BasePlayerComponent : MonoBehaviour
+	public abstract class BaseEnemyComponent : MonoBehaviour
 	{
-		protected PlayerCore Core;
+		protected EnemyCore Core;
+
 		protected IInputEventProvider InputEventProvider { get; private set; }
 
 		private void Start()
 		{
-			Core = GetComponent<PlayerCore>();
+			Core = GetComponent<EnemyCore>();
 			InputEventProvider = GetComponent<IInputEventProvider>();
 
 			OnStart();

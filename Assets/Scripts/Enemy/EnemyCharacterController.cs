@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-	public class PlayerCharacterController : BasePlayerComponent
+	public class EnemyCharacterController : BaseEnemyComponent
 	{
 		private readonly BoolReactiveProperty _isGrounded = new BoolReactiveProperty(true);
+		private CharacterController _controller;
 
 		private Vector3 _inputDirection;
 

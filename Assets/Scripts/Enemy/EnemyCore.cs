@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-	public class PlayerCore : MonoBehaviour
+	public class EnemyCore : MonoBehaviour
 	{
 		private readonly AsyncSubject<Unit> _onInitializeAsyncSubject = new AsyncSubject<Unit>();
 
