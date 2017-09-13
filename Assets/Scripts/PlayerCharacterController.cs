@@ -1,59 +1,59 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UniRx;
+﻿using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
-public class PlayerCharacterController : BasePlayerComponent
+namespace Assets.Scripts
 {
-	private BoolReactiveProperty _isGrounded = new BoolReactiveProperty(true);
-	public IReadOnlyReactiveProperty<bool> IsGrounded { get { return _isGrounded; } }
-
-	private Rigidbody _rigidbody;
-	private CharacterController _controller;
-
-	private Vector3 _inputDirection;
-
-	public void Move(Vector3 velocity)
+	public class PlayerCharacterController : BasePlayerComponent
 	{
-		_inputDirection = velocity;
-	}
+		private readonly BoolReactiveProperty _isGrounded = new BoolReactiveProperty(true);
+		public IReadOnlyReactiveProperty<bool> IsGrounded { get { return _isGrounded; } }
 
-	public void Jump(float power)
-	{
-		ApplyForce(Vector3.up * power);
-	}
+		private Rigidbody _rigidbody;
+		private CharacterController _controller;
 
-	public void Stop()
-	{
-		_rigidbody.velocity = Vector3.zero;
-		_inputDirection = Vector3.zero;
-	}
+		private Vector3 _inputDirection;
 
-	public void ApplyForce(Vector3 force)
-	{
-		Observable.NextFrame(FrameCountType.FixedUpdate)
-			.Subscribe(_ => _rigidbody.AddForce(force, ForceMode.VelocityChange));
-	}
+		public void Move(Vector3 velocity)
+		{
+			_inputDirection = velocity;
+		}
 
-	protected override void OnInitialize()
-	{
-		_rigidbody = GetComponent<Rigidbody>();
+		public void Jump(float power)
+		{
+			ApplyForce(Vector3.up * power);
+		}
 
-		this.FixedUpdateAsObservable()
-			.Subscribe(_ =>
-			{
-				_rigidbody.AddForce(_inputDirection, ForceMode.Acceleration);
-				_isGrounded.Value = CheckGrounded();
-			});
-	}
+		public void Stop()
+		{
+			_rigidbody.velocity = Vector3.zero;
+			_inputDirection = Vector3.zero;
+		}
 
-	private bool CheckGrounded()
-	{
-		var ray = new Ray(transform.position + Vector3.up * 0.8f, Vector3.down);
-		var result = Physics.SphereCast(ray, 0.68f, 1.0f);
+		public void ApplyForce(Vector3 force)
+		{
+			Observable.NextFrame(FrameCountType.FixedUpdate)
+				.Subscribe(_ => _rigidbody.AddForce(force, ForceMode.VelocityChange));
+		}
 
-		return result;
+		protected override void OnInitialize()
+		{
+			_rigidbody = GetComponent<Rigidbody>();
+
+			this.FixedUpdateAsObservable()
+				.Subscribe(_ =>
+				{
+					_rigidbody.AddForce(_inputDirection, ForceMode.Acceleration);
+					_isGrounded.Value = CheckGrounded();
+				});
+		}
+
+		private bool CheckGrounded()
+		{
+			var ray = new Ray(transform.position + Vector3.up * 0.8f, Vector3.down);
+			var result = Physics.SphereCast(ray, 0.68f, 1.0f);
+
+			return result;
+		}
 	}
 }

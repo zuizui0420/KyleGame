@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UniRx;
 using UnityEngine;
-using UniRx;
 
-public abstract class BasePlayerComponent : MonoBehaviour
+namespace Assets.Scripts
 {
-	private IInputEventProvider _inputEventProvider;
-
-	protected IInputEventProvider InputEventProvider { get { return _inputEventProvider; } }
-	protected PlayerCore Core;
-
-	private void Start()
+	public abstract class BasePlayerComponent : MonoBehaviour
 	{
-		Core = GetComponent<PlayerCore>();
-		_inputEventProvider = GetComponent<IInputEventProvider>();
+		private IInputEventProvider _inputEventProvider;
 
-		OnStart();
+		protected IInputEventProvider InputEventProvider { get { return _inputEventProvider; } }
+		protected PlayerCore Core;
+
+		private void Start()
+		{
+			Core = GetComponent<PlayerCore>();
+			_inputEventProvider = GetComponent<IInputEventProvider>();
+
+			OnStart();
+		}
+
+		protected virtual void OnStart()
+		{
+			Core.OnInitializeAsync.Subscribe(_ => OnInitialize());
+		}
+
+		protected abstract void OnInitialize();
 	}
-
-	protected virtual void OnStart()
-	{
-		Core.OnInitializeAsync.Subscribe(_ => OnInitialize());
-	}
-
-	protected abstract void OnInitialize();
 }

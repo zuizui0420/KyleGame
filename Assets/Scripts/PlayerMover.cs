@@ -1,18 +1,31 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UniRx;
+﻿using UniRx;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerCharacterController))]
-public class PlayerMover : BasePlayerComponent
+namespace Assets.Scripts
 {
-	private BoolReactiveProperty _isRunning = new BoolReactiveProperty();
-
-	private PlayerCharacterController _playerCharacterController;
-
-	protected override void OnInitialize()
+	[RequireComponent(typeof(PlayerCharacterController))]
+	public class PlayerMover : BasePlayerComponent
 	{
-		_playerCharacterController = GetComponent<PlayerCharacterController>();
+		private readonly BoolReactiveProperty _isRunning = new BoolReactiveProperty();
+
+		private PlayerCharacterController _playerCharacterController;
+
+		protected override void OnInitialize()
+		{
+			_playerCharacterController = GetComponent<PlayerCharacterController>();
+	
+			InputEventProvider.MoveDirection
+				.Subscribe(x =>
+				{
+					var value = x.normalized * 10f;
+					_playerCharacterController.Move(value);
+				});
+
+			InputEventProvider.MoveDirection
+				.Subscribe(x =>
+				{
+					_isRunning.Value = x.magnitude >= 0.1f;
+				});
+		}
 	}
 }
