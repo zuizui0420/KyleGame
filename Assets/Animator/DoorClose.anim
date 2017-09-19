@@ -19,39 +19,39 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: -1.8, y: -0.24751878, z: 0.391}
+        value: {x: 10.335, y: -1.48, z: -0.69}
         inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 2.329957, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 0.41666666
-        value: {x: -0.8291846, y: -0.24751878, z: 0.39099967}
-        inSlope: {x: 2.329957, y: 0, z: 0}
+        value: {x: 7.633001, y: -1.481, z: -0.69000006}
+        inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: DoorL
+    path: Door_01_L
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 1.4, y: -0.24751878, z: 0.306}
+        value: {x: -0.99, y: -1.481, z: 0.11}
         inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: -2.4365833, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 0.41666666
-        value: {x: 0.38475695, y: -0.24751878, z: 0.30599985}
-        inSlope: {x: -2.4365833, y: 0, z: 0}
+        value: {x: 1.6330003, y: -1.481, z: 0.3099997}
+        inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: DoorR
+    path: Door_01_R
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -63,14 +63,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 704410643
+      path: 2048919368
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3555936624
+      path: 2150578731
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -103,21 +103,21 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -1.8
+        value: 10.335
         inSlope: 0
-        outSlope: 2.329957
-        tangentMode: 69
+        outSlope: 0
+        tangentMode: 136
       - serializedVersion: 2
         time: 0.41666666
-        value: -0.8291846
-        inSlope: 2.329957
+        value: 7.633001
+        inSlope: 0
         outSlope: 0
-        tangentMode: 69
+        tangentMode: 136
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: DoorL
+    path: Door_01_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -125,13 +125,13 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -0.24751878
+        value: -1.48
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 0.41666666
-        value: -0.24751878
+        value: -1.481
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -139,7 +139,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: DoorL
+    path: Door_01_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -147,13 +147,13 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.391
+        value: -0.69
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 0.41666666
-        value: 0.39099967
+        value: -0.69000006
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -161,7 +161,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: DoorL
+    path: Door_01_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -169,35 +169,35 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1.4
-        inSlope: 0
-        outSlope: -2.4365833
-        tangentMode: 69
-      - serializedVersion: 2
-        time: 0.41666666
-        value: 0.38475695
-        inSlope: -2.4365833
-        outSlope: 0
-        tangentMode: 69
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalPosition.x
-    path: DoorR
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: -0.24751878
+        value: -0.99
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 0.41666666
-        value: -0.24751878
+        value: 1.6330003
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Door_01_R
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -1.481
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.41666666
+        value: -1.481
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -205,7 +205,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: DoorR
+    path: Door_01_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -213,13 +213,13 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.306
+        value: 0.11
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 0.41666666
-        value: 0.30599985
+        value: 0.3099997
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -227,7 +227,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: DoorR
+    path: Door_01_R
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
