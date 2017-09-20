@@ -4,66 +4,74 @@ using UnityEngine;
 
 public class SCI_FI_WallLamp : MonoBehaviour
 {
-    [SerializeField, Header("Barrel")]
-    GameObject Barrel;
+    [SerializeField, Header("BarrelOffset")]
+    GameObject BarrelOffset;
 
-    [SerializeField, Header("色が切り替わる速度"), Range(0.1f, 1f)]
+    [SerializeField, Header("TriBarrelsOffset")]
+    GameObject TriBarrelsOffset;
+
+    [SerializeField,Header("MeshRenderer_Object")]
+    MeshRenderer[] m_renderer;
+
+    [SerializeField, Header("色変化速度"), Range(1f, 10f)]
     float ColorLerpSpeed;
 
     [SerializeField, Header("回転速度"), Range(0f, 1f)]
     float RotateSpeed;
 
-    [SerializeField, Header("")]
+    [SerializeField, Header("ランプ起動")]
+    bool LampOn;
+
+    [SerializeField, Header("初期色")]
     Color DefaultEmissionColor;
 
-    [SerializeField]
-    Color MoveEmissionColor;
+    [SerializeField, Header("次色")]
+    Color NextEmissionColor;   
 
-    MeshRenderer m_renderer;
-
-    float currentColorTime = 0f;
-
-    Color color;
+    float colorValue = 0f;
 
     void Start()
     {
-        m_renderer = Barrel.GetComponent<MeshRenderer>();
+        foreach(MeshRenderer renderer in m_renderer)
+        {
+            //EmissionColorの使用を可能にする
+            renderer.material.EnableKeyword("_EMISSION");
 
-        //EmissionColorの使用を可能にする
-        m_renderer.material.EnableKeyword("_EMISSION");
-
-        //初期EmissionColorを設定
-        m_renderer.material.SetColor("_EmissionColor", DefaultEmissionColor);
+            //初期EmissionColorを設定
+            renderer.material.SetColor("_EmissionColor", DefaultEmissionColor);
+        }       
     }
 
     void Update()
     {
         //カラー遷移
-        ColorMove();
+        LampColorMove(LampOn);
 
-        //Y軸回転
-        Vector3 Rot = Barrel.transform.localEulerAngles;
-        Rot.y += RotateSpeed;
-        Barrel.transform.localEulerAngles = Rot;
+        //Z軸回転
+        Vector3 BarrelRotZ = BarrelOffset.transform.localEulerAngles;
+        Vector3 TriBarrelRotZ = TriBarrelsOffset.transform.localEulerAngles;
+
+        BarrelRotZ.z += RotateSpeed;
+        TriBarrelRotZ.z += RotateSpeed;
+
+        BarrelOffset.transform.localEulerAngles = BarrelRotZ;
+        TriBarrelsOffset.transform.localEulerAngles = TriBarrelRotZ;
     }
 
-    private void ColorMove()
+    private void LampColorMove(bool flg)
     {
-        currentColorTime += Time.deltaTime;
+        if (flg) colorValue = Mathf.MoveTowards(colorValue, 1f, (ColorLerpSpeed / 10) * Time.deltaTime);
 
-        if (currentColorTime > 4f)
-        {
-            currentColorTime = 0f;
-        }
-        else if (currentColorTime > 2f)
-        {
-            color = Color.Lerp(DefaultEmissionColor, MoveEmissionColor, ColorLerpSpeed);
-        }
-        else
-        {
-            color = Color.Lerp(MoveEmissionColor, DefaultEmissionColor, ColorLerpSpeed);
-        }
+        else colorValue = Mathf.MoveTowards(colorValue, 0f, (ColorLerpSpeed / 10) * Time.deltaTime);
 
-        m_renderer.material.SetColor("_EmissionColor", color);
+        if (colorValue > 1) colorValue = 1f;
+        if (colorValue < 0) colorValue = 0f;
+
+        Debug.Log(colorValue);
+
+        foreach(MeshRenderer renderer in m_renderer)
+        {
+            renderer.material.SetColor("_EmissionColor", Color.Lerp(DefaultEmissionColor, NextEmissionColor, colorValue));
+        }   
     }
 }
