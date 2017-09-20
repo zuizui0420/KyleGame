@@ -145,9 +145,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: ElectricAttack
     m_EventTreshold: 0
-  - m_ConditionMode: 4
-    m_ConditionEvent: Speed
-    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102522604888313942}
   m_Solo: 0
@@ -264,7 +261,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ElectricAttack
-  m_Speed: 5
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101114655130723488}
