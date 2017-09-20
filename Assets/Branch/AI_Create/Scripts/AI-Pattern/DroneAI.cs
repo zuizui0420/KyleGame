@@ -15,8 +15,8 @@ namespace KyleGame
 		/// </summary>
 		private class StateWander : State<Drone>
 		{
-			private const float ReactionAngle = 60f;
-			private const float ReactionDistance = 5f;
+			private const float ReactionAngle = 90;
+			private const float ReactionDistance = 10f;
 
 			private readonly CompositeDisposable _disposableList = new CompositeDisposable();
 
@@ -161,9 +161,12 @@ namespace KyleGame
 		/// </summary>
 		private class StatePursuit : State<Drone>
 		{
-			private const float MaxDemarcationDistance = 10f;
+			private const float MaxDemarcationDistance = 15f;
+			private const float RelativeDistance = 3f;
 
 			private float _startTime;
+
+			private Transform _playerCenter;
 
 			/// <summary>
 			/// Alias: Owner.transform
@@ -196,6 +199,8 @@ namespace KyleGame
 			public override void Enter()
 			{
 				_startTime = Time.timeSinceLevelLoad;
+
+				_playerCenter = Player.Find("Center");
 			}
 
 			public override void Execute()
@@ -213,9 +218,13 @@ namespace KyleGame
 					return;
 				}
 
-				var direction = (Player.position - Self.position).normalized;
-				Self.position += direction * 5.0f * Time.deltaTime;
-				Body.LookAt(Player);
+				if (Vector3.Distance(Self.position, Player.position) >= RelativeDistance)
+				{
+					var direction = (Player.position - Self.position).normalized;
+
+					Self.position += direction * 5.0f * Time.deltaTime;
+				}
+				Body.LookAt(_playerCenter);
 			}
 		}
 
