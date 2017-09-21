@@ -1388,7 +1388,8 @@ Prefab:
       propertyPath: _spiderType
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114587966542130494, guid: 6ead19652b42be64291b0dbb17c1737c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6ead19652b42be64291b0dbb17c1737c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1152077530
@@ -1572,7 +1573,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1430873700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b445b6e86025407dba7cb7f5fa427d97, type: 3}
+  m_Script: {fileID: 11500000, guid: 769b41d294799e845b3b200d060f53fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 930994245}
