@@ -7,6 +7,9 @@ public class FirstPersonCamera : SingletonMonoBehaviour<FirstPersonCamera>
     [SerializeField,Header("1人称になる座標")]
     GameObject FirstPerson_AnglePoint;
 
+    [SerializeField, Header("PlayerSystem")]
+    PlayerSystem playerSystem;
+
     Vector3 DefaultPointPos;
     Vector3 FirstPersonPointPos;
 
@@ -20,7 +23,7 @@ public class FirstPersonCamera : SingletonMonoBehaviour<FirstPersonCamera>
 	
 	void Update ()
     {
-        if (!PlayerSystem.instance.PlayerControle)
+        if (playerSystem.Mode_Laser)
         {
             GetComponent<Camera>().enabled = true;
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, FirstPersonPointPos, 0.3f);

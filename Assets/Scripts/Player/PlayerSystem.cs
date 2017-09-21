@@ -59,13 +59,17 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     Animator PlayerAnim;
 
     //モード：レーザー
-    bool Mode_Laser = false;
+    [HideInInspector]
+    public bool Mode_Laser = false;
 
     //モード：エレクトリ
     bool Mode_Electric = false;
 
     //各モードでの攻撃中かどうか
     bool LaserAttacking = false, ElectricAttacking = false;
+
+    [SerializeField, Header("デバッグ")]
+    bool FirstPerson_DebugTest;
 
     void Start()
     {
@@ -192,7 +196,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
         #region エイム
         //LBボタンでエイム
-        if (GamePad.GetButton(GamePad.Button.LeftShoulder, GamePad.Index.One))
+        if (GamePad.GetButton(GamePad.Button.LeftShoulder, GamePad.Index.One) || FirstPerson_DebugTest)
         {
             if (!ElectricAttacking)
             {
@@ -288,16 +292,14 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
         #region エイム
         //左クリックでエイム
-        if (InputManager.click_Left)
+        if (InputManager.click_Left || FirstPerson_DebugTest)
         {
-            if (!ElectricAttacking)
+            if (!ElectricAttacking && !Mode_Laser)
             {
-                PlayerControle = false;
-
-                Mode_Laser = true;
-
-                ReticleSystem.Instance.ReticleEnable(true);
-
+                AimMode(true);
+            }
+            else if (!ElectricAttacking)
+            {
                 ReticleSystem.Instance.ReticleMove();
             }
         }
@@ -305,15 +307,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         {
             if (!ElectricAttacking && Mode_Laser)
             {
-                PlayerControle = true;
-
-                Mode_Laser = false;
-
-                ReticleSystem.Instance.ReticleEnable(false);
-
-                LazerAttack(false);
-
-                ReticleSystem.Instance.ResetPosition();
+                AimMode(false);
             }
         }
         #endregion
@@ -344,6 +338,39 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         #endregion
     }
 
+    private void AimMode(bool aim)
+    {
+        //攻撃準備
+        PlayerAnim.SetBool("ElectricAttack", aim);
+
+        if (aim)
+        {
+            PlayerControle = false;
+
+            WaitAfter(0.3f, () =>
+            {
+                Mode_Laser = true;
+
+                ReticleSystem.Instance.ReticleEnable(true);         
+            });          
+        }
+        else
+        {
+            Mode_Laser = false;
+
+            ReticleSystem.Instance.ReticleEnable(false);
+
+            ReticleSystem.Instance.ResetPosition();
+
+            LazerAttack(false);
+
+            WaitAfter(0.3f, () =>
+            {
+                PlayerControle = true;
+            });  
+        }
+    }
+
     /// <summary>
     /// レーザー攻撃
     /// </summary>
@@ -367,6 +394,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         {
             if (atk)
             {
+                PlayerControle = false;
+
                 foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                 {
                     effect.Play();
@@ -374,6 +403,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
             }
             else
             {
+                PlayerControle = true;
+
                 foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                 {
                     effect.Stop();
@@ -387,7 +418,17 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     /// </summary>
     private void PlayerAnimation()
     {
-        //移動
-        PlayerAnim.SetFloat("Speed", moveDirection.magnitude * 10);        
+        //移動速度０の場合は、Animatorの即時ステートを防ぐために、0.1秒のインターバルを設ける
+        if ((moveDirection.magnitude * 10) == 0)
+        {
+            WaitAfter(0.05f, () =>
+            {
+                PlayerAnim.SetFloat("Speed", Mathf.Clamp(moveDirection.magnitude * 10, 0f, 1f));
+            });
+        }
+        else
+        {
+            PlayerAnim.SetFloat("Speed", Mathf.Clamp(moveDirection.magnitude * 10, 0f, 1f));
+        }           
     }
 }

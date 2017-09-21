@@ -14,8 +14,6 @@ public class Attack_Laser : MonoBehaviour
     [SerializeField, Header("レーザーヒット時のエフェクト")]
     GameObject HitFX;
 
-    private bool modeCheck;
-
     //目標座標
     Vector3 targetPos;    
 
@@ -24,9 +22,6 @@ public class Attack_Laser : MonoBehaviour
 
     //レーザーがヒットしたかどうか
     bool hit;
-
-    //レーザーがヒットしている座標
-    Vector3 hitPos;
 
     //ヒットしたゲームオブジェクト
     GameObject hitObject;   
@@ -55,40 +50,35 @@ public class Attack_Laser : MonoBehaviour
         if (fire)
         {
             //頂点1の設定
-            LaserLine.SetPosition(1, RayTarget.transform.position);
+            LaserLine.SetPosition(1, RaycastHit_System());
 
-            RaycastHit_System();
+            //エフェクト生成
+            Instantiate(HitFX, RaycastHit_System(), Quaternion.identity);
         }
         else
         {
             //頂点1を頂点0と同じにすることでレンダリングをさせない
             LaserLine.SetPosition(1, transform.position);
-
-            //ヒットした座標の初期化、初期化しなければ次の発射時に一瞬だけ前に座標が入る
-            hitPos = new Vector3(0, 10000, 0);
         }
     }
 
-    private void RaycastHit_System()
+    private Vector3 RaycastHit_System()
     {
         RaycastHit hit;
 
+        Vector3 HitPoint = Vector3.zero;
+
+        Debug.DrawRay(transform.position, RayTarget.transform.position - transform.position, Color.yellow);
+
         if (Physics.Raycast(transform.position, RayTarget.transform.position - transform.position, out hit, 100f))
         {
-            Instantiate(HitFX, hit.point, Quaternion.identity);
+            HitPoint = hit.point;
+        }
+        else
+        {
+            HitPoint = RayTarget.transform.position;
         }
 
-        //if (Physics.Raycast(transform.position, targetPos - transform.position, out hitInfo))
-        //{
-        //    hit = true;
-        //    hitPos = hitInfo.point;            
-        //    hitObject = hitInfo.collider.gameObject;
-        //}
-        //else
-        //{
-        //    hit = false;
-        //    hitPos = hitInfo.point;
-        //    hitObject = null;
-        //}
+        return HitPoint;
     }
 }

@@ -7,12 +7,18 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 {
     [SerializeField, Header("")]
     Camera camera_FirstPerson;
-
+   
     float RayDistance = 100f;
+
+    Vector3 HitPoint;
+
+    float Z;
 
     private void Start()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+
+        Z = transform.position.z;
     }
 
     public void ResetPosition()
@@ -39,7 +45,7 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 
             Pos.x += X;
             Pos.y += Y;
-            Pos.z = 50.0f;
+            Pos.z = Z;
 
             Pos.x = Mathf.Clamp(Pos.x, -50f, 50f);
             Pos.y = Mathf.Clamp(Pos.y, -25f, 25f);
@@ -49,7 +55,7 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
         {
             Vector3 MousePos = Input.mousePosition;
 
-            MousePos.z = 50.0f;
+            MousePos.z = Z;
 
             Vector3 screenToWorldPoint = camera_FirstPerson.ScreenToWorldPoint(MousePos);
 
@@ -62,19 +68,19 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
         ReticleTargetRay();
     }
 
-    private void ReticleTargetRay()
+    public Vector3 ReticleTargetRay()
     {
         RaycastHit hit;
 
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
 
-        //if(Physics.Raycast(transform.position, transform.forward, out hit, RayDistance))
-        //{           
-        //    Debug.Log(hit.point);
-        //}
-        //else
-        //{
-        //    Debug.Log(RayDistance);
-        //}
+        if (Physics.Raycast(transform.position, transform.forward, out hit, RayDistance))
+        {
+            HitPoint = hit.point;
+
+            Debug.Log(HitPoint);
+        }
+
+        return HitPoint;
     }
 }
