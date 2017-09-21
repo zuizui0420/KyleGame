@@ -67,8 +67,6 @@ public class SCI_FI_WallLamp : MonoBehaviour
         if (colorValue > 1) colorValue = 1f;
         if (colorValue < 0) colorValue = 0f;
 
-        Debug.Log(colorValue);
-
         foreach(MeshRenderer renderer in m_renderer)
         {
             renderer.material.SetColor("_EmissionColor", Color.Lerp(DefaultEmissionColor, NextEmissionColor, colorValue));

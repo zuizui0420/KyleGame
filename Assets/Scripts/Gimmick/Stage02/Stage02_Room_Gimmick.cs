@@ -10,6 +10,9 @@ public class Stage02_Room_Gimmick : MonoBehaviour
     [SerializeField,Header("SCI_FI_Switch")]
     SCI_FI_Switch Switch;
 
+    [SerializeField, Header("PlayerSystem")]
+    PlayerSystem playerSystem;
+
     [SerializeField, Header("Panel群")]
     GameObject[] Panel;
 
@@ -50,7 +53,15 @@ public class Stage02_Room_Gimmick : MonoBehaviour
 
 	void Update ()
     {
-        ColorMove(Switch.SwitchOn);
+        //スイッチを押している状態で、電気を流した場合
+        if (PlayerSystem.Instance.SparkAttack && Switch.SwitchOn)
+        {
+            ColorMove(true);
+        }
+        else
+        {
+            ColorMove(false);
+        } 
 	}
 
     private void ColorMove(bool flg)

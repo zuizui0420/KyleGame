@@ -24,35 +24,28 @@ public class MonoBehaviourExtension : MonoBehaviour
 
     IEnumerator _WaitAfter(float _wait, Action _act)
     {
-        yield return new WaitForSeconds(_wait);
-
-        if (!Break)
+        while(_wait > 0)
         {
-            _act();
-        }        
+            _wait -= Time.deltaTime;
+
+            if (Break)
+            {
+                Debug.Log("Break");
+                Break = false;
+                yield break;
+            }
+
+            yield return null;
+        }
+
+        _act();
     }
 
     /// <summary>
     /// 現在実行中のWaitAfterを全て破棄する
     /// </summary>
-    public void WaitAfterLock()
+    public void WaitAfterBreak()
     {
         Break = true;
-    }
-
-    /// <summary>
-    /// WaitAfterを実行可能状態にする
-    /// </summary>
-    public void WaitAfterUnLock()
-    {
-        Break = false;
-    }
-
-    /// <summary>
-    /// WaitAfterがLockされているかどうかを返す
-    /// </summary>
-    public bool ReturnLock()
-    {
-        return Break;
     }
 }

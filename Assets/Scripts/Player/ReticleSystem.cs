@@ -18,12 +18,12 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
     {
         GetComponent<SpriteRenderer>().enabled = false;
 
-        Z = transform.position.z;
+        Z = transform.localPosition.z;
     }
 
     public void ResetPosition()
     {
-        transform.localPosition = new Vector3(0f, 0f, 0.5f);
+        transform.localPosition = new Vector3(0f, 0f, Z);
     }
 
     public void ReticleEnable(bool enable)
@@ -40,8 +40,8 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 
             Vector3 Pos = transform.localPosition;
 
-            X = GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).x;
-            Y = GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.One, true).y;
+            X = -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).y;
+            Y = -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).x;
 
             Pos.x += X;
             Pos.y += Y;
@@ -77,8 +77,6 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
         if (Physics.Raycast(transform.position, transform.forward, out hit, RayDistance))
         {
             HitPoint = hit.point;
-
-            Debug.Log(HitPoint);
         }
 
         return HitPoint;

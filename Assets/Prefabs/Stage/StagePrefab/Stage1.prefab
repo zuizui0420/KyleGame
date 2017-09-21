@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 4184559917333362}
   - component: {fileID: 95448266741121566}
   - component: {fileID: 114870256391088434}
+  - component: {fileID: 114020149711788224}
   m_Layer: 9
   m_Name: Door Gate
   m_TagString: Untagged
@@ -4953,6 +4954,7 @@ GameObject:
   - component: {fileID: 4805412293788068}
   - component: {fileID: 95433392195602574}
   - component: {fileID: 114534935290466562}
+  - component: {fileID: 114197823633726186}
   m_Layer: 9
   m_Name: Door Gate
   m_TagString: Untagged
@@ -7728,6 +7730,7 @@ GameObject:
   - component: {fileID: 4534274201283582}
   - component: {fileID: 95750293704491886}
   - component: {fileID: 114999404634620392}
+  - component: {fileID: 114790280954079116}
   m_Layer: 0
   m_Name: Door Gate
   m_TagString: Untagged
@@ -29449,6 +29452,30 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114020149711788224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1068973817395292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a72f1afc72d93c498b314b9a988562e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _censorDistance: 5
+--- !u!114 &114197823633726186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607116246082858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a72f1afc72d93c498b314b9a988562e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _censorDistance: 5
 --- !u!114 &114534935290466562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29464,6 +29491,18 @@ MonoBehaviour:
   _doorRight: {fileID: 4740300266215286}
   _isDoorOpenReactiveProperty:
     value: 0
+--- !u!114 &114790280954079116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1871164988761756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a72f1afc72d93c498b314b9a988562e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _censorDistance: 5
 --- !u!114 &114870256391088434
 MonoBehaviour:
   m_ObjectHideFlags: 1

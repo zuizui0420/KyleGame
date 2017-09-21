@@ -66,13 +66,13 @@ public class CameraSystem : MonoBehaviour
         if (DATABASE.PlayIsGamePad)
         {
             //コントローラーの入力情報を取得
-            CalcRotate = new Vector2(-GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).x, GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).y);
+            CalcRotate = new Vector2(GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).x, -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).y);
         }
         else
         {
             //コントローラーの入力情報を取得
-            CalcRotate = new Vector2(-InputManager.MouseVertical, InputManager.MouseHorizontal);
-        }       
+            CalcRotate = new Vector2(InputManager.MouseVertical, -InputManager.MouseHorizontal);
+        }
 
         //回転角度を加算
         C_Rotate += CalcRotate * CameraSpeed;

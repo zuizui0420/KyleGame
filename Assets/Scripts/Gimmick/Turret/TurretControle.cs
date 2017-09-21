@@ -19,6 +19,9 @@ public class TurretControle : MonoBehaviour
     [SerializeField, Header("タレット用の弾丸オブジェクト")]
     GameObject Turret_Bullet;
 
+    [SerializeField, Header("全方向検知")]
+    bool AroundCheck;
+
     //攻撃時間
     float AttackTime = 5f;
 
@@ -42,6 +45,9 @@ public class TurretControle : MonoBehaviour
 
     void Start ()
     {
+        //初期Y角度を取得
+        DefaultAngle = Turret.transform.localEulerAngles.y;
+
         if (!Starting)
         {
             //初期は起動していない状態にする
@@ -159,7 +165,10 @@ public class TurretControle : MonoBehaviour
             yield return null;               
         }
 
-        DefaultAngle = Turret.transform.localEulerAngles.y;
+        if (AroundCheck)
+        {
+            DefaultAngle = Turret.transform.localEulerAngles.y;
+        }        
 
         AttackMode = false;
 
@@ -184,13 +193,35 @@ public class TurretControle : MonoBehaviour
     /// </summary>
     private void IdleTurret()
     {
-        //回転の間隔
-        const float IdleAngle = 10f;
+        if (AroundCheck)
+        {
+            //回転の間隔
+            const float IdleAngle = 10f;
 
-        //Sin波(-IdleAngle～IdleAngleの間)
-        float y = Mathf.Sin(Time.time) * IdleAngle;               
+            //Sin波(-IdleAngle～IdleAngleの間)
+            float y = Mathf.Sin(Time.time) * IdleAngle;
 
-        Turret.transform.eulerAngles = new Vector3(0f, DefaultAngle + y, 0f);
+            Turret.transform.localEulerAngles = new Vector3(0f, DefaultAngle + y, 0f);
+        }
+        else
+        {
+            if(Turret.transform.localEulerAngles.y != 0)
+            {
+                float YAngle = Mathf.Lerp(Turret.transform.localEulerAngles.y, DefaultAngle, turretAngularSpeed);
+
+                Turret.transform.localEulerAngles = new Vector3(0f, YAngle, 0f);
+            }
+            else
+            {
+                //回転の間隔
+                const float IdleAngle = 10f;
+
+                //Sin波(-IdleAngle～IdleAngleの間)
+                float y = Mathf.Sin(Time.time) * IdleAngle;
+
+                Turret.transform.localEulerAngles = new Vector3(0f, DefaultAngle + y, 0f);
+            }
+        }       
     }
 
     /// <summary>

@@ -13,13 +13,29 @@ public class SCI_FI_Motor : MonoBehaviour
     [SerializeField, Header("回転速度")]
     public float SpinSpeed;
 
+    [SerializeField, Header("回転速度の限界値")]
+    float MaxSpinSpeed;
+
 	private void Update ()
     {
         if (SpinOn)
         {
-            Vector3 Rot = Barrel.transform.localEulerAngles;
-            Rot.y += SpinSpeed;
-            Barrel.transform.localEulerAngles = Rot;
+            if(SpinSpeed < MaxSpinSpeed)
+            {
+                Vector3 Rot = Barrel.transform.localEulerAngles;
+                Rot.y += SpinSpeed;
+                Barrel.transform.localEulerAngles = Rot;
+
+                SpinSpeed += 0.1f;
+            }
+            else
+            {
+                Vector3 Rot = Barrel.transform.localEulerAngles;
+                Rot.y += SpinSpeed;
+                Barrel.transform.localEulerAngles = Rot;
+
+                SpinSpeed = MaxSpinSpeed;
+            }
         }
         else
         {
