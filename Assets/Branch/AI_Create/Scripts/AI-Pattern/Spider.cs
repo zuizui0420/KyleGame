@@ -1,26 +1,43 @@
-﻿using System;
-using UniRx;
-using UniRx.Triggers;
+﻿using UniRx;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace KyleGame
 {
 	public partial class Spider : StatefulEnemyComponentBase<Spider, SpiderState>
 	{
-		private NavMeshAgent _agent;
+		private int _anchorNum;
+
+		private EnemyCharacterController _characterController;
+
+		[SerializeField]
+		private Transform[] _destinationAnchorList;
 
 		private Transform _playerTransform;
 
-		[SerializeField] private Transform[] _destinationAnchorList;
+		private ISpiderAnimation _spiderAnimation;
 
-		private int _anchorNum;
+		[SerializeField]
+		private SpiderType _spiderType = SpiderType.TimerBomb;
 
 		protected override void OnInitialize()
 		{
-			_agent = GetComponent<NavMeshAgent>();
-
+			_characterController = GetComponent<EnemyCharacterController>();
+			_spiderAnimation = GetComponent<ISpiderAnimation>();
 			_playerTransform = GameObject.Find("Player").transform;
+
+			_destination.TakeUntilDestroy(this)
+				.Subscribe(x =>
+				{
+					var orig = transform.rotation;
+					var direction = x - transform.position;
+					direction.y = 0;
+					var dest = Quaternion.LookRotation(direction);
+
+					transform.rotation = dest/*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
+				});
+			_movementSpeed.TakeUntilDestroy(this)
+				.Subscribe(x => _spiderAnimation.Speed = x);
+
 
 			StateList.Add(new StateWander(this));
 			StateList.Add(new StatePursuit(this));
@@ -30,6 +47,20 @@ namespace KyleGame
 
 			ChangeState(SpiderState.Wander);
 		}
+
+		private Vector3 NextDestination()
+		{
+			var ret = _destinationAnchorList[_anchorNum].position;
+			_anchorNum = ++_anchorNum >= _destinationAnchorList.Length ? 0 : _anchorNum;
+
+			return ret;
+		}
+	}
+
+	public enum SpiderType
+	{
+		InstantSpark,
+		TimerBomb
 	}
 
 	public enum SpiderState

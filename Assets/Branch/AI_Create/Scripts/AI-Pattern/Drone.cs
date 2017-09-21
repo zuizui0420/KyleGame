@@ -8,33 +8,37 @@ namespace KyleGame
 	public partial class Drone : StatefulEnemyComponentBase<Drone, DroneState>
 	{
 		/// <summary>
-		/// ドローン本体
-		/// </summary>
-		[SerializeField]
-		private Transform _body;
-
-		/// <summary>
 		/// 巡回ポイント
 		/// </summary>
 		[SerializeField]
 		private Transform[] _destinationAnchorList;
 
-		/// <summary>
-		/// Enemy body height
-		/// </summary>
-		[SerializeField]
-		private float _height;
-
 		private Transform _playerTransform;
 
-		private CharacterController _characterController;
+		private EnemyCharacterController _characterController;
+
+		private DroneAnimation _droneAnimation;
 
 		private int _anchorNum;
-		
+
 		protected override void OnInitialize()
 		{
 			_playerTransform = GameObject.Find("Player").transform;
-			_characterController = GetComponent<CharacterController>();
+			_droneAnimation = GetComponent<DroneAnimation>();
+			_characterController = GetComponent<EnemyCharacterController>();
+
+			_destination.TakeUntilDestroy(this)
+				.Subscribe(x =>
+				{
+					var orig = transform.rotation;
+					var direction = x - transform.position;
+					direction.y = 0;
+					var dest = Quaternion.LookRotation(direction);
+
+					transform.rotation = dest/*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
+				});
+			_movementSpeed.TakeUntilDestroy(this)
+				.Subscribe(x => _droneAnimation.Speed = x);
 
 			StateList.Add(new StateWander(this));
 			StateList.Add(new StatePursuit(this));
@@ -44,6 +48,14 @@ namespace KyleGame
 			StateMachine = new StateMachine<Drone>();
 
 			ChangeState(DroneState.Wander);
+		}
+
+		private Vector3 NextDestination()
+		{
+			var ret = _destinationAnchorList[_anchorNum].position;
+			_anchorNum = ++_anchorNum >= _destinationAnchorList.Length ? 0 : _anchorNum;
+
+			return ret;
 		}
 	}
 }

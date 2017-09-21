@@ -8,15 +8,90 @@ namespace KyleGame
 {
 	public partial class Drone
 	{
+		private readonly Vector3ReactiveProperty _destination = new Vector3ReactiveProperty();
+		private readonly FloatReactiveProperty _movementSpeed = new FloatReactiveProperty();
+
 		private Vector3 _origin;
+
+		private abstract class DroneStateBase : State<Drone>
+		{
+			protected DroneStateBase(Drone owner) : base(owner)
+			{
+			}
+
+			/// <summary>
+			///     Alias: Owner.transform
+			/// </summary>
+			protected Transform Self
+			{
+				get { return Owner.transform; }
+			}
+
+			/// <summary>
+			///     Alias: Owner._playerTransform
+			/// </summary>
+			protected Transform Player
+			{
+				get { return Owner._playerTransform; }
+			}
+
+			/// <summary>
+			///     Alias: Owner._movementSpeed
+			/// </summary>
+			protected float MovementSpeed
+			{
+				get { return Owner._movementSpeed.Value; }
+				set { Owner._movementSpeed.Value = value; }
+			}
+
+			/// <summary>
+			///     Alias: Owner._destination
+			/// </summary>
+			protected Vector3 Destination
+			{
+				get { return Owner._destination.Value; }
+				set { Owner._destination.Value = value; }
+			}
+
+			protected void Move(Vector3 moveDir)
+			{
+				Owner._characterController.Move(moveDir);
+			}
+
+			protected void Stop()
+			{
+				Move(Vector3.zero);
+				MovementSpeed = 0;
+			}
+
+			protected Vector3 GetDirection(Vector3 destination)
+			{
+				return (destination - Self.position).normalized;
+			}
+
+			protected Vector3 GetDirection(Transform target)
+			{
+				return (target.position - Self.position).normalized;
+			}
+
+			protected float GetDistance(Vector3 destination)
+			{
+				return Vector3.Distance(Self.position, destination);
+			}
+
+			protected float GetDistance(Transform target)
+			{
+				return Vector3.Distance(Self.position, target.position);
+			}
+		}
 
 		/// <summary>
 		///     ステート：巡回
 		/// </summary>
-		private class StateWander : State<Drone>
+		private class StateWander : DroneStateBase
 		{
 			private const float ReactionAngle = 90;
-			private const float ReactionDistance = 10f;
+			private const float ReactionDistance = 5f;
 
 			private readonly CompositeDisposable _disposableList = new CompositeDisposable();
 
@@ -25,32 +100,19 @@ namespace KyleGame
 			{
 			}
 
-
-			/// <summary>
-			///     Alias: Owner.transform
-			/// </summary>
-			private Transform Self
-			{
-				get { return Owner.transform; }
-			}
-
-			/// <summary>
-			///     Alias: Owner._body
-			/// </summary>
-			private Transform Body
-			{
-				get { return Owner._body; }
-			}
-
-			/// <summary>
-			///     Alias: Owner._playerTrnsform
-			/// </summary>
-			private Transform Player
-			{
-				get { return Owner._playerTransform; }
-			}
-
 			public override void Enter()
+			{
+				MovementSpeed = 1.5f;
+
+				ObserveStart();
+			}
+
+			public override void Exit()
+			{
+				_disposableList.Clear();
+			}
+
+			private void ObserveStart()
 			{
 				// プレイヤーが視界に入ったら追跡
 				Owner.UpdateAsObservable()
@@ -64,29 +126,13 @@ namespace KyleGame
 					.AddTo(_disposableList);
 
 				Observable.FromCoroutine(WandererCoroutine).TakeUntilDestroy(Owner).Subscribe().AddTo(_disposableList);
-			}
 
-			public override void Exit()
-			{
-				_disposableList.Clear();
-			}
-
-			public override void Execute()
-			{
-			}
-
-			private Vector3 NextDestination()
-			{
-				var ret = Owner._destinationAnchorList[Owner._anchorNum].position;
-				Owner._anchorNum = ++Owner._anchorNum >= Owner._destinationAnchorList.Length ? 0 : Owner._anchorNum;
-
-				return ret;
 			}
 
 			private bool OnObjectReflectedInOwnerEyes()
 			{
-				var angle = Vector3.Angle((Player.position - Self.transform.position).normalized, Self.forward);
-				var distance = Vector3.Distance(Player.position, Self.position);
+				var angle = Vector3.Angle(GetDirection(Player), Self.forward);
+				var distance = GetDistance(Player);
 
 				var visible = angle <= ReactionAngle;
 				var visibility = distance <= ReactionDistance;
@@ -96,101 +142,62 @@ namespace KyleGame
 
 			private IEnumerator WandererCoroutine(CancellationToken token)
 			{
-				var startTime = Time.timeSinceLevelLoad;
-
-				while (true)
+				while (!token.IsCancellationRequested)
 				{
-					if (token.IsCancellationRequested) break;
+					Destination = Owner.NextDestination();
 
-					var origin = Self.position;
-					var destination = NextDestination();
-					Observable.FromCoroutine(_ => HeadRotateCoroutine(destination, token)).Subscribe();
-
-					while (true)
+					while (!token.IsCancellationRequested)
 					{
-						if (token.IsCancellationRequested) break;
+						var moveDir = GetDirection(Destination) * MovementSpeed;
 
-						var diff = Time.timeSinceLevelLoad - startTime;
-						if (diff > 5.0f)
-						{
-							startTime = Time.timeSinceLevelLoad;
+						Move(moveDir);
+
+						if (GetDistance(Destination) < 1.0f)
 							break;
-						}
 
-						var rate = diff / 5.0f;
-
-						Self.position = Vector3.Lerp(origin, destination, rate);
 						yield return null;
 					}
 				}
 			}
 
-			
+			//private IEnumerator HeadRotateCoroutine(Vector3 destination, CancellationToken token)
+			//{
+			//	var orig = Body.rotation;
+			//	var direction = destination - Self.position;
+			//	direction.y = 0;
+			//	var dest = Quaternion.LookRotation(direction);
 
-			private IEnumerator HeadRotateCoroutine(Vector3 destination, CancellationToken token)
-			{
-				var orig = Body.rotation;
-				var direction = destination - Self.position;
-				direction.y = 0;
-				var dest = Quaternion.LookRotation(direction);
+			//	var startTime = Time.timeSinceLevelLoad;
 
-				var startTime = Time.timeSinceLevelLoad;
+			//	while (true)
+			//	{
+			//		if (token.IsCancellationRequested)
+			//		{
+			//			Body.rotation = dest;
+			//			yield break;
+			//		}
 
-				while (true)
-				{
-					if (token.IsCancellationRequested)
-					{
-						Body.rotation = dest;
-						yield break;
-					}
+			//		var diff = Time.timeSinceLevelLoad - startTime;
+			//		if (diff > 0.5f)
+			//			break;
 
-					var diff = Time.timeSinceLevelLoad - startTime;
-					if (diff > 0.5f)
-						break;
+			//		var rate = diff / 0.5f;
 
-					var rate = diff / 0.5f;
-
-					Body.rotation = Quaternion.Slerp(orig, dest, rate);
-					yield return null;
-				}
-			}
+			//		Body.rotation = Quaternion.Slerp(orig, dest, rate);
+			//		yield return null;
+			//	}
+			//}
 		}
 
 		/// <summary>
 		///     ステート：追跡
 		/// </summary>
-		private class StatePursuit : State<Drone>
+		private class StatePursuit : DroneStateBase
 		{
 			private const float MaxDemarcationDistance = 15f;
 			private const float RelativeDistance = 3f;
 
-			private float _startTime;
-
-			private Transform _playerCenter;
-
-			/// <summary>
-			/// Alias: Owner.transform
-			/// </summary>
-			private Transform Self
-			{
-				get { return Owner.transform; }
-			}
-
-			/// <summary>
-			/// Alias: Owner._body;
-			/// </summary>
-			private Transform Body
-			{
-				get { return Owner._body; }
-			}
-
-			/// <summary>
-			/// Alias: Owner._playerTransform
-			/// </summary>
-			private Transform Player
-			{
-				get { return Owner._playerTransform; }
-			}
+			private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
 
 			public StatePursuit(Drone owner) : base(owner)
 			{
@@ -198,40 +205,43 @@ namespace KyleGame
 
 			public override void Enter()
 			{
-				_startTime = Time.timeSinceLevelLoad;
+				MovementSpeed = 3f;
 
-				_playerCenter = Player.Find("Center");
+				Observable.Return(Unit.Default)
+					.Delay(TimeSpan.FromSeconds(3))
+					.Subscribe(_ =>
+					{
+						Owner.ChangeState(DroneState.Attack);
+					})
+					.AddTo(_compositeDisposable);
 			}
 
 			public override void Execute()
 			{
-				if (Vector3.Distance(Self.position, Owner._origin) >= MaxDemarcationDistance)
+				if (GetDistance(Owner._origin) >= MaxDemarcationDistance)
 				{
 					Owner.ChangeState(DroneState.Return);
-					return;
 				}
-
-				var time = Time.timeSinceLevelLoad - _startTime;
-				if (time >= 4.0f)
+				else if(!(GetDistance(Player) < RelativeDistance))
 				{
-					Owner.ChangeState(DroneState.Attack);
-					return;
-				}
+					Destination = Player.position;
 
-				if (Vector3.Distance(Self.position, Player.position) >= RelativeDistance)
-				{
-					var direction = (Player.position - Self.position).normalized;
+					var moveDir = GetDirection(Destination) * MovementSpeed;
 
-					Self.position += direction * 5.0f * Time.deltaTime;
+					Move(moveDir);
 				}
-				Body.LookAt(_playerCenter);
+			}
+
+			public override void Exit()
+			{
+				_compositeDisposable.Clear();
 			}
 		}
 
 		/// <summary>
 		///     ステート：攻撃
 		/// </summary>
-		private class StateAttack : State<Drone>
+		private class StateAttack : DroneStateBase
 		{
 			public StateAttack(Drone owner) : base(owner)
 			{
@@ -239,106 +249,75 @@ namespace KyleGame
 
 			public override void Enter()
 			{
-				Observable.Timer(TimeSpan.FromSeconds(1)).Subscribe(_ =>
-				{
-					Owner.ChangeState(DroneState.Pursuit);
-				});
+				Debug.Log("Attack");
+				Observable.NextFrame()
+					.Subscribe(_ => Owner.ChangeState(DroneState.Pursuit));
 			}
 		}
 
 		/// <summary>
 		/// ステート：帰投
 		/// </summary>
-		private class StateReturn : State<Drone>
+		private class StateReturn : DroneStateBase
 		{
 			public StateReturn(Drone owner) : base(owner)
 			{
 			}
 
-			/// <summary>
-			/// Alias: Owner.transform
-			/// </summary>
-			private Transform Self
-			{
-				get { return Owner.transform; }
-			}
-
-			/// <summary>
-			/// Alias: Owner._body;
-			/// </summary>
-			private Transform Body
-			{
-				get { return Owner._body; }
-			}
-
-			/// <summary>
-			/// Alias: Owner._playerTransform
-			/// </summary>
-			private Transform Player
-			{
-				get { return Owner._playerTransform; }
-			}
-
 			public override void Enter()
 			{
-				Observable.FromCoroutine(WandererCoroutine).TakeUntilDestroy(Owner).Subscribe(_ =>
-				{
-					Owner.ChangeState(DroneState.Wander);
-				});
+				Observable.FromCoroutine(WandererCoroutine)
+					.TakeUntilDestroy(Owner)
+					.Subscribe(_ =>
+					{
+						Owner.ChangeState(DroneState.Wander);
+					});
 			}
 
 			private IEnumerator WandererCoroutine(CancellationToken token)
 			{
-				var startTime = Time.timeSinceLevelLoad;
+				Destination = Owner._origin;
 
-				var origin = Self.position;
-				var destination = Owner._origin;
-				Observable.FromCoroutine(_ => HeadRotateCoroutine(destination, token)).Subscribe();
-
-				while (true)
+				while (!token.IsCancellationRequested)
 				{
-					if (token.IsCancellationRequested) break;
+					var moveDir = GetDirection(Destination) * MovementSpeed;
 
-					var diff = Time.timeSinceLevelLoad - startTime;
-					if (diff > 5.0f)
-					{
-						yield break;
-					}
+					Move(moveDir);
 
-					var rate = diff / 5.0f;
-
-					Self.position = Vector3.Lerp(origin, destination, rate);
-					yield return null;
-				}
-			}
-
-			private IEnumerator HeadRotateCoroutine(Vector3 destination, CancellationToken token)
-			{
-				var orig = Body.rotation;
-				var direction = destination - Self.position;
-				direction.y = 0;
-				var dest = Quaternion.LookRotation(direction);
-
-				var startTime = Time.timeSinceLevelLoad;
-
-				while (true)
-				{
-					if (token.IsCancellationRequested)
-					{
-						Body.rotation = dest;
-						yield break;
-					}
-
-					var diff = Time.timeSinceLevelLoad - startTime;
-					if (diff > 0.5f)
+					if (GetDistance(Destination) < 1.0f)
 						break;
 
-					var rate = diff / 0.5f;
-
-					Body.rotation = Quaternion.Slerp(orig, dest, rate);
 					yield return null;
 				}
 			}
+
+			//private IEnumerator HeadRotateCoroutine(Vector3 destination, CancellationToken token)
+			//{
+			//	var orig = Body.rotation;
+			//	var direction = destination - Self.position;
+			//	direction.y = 0;
+			//	var dest = Quaternion.LookRotation(direction);
+
+			//	var startTime = Time.timeSinceLevelLoad;
+
+			//	while (true)
+			//	{
+			//		if (token.IsCancellationRequested)
+			//		{
+			//			Body.rotation = dest;
+			//			yield break;
+			//		}
+
+			//		var diff = Time.timeSinceLevelLoad - startTime;
+			//		if (diff > 0.5f)
+			//			break;
+
+			//		var rate = diff / 0.5f;
+
+			//		Body.rotation = Quaternion.Slerp(orig, dest, rate);
+			//		yield return null;
+			//	}
+			//}
 		}
 	}
 

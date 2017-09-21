@@ -4,14 +4,18 @@ using UnityEngine;
 
 namespace KyleGame
 {
+	[RequireComponent(typeof(CharacterController))]
 	public class EnemyCharacterController : BaseEnemyComponent
 	{
 		private readonly BoolReactiveProperty _isGrounded = new BoolReactiveProperty(true);
-		private CharacterController _controller;
 
 		private Vector3 _inputDirection;
 
-		private Rigidbody _rigidbody;
+		private CharacterController _characterController;
+
+		private float _gravityScale = 20f;
+
+		private float _jumpPower = 8f;
 
 		public IReadOnlyReactiveProperty<bool> IsGrounded
 		{
@@ -20,44 +24,32 @@ namespace KyleGame
 
 		public void Move(Vector3 velocity)
 		{
+			velocity.y = _inputDirection.y;
 			_inputDirection = velocity;
 		}
 
-		public void Jump(float power)
+		public void Jump()
 		{
-			ApplyForce(Vector3.up * power);
+			_inputDirection.y = _jumpPower;
 		}
 
 		public void Stop()
 		{
-			_rigidbody.velocity = Vector3.zero;
 			_inputDirection = Vector3.zero;
-		}
-
-		public void ApplyForce(Vector3 force)
-		{
-			Observable.NextFrame(FrameCountType.FixedUpdate)
-				.Subscribe(_ => _rigidbody.AddForce(force, ForceMode.VelocityChange));
 		}
 
 		protected override void OnInitialize()
 		{
-			_rigidbody = GetComponent<Rigidbody>();
+			_characterController = GetComponent<CharacterController>();
 
-			this.FixedUpdateAsObservable()
+			this.UpdateAsObservable()
 				.Subscribe(_ =>
 				{
-					_rigidbody.AddForce(_inputDirection, ForceMode.Acceleration);
-					_isGrounded.Value = CheckGrounded();
+					_inputDirection.y -= _gravityScale * Time.deltaTime;
+
+					_characterController.Move(_inputDirection * Time.deltaTime);
+					_isGrounded.Value = _characterController.isGrounded;
 				});
-		}
-
-		private bool CheckGrounded()
-		{
-			var ray = new Ray(transform.position + Vector3.up * 0.8f, Vector3.down);
-			var result = Physics.SphereCast(ray, 0.68f, 1.0f);
-
-			return result;
 		}
 	}
 }
