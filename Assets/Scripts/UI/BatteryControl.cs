@@ -20,12 +20,13 @@ public class BatteryControl : MonoBehaviour {
     void BatteryUse()
     {
         float startTime = Time.timeSinceLevelLoad;
-        while (true)
-        {
-            float time = (Time.timeSinceLevelLoad - startTime);
-            if (time >= 100.0f) break;            
-            battery = time / 100;
-            GetComponent<Image>().color = new Color(1, battery, battery, 1);
-        }
+
+        float time = (Time.timeSinceLevelLoad - startTime);
+
+
+        battery -= time / 100;
+
+        GetComponent<Image>().color = new Color(1, battery, battery, 1);
+      
     }
 }
