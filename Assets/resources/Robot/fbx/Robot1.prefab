@@ -1028,7 +1028,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b4875c89f1ae3ae4ab89029834994a4c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: "\nBinding warning: Some transforms are animated by both a Humanoid
     animation clip and a Generic animation clip. Only the Humanoid clip will be applied
