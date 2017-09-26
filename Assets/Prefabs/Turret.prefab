@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ad0f97cb18341468cff633d96224f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 4943441419699410}
   _censorDistance: 5
+  _head: {fileID: 4943441419699410}
 --- !u!114 &114758966183686766
 MonoBehaviour:
   m_ObjectHideFlags: 1
