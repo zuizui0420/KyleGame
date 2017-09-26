@@ -72,6 +72,6 @@ public class BatteryControl : MonoBehaviour {
 
     void BatteryOverheat()
     {
-
+        //後で
     }
 }
