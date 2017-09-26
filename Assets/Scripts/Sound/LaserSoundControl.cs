@@ -13,8 +13,8 @@ public class LaserSoundControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-            StartCoroutine("LaserSoundPlay");
+
+        StartCoroutine("LaserSoundPlay");
 		
 	}
 
