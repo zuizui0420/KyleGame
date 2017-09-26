@@ -1,219 +1,213 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 敵：タレット
+///     敵：タレット
 /// </summary>
 public class TurretControle : MonoBehaviour
 {
-    [SerializeField, Header("起動しているかどうか")]
-    bool Starting;
+	//次攻撃までのインターバル
+	private readonly float AttackInterval = 2f;
 
-    [SerializeField, Header("タレット")]
-    GameObject Turret;
+	//攻撃態勢かどうか
+	private bool AttackMode;
 
-    [SerializeField, Header("弾丸を生成する座標")]
-    GameObject[] ShotPoint;
+	//攻撃時間
+	private readonly float AttackTime = 5f;
 
-    [SerializeField, Header("タレット用の弾丸オブジェクト")]
-    GameObject Turret_Bullet;
+	//攻撃待機状態かどうか
+	private bool AttackWaiting;
 
-    //攻撃時間
-    float AttackTime = 5f;
+	//Idle用の初期Ｙ角度
+	private float DefaultAngle;
 
-    //次攻撃までのインターバル
-    float AttackInterval = 2f;
+	[SerializeField]
+	[Header("弾丸を生成する座標")]
+	private GameObject[] ShotPoint;
 
-    //攻撃態勢かどうか
-    bool AttackMode = false;
+	[SerializeField]
+	[Header("起動しているかどうか")]
+	private bool Starting;
 
-    //攻撃待機状態かどうか
-    bool AttackWaiting = false;
+	//検知したターゲット
+	private GameObject Target;
 
-    //検知したターゲット
-    GameObject Target;
+	[SerializeField]
+	[Header("タレット")]
+	private GameObject Turret;
 
-    //タレットの回転速度
-    float turretAngularSpeed = 20f;
+	[SerializeField]
+	[Header("タレット用の弾丸オブジェクト")]
+	private GameObject Turret_Bullet;
 
-    //Idle用の初期Ｙ角度
-    float DefaultAngle;
+	//タレットの回転速度
+	private readonly float turretAngularSpeed = 20f;
 
-    void Start ()
-    {
-        if (!Starting)
-        {
-            //初期は起動していない状態にする
-            Turret.transform.localEulerAngles = new Vector3(30f, 0f, 0f);
-        }       
-	}
-	
-	void Update ()
-    {
-        //攻撃態勢
-        if (AttackMode && !AttackWaiting && Starting)
-        {
-            //検知したターゲットの方向を向き続ける
-            RotateToTarget();
-        }
-        else if(!AttackMode && !AttackWaiting && Starting)
-        {
-            AngleRay();
-
-            IdleTurret();
-        }
-
-        //デバッグ用：タレット起動スイッチ
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Mode_StartUp();
-        }      
+	private void Start()
+	{
+		if (!Starting)
+			Turret.transform.localEulerAngles = new Vector3(30f, 0f, 0f);
 	}
 
-    /// <summary>
-    /// ターゲット検知用Ray
-    /// </summary>
-    private void AngleRay()
-    {
-        RaycastHit hit;
+	private void Update()
+	{
+		//攻撃態勢
+		if (AttackMode && !AttackWaiting && Starting)
+		{
+			//検知したターゲットの方向を向き続ける
+			RotateToTarget();
+		}
+		else if (!AttackMode && !AttackWaiting && Starting)
+		{
+			AngleRay();
 
-        if(Physics.Raycast(Turret.transform.position,Turret.transform.forward, out hit))
-        {
-            if(hit.collider.gameObject.tag == "Player")
-            {
-                //ターゲットを設定
-                Target = hit.collider.gameObject;
+			IdleTurret();
+		}
 
-                //攻撃態勢に移行
-                AttackMode = true;
+		//デバッグ用：タレット起動スイッチ
+		if (Input.GetKeyDown(KeyCode.P))
+			Mode_StartUp();
+	}
 
-                //攻撃を開始
-                StartCoroutine(Attack());
-            }
-        }
-    }
+	/// <summary>
+	///     ターゲット検知用Ray
+	/// </summary>
+	private void AngleRay()
+	{
+		RaycastHit hit;
 
-    /// <summary>
-    /// タレット起動
-    /// </summary>
-    public void Mode_StartUp()
-    {
-        Debug.Log("起動");
+		if (Physics.Raycast(Turret.transform.position, Turret.transform.forward, out hit))
+			if (hit.collider.gameObject.tag == "Player")
+			{
+				//ターゲットを設定
+				Target = hit.collider.gameObject;
 
-        StartCoroutine(StartUpAnimation());
-    }
+				//攻撃態勢に移行
+				AttackMode = true;
 
-    /// <summary>
-    /// 起動時のアニメーション
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator StartUpAnimation()
-    {
-        float currentTime = 2f;
+				//攻撃を開始
+				StartCoroutine(Attack());
+			}
+	}
 
-        while (currentTime > 0)
-        {
-            currentTime -= Time.deltaTime;
+	/// <summary>
+	///     タレット起動
+	/// </summary>
+	public void Mode_StartUp()
+	{
+		Debug.Log("起動");
 
-            Quaternion rot = Quaternion.AngleAxis(0f, transform.right);
-            Turret.transform.rotation = Quaternion.RotateTowards(Turret.transform.rotation, rot, 1f);
+		StartCoroutine(StartUpAnimation());
+	}
 
-            yield return null;
-        }
+	/// <summary>
+	///     起動時のアニメーション
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator StartUpAnimation()
+	{
+		var currentTime = 2f;
 
-        Turret.transform.rotation = Quaternion.identity;
+		while (currentTime > 0)
+		{
+			currentTime -= Time.deltaTime;
 
-        Starting = true;
-    }
+			var rot = Quaternion.AngleAxis(0f, transform.right);
+			Turret.transform.rotation = Quaternion.RotateTowards(Turret.transform.rotation, rot, 1f);
 
-    /// <summary>
-    /// 攻撃
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator Attack()
-    {
-        //攻撃時間を取得
-        float AttackcurrentTime = AttackTime;
+			yield return null;
+		}
 
-        //弾丸生成時間
-        float BulletInsTime = 0.5f;
+		Turret.transform.rotation = Quaternion.identity;
 
-        //ガトリングを発射する
-        while(AttackcurrentTime > 0)
-        {
-            AttackcurrentTime -= Time.deltaTime;
+		Starting = true;
+	}
 
-            BulletInsTime -= Time.deltaTime;
+	/// <summary>
+	///     攻撃
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator Attack()
+	{
+		//攻撃時間を取得
+		var AttackcurrentTime = AttackTime;
 
-            if(BulletInsTime < 0f)
-            {
-                foreach (GameObject Point in ShotPoint)
-                {
-                    Instantiate(Turret_Bullet, Point.transform.position, Point.transform.rotation);
-                }
+		//弾丸生成時間
+		var BulletInsTime = 0.5f;
 
-                BulletInsTime = 0.5f;
-            }
+		//ガトリングを発射する
+		while (AttackcurrentTime > 0)
+		{
+			AttackcurrentTime -= Time.deltaTime;
 
-            yield return null;               
-        }
+			BulletInsTime -= Time.deltaTime;
 
-        DefaultAngle = Turret.transform.localEulerAngles.y;
+			if (BulletInsTime < 0f)
+			{
+				foreach (var Point in ShotPoint)
+					Instantiate(Turret_Bullet, Point.transform.position, Point.transform.rotation);
 
-        AttackMode = false;
+				BulletInsTime = 0.5f;
+			}
 
-        AttackWaiting = true;
+			yield return null;
+		}
 
-        yield return new WaitForSeconds(AttackInterval);
+		DefaultAngle = Turret.transform.localEulerAngles.y;
 
-        AttackWaiting = false;
+		AttackMode = false;
 
-        Debug.Log("再度検知を開始");       
-    }
+		AttackWaiting = true;
 
-    private void RotateToTarget()
-    {
-        Quaternion rot = Quaternion.LookRotation(GetPlayerAngle_NotY());
+		yield return new WaitForSeconds(AttackInterval);
 
-        Turret.transform.rotation = Quaternion.Slerp(Turret.transform.rotation, rot, Time.deltaTime * turretAngularSpeed);
-    }
+		AttackWaiting = false;
 
-    /// <summary>
-    /// 待機状態のタレットの回転
-    /// </summary>
-    private void IdleTurret()
-    {
-        //回転の間隔
-        const float IdleAngle = 10f;
+		Debug.Log("再度検知を開始");
+	}
 
-        //Sin波(-IdleAngle～IdleAngleの間)
-        float y = Mathf.Sin(Time.time) * IdleAngle;               
+	private void RotateToTarget()
+	{
+		var rot = Quaternion.LookRotation(GetPlayerAngle_NotY());
 
-        Turret.transform.eulerAngles = new Vector3(0f, DefaultAngle + y, 0f);
-    }
+		Turret.transform.rotation = Quaternion.Slerp(Turret.transform.rotation, rot, Time.deltaTime * turretAngularSpeed);
+	}
 
-    /// <summary>
-    /// ターゲットへの方向ベクトルを取得
-    /// </summary>
-    /// <returns></returns>
-    private Vector3 GetPlayerAngle()
-    {
-        Vector3 myPos = Turret.transform.position;
-        Vector3 targetPos = Target.transform.position;        
+	/// <summary>
+	///     待機状態のタレットの回転
+	/// </summary>
+	private void IdleTurret()
+	{
+		//回転の間隔
+		const float IdleAngle = 10f;
 
-        return (targetPos - myPos);
-    }
+		//Sin波(-IdleAngle～IdleAngleの間)
+		var y = Mathf.Sin(Time.time) * IdleAngle;
 
-    /// <summary>
-    /// ターゲットへの方向ベクトルを取得(Y軸なし)
-    /// </summary>
-    /// <returns></returns>
-    private Vector3 GetPlayerAngle_NotY()
-    {
-        Vector3 myPos = new Vector3(Turret.transform.position.x, 0.0f, Turret.transform.position.z);
-        Vector3 targetPos = new Vector3(Target.transform.position.x, 0.0f, Target.transform.position.z);
+		Turret.transform.eulerAngles = new Vector3(0f, DefaultAngle + y, 0f);
+	}
 
-        return (targetPos - myPos);
-    }
+	/// <summary>
+	///     ターゲットへの方向ベクトルを取得
+	/// </summary>
+	/// <returns></returns>
+	private Vector3 GetPlayerAngle()
+	{
+		var myPos = Turret.transform.position;
+		var targetPos = Target.transform.position;
+
+		return targetPos - myPos;
+	}
+
+	/// <summary>
+	///     ターゲットへの方向ベクトルを取得(Y軸なし)
+	/// </summary>
+	/// <returns></returns>
+	private Vector3 GetPlayerAngle_NotY()
+	{
+		var myPos = new Vector3(Turret.transform.position.x, 0.0f, Turret.transform.position.z);
+		var targetPos = new Vector3(Target.transform.position.x, 0.0f, Target.transform.position.z);
+
+		return targetPos - myPos;
+	}
 }

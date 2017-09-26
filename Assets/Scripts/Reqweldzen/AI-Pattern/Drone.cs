@@ -1,31 +1,25 @@
-﻿using System.Collections;
-using UniRx;
-using UniRx.Triggers;
+﻿using UniRx;
 using UnityEngine;
 
 namespace KyleGame
 {
-	public partial class Drone : StatefulEnemyComponentBase<Drone, DroneState>
+	public partial class Drone : StatefulWalker<Drone, DroneState>
 	{
-		/// <summary>
-		/// 巡回ポイント
-		/// </summary>
-		[SerializeField]
-		private Transform[] _destinationAnchorList;
+		private DroneAnimation _droneAnimation;
 
 		private Transform _playerTransform;
 
-		private EnemyCharacterController _characterController;
-
-		private DroneAnimation _droneAnimation;
-
-		private int _anchorNum;
+		protected override Transform PlayerTransform
+		{
+			get { return _playerTransform; }
+		}
 
 		protected override void OnInitialize()
 		{
+			base.OnInitialize();
+
 			_playerTransform = GameObject.Find("Player").transform;
 			_droneAnimation = GetComponent<DroneAnimation>();
-			_characterController = GetComponent<EnemyCharacterController>();
 
 			_destination.TakeUntilDestroy(this)
 				.Subscribe(x =>
@@ -35,7 +29,7 @@ namespace KyleGame
 					direction.y = 0;
 					var dest = Quaternion.LookRotation(direction);
 
-					transform.rotation = dest/*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
+					transform.rotation = dest /*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
 				});
 			_movementSpeed.TakeUntilDestroy(this)
 				.Subscribe(x => _droneAnimation.Speed = x);
@@ -48,14 +42,6 @@ namespace KyleGame
 			StateMachine = new StateMachine<Drone>();
 
 			ChangeState(DroneState.Wander);
-		}
-
-		private Vector3 NextDestination()
-		{
-			var ret = _destinationAnchorList[_anchorNum].position;
-			_anchorNum = ++_anchorNum >= _destinationAnchorList.Length ? 0 : _anchorNum;
-
-			return ret;
 		}
 	}
 }

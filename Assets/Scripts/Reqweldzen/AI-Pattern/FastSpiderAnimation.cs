@@ -1,32 +1,23 @@
 ﻿using System.Collections;
-using KyleGame;
 using UnityEngine;
 
 public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 {
+	private Animator _animator;
+
 	[SerializeField]
 	private ParticleSystem _explosionEffect;
 
 	[SerializeField]
 	private ParticleSystem _sparkEffect;
 
-	private Animator _animator;
-
 	/// <inheritdoc />
 	/// <summary>
-	/// 移動スピード
+	///     移動スピード
 	/// </summary>
 	public float Speed
 	{
-		set
-		{
-			_animator.SetFloat("Speed", value);
-		}
-	}
-
-	private void Awake()
-	{
-		_animator = GetComponentInChildren<Animator>();
+		set { _animator.SetFloat("Speed", value); }
 	}
 
 	public void Spark()
@@ -39,6 +30,11 @@ public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 	{
 		_animator.SetTrigger("Attack");
 		StartCoroutine(Explosion());
+	}
+
+	private void Awake()
+	{
+		_animator = GetComponentInChildren<Animator>();
 	}
 
 	private IEnumerator Explosion()

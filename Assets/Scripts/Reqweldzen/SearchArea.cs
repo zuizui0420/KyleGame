@@ -20,5 +20,4 @@ namespace KyleGame
 					_onPlayerInAreaSubject.OnCompleted);
 		}
 	}
-
 }

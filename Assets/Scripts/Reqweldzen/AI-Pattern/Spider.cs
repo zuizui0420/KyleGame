@@ -3,15 +3,8 @@ using UnityEngine;
 
 namespace KyleGame
 {
-	public partial class Spider : StatefulEnemyComponentBase<Spider, SpiderState>
+	public partial class Spider : StatefulWalker<Spider, SpiderState>
 	{
-		private int _anchorNum;
-
-		private EnemyCharacterController _characterController;
-
-		[SerializeField]
-		private Transform[] _destinationAnchorList;
-
 		private Transform _playerTransform;
 
 		private ISpiderAnimation _spiderAnimation;
@@ -19,9 +12,15 @@ namespace KyleGame
 		[SerializeField]
 		private SpiderType _spiderType = SpiderType.TimerBomb;
 
+		protected override Transform PlayerTransform
+		{
+			get { return _playerTransform; }
+		}
+
 		protected override void OnInitialize()
 		{
-			_characterController = GetComponent<EnemyCharacterController>();
+			base.OnInitialize();
+
 			_spiderAnimation = GetComponent<ISpiderAnimation>();
 			_playerTransform = GameObject.Find("Player").transform;
 
@@ -33,7 +32,7 @@ namespace KyleGame
 					direction.y = 0;
 					var dest = Quaternion.LookRotation(direction);
 
-					transform.rotation = dest/*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
+					transform.rotation = dest /*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
 				});
 			_movementSpeed.TakeUntilDestroy(this)
 				.Subscribe(x => _spiderAnimation.Speed = x);
@@ -46,14 +45,6 @@ namespace KyleGame
 			StateMachine = new StateMachine<Spider>();
 
 			ChangeState(SpiderState.Wander);
-		}
-
-		private Vector3 NextDestination()
-		{
-			var ret = _destinationAnchorList[_anchorNum].position;
-			_anchorNum = ++_anchorNum >= _destinationAnchorList.Length ? 0 : _anchorNum;
-
-			return ret;
 		}
 	}
 

@@ -7,7 +7,8 @@ namespace KyleGame
 	{
 		private readonly BehaviorSubject<bool> _raiseEventSubject = new BehaviorSubject<bool>(false);
 
-		[SerializeField] private bool _awakeOnce;
+		[SerializeField]
+		private bool _awakeOnce;
 
 		public IObservable<bool> RaiseEvent
 		{

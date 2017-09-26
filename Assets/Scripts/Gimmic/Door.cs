@@ -1,22 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UniRx;
+﻿using UniRx;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+	private Animator _animator;
+
 	[SerializeField]
 	private Transform _doorLeft;
 
 	[SerializeField]
 	private Transform _doorRight;
 
-	private Animator _animator;
-
 	[SerializeField]
 	private BoolReactiveProperty _isDoorOpenReactiveProperty = new BoolReactiveProperty();
-	public IReadOnlyReactiveProperty<bool> OnDoorStateChange { get { return _isDoorOpenReactiveProperty; } }
+
+	public IReadOnlyReactiveProperty<bool> OnDoorStateChange
+	{
+		get { return _isDoorOpenReactiveProperty; }
+	}
 
 	private void Start()
 	{
@@ -24,10 +25,7 @@ public class Door : MonoBehaviour
 
 		_isDoorOpenReactiveProperty
 			.TakeUntilDestroy(this)
-			.Subscribe(x =>
-			{
-				_animator.SetBool("DoorState", x);
-			});
+			.Subscribe(x => { _animator.SetBool("DoorState", x); });
 	}
 
 	public void Open()

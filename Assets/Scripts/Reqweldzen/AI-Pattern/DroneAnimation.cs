@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class DroneAnimation : MonoBehaviour
 {
+	private Animator _animator;
+
 	[SerializeField]
 	private ParticleSystem _explosionEffect;
 
 	[SerializeField]
 	private ParticleSystem _sparkEffect;
-
-	private Animator _animator;
 
 	public float Speed { get; set; }
 

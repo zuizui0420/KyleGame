@@ -9,13 +9,13 @@ namespace KyleGame
 	{
 		private readonly BoolReactiveProperty _isGrounded = new BoolReactiveProperty(true);
 
-		private Vector3 _inputDirection;
-
 		private CharacterController _characterController;
 
-		private float _gravityScale = 20f;
+		private readonly float _gravityScale = 20f;
 
-		private float _jumpPower = 8f;
+		private Vector3 _inputDirection;
+
+		private readonly float _jumpPower = 8f;
 
 		public IReadOnlyReactiveProperty<bool> IsGrounded
 		{

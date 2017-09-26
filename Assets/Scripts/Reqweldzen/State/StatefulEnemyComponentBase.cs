@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace KyleGame
 {
@@ -15,7 +16,7 @@ namespace KyleGame
 			if (StateMachine == null) return;
 
 			StateMachine.ChangeState(StateList[state.ToInt32(null)]);
-			UnityEngine.Debug.Log(StateMachine.CurrentState.GetType().Name);
+			Debug.Log(StateMachine.CurrentState.GetType().Name);
 		}
 
 		public virtual bool IsCurrentState(TEnum state)

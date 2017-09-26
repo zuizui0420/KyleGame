@@ -1,66 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 /// <summary>
-/// シングルトン勝手にやるマン
+///     シングルトン勝手にやるマン
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public abstract class SingletonMonoBehaviour<T> : MonoBehaviourExtension where T : SingletonMonoBehaviour<T>
 {
-    protected static readonly string[] findTags =
-    {
-        "GameController"
-    };
+	protected static readonly string[] findTags =
+	{
+		"GameController"
+	};
 
-    protected static T instance;
-    public static T Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                
-                Type type = typeof(T);
+	protected static T instance;
 
-                foreach (var tag in findTags)
-                {
-                    GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
+	public static T Instance
+	{
+		get
+		{
+			if (instance == null)
+			{
+				var type = typeof(T);
 
-                    for (int j = 0; j < objs.Length; j++)
-                    {
-                        instance = (T)objs[j].GetComponent(type);
-                        if (instance != null)
-                            return instance;
-                    }
-                }
+				foreach (var tag in findTags)
+				{
+					var objs = GameObject.FindGameObjectsWithTag(tag);
 
-                Debug.LogWarning(string.Format("{0} is not found", type.Name));
-            }
+					for (var j = 0; j < objs.Length; j++)
+					{
+						instance = (T) objs[j].GetComponent(type);
+						if (instance != null)
+							return instance;
+					}
+				}
 
-            return instance;
-        }
-    }
+				Debug.LogWarning(string.Format("{0} is not found", type.Name));
+			}
 
-    virtual protected void Awake()
-    {
-        CheckInstance();
-    }
+			return instance;
+		}
+	}
 
-    protected bool CheckInstance()
-    {
-        if (instance == null)
-        {
-            instance = (T)this;
-            return true;
-        }
-        else if (Instance == this)
-        {
-            return true;
-        }
+	protected virtual void Awake()
+	{
+		CheckInstance();
+	}
 
-        Destroy(this.gameObject);
-        return false;
-    }
+	protected bool CheckInstance()
+	{
+		if (instance == null)
+		{
+			instance = (T) this;
+			return true;
+		}
+		if (Instance == this)
+		{
+			return true;
+		}
+
+		Destroy(gameObject);
+		return false;
+	}
 }
