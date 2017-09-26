@@ -51,9 +51,11 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     //計算後の移動量
     Vector3 moveDirection;
 
-    //プレイヤーのコントロール
-    [SerializeField]
+    [SerializeField,Header("プレイヤーの操作")]
     public bool PlayerControle = true;
+
+    [SerializeField, Header("プレイヤーのカメラ操作")]
+    public bool PlayerCameraControle = true;
 
     //プレイヤーのカメラ
     Camera PlayerCam;
@@ -96,19 +98,21 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         DATABASE.PlayIsGamePad = PlayIsGamePad;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (Mode_Spark) { MoveSpeed = ElectricModeSpeed; }
-        else { MoveSpeed = DefaultSpeed; }
-
-        PlayerMove();
+        else { MoveSpeed = DefaultSpeed; }       
 
         PlayerAnimation();
 
         PlayerCommand();        
 
         AimMode();
-        //SparkMode();
+    }
+
+    private void FixedUpdate()
+    {
+        PlayerMove();
     }
 
     #region 移動入力
@@ -259,31 +263,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     }
 
     /// <summary>
-    /// 放電状態
-    /// </summary>
-    private void SparkMode()
-    {
-        if (Mode_Spark)
-        {
-            if (SparkAttack)
-            {
-                AttackAnimation(true,ANIMATION_MODE.SPARK);
-            }
-
-            if(!SparkAttack)
-            {
-                AttackAnimation(false, ANIMATION_MODE.SPARK);
-            }
-        }
-    }
-
-    /// <summary>
     /// 攻撃
     /// </summary>
     /// <param name="atk"></param>
     private void Attack(bool atk)
     {               
-        if (Mode_Spark && !Mode_Aim) //放電
+        if (!Zooming && !Mode_Aim && Mode_Spark) //放電
         {
             if (atk)
             {
@@ -296,7 +281,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
                 AttackAnimation(false, ANIMATION_MODE.SPARK);
             }
         }
-        else if(Mode_Aim) //エイム
+        else if(Zooming && Mode_Aim) //エイム
         {
             if (atk)
             {
@@ -365,8 +350,6 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //アニメーション
         PlayerAnim.SetBool("ElectricAttack", anim);
 
-        Debug.Log(PlayerControle);
-
         if (anim)
         {
             PlayerControle = false;
@@ -375,7 +358,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
             {
                 case ANIMATION_MODE.AIM:
 
-                    Debug.Log("エイム中");                   
+                    PlayerCameraControle = false;
 
                     Mode_Aim = true;
 
@@ -411,8 +394,6 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
             {
                 case ANIMATION_MODE.AIM:
 
-                    Debug.Log("エイム解除");
-
                     Mode_Aim = false;
 
                     ReticleSystem.Instance.ReticleEnable(false);
@@ -426,13 +407,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
                     WaitAfter(0.3f, () =>
                     {
                         PlayerControle = true;
+                        PlayerCameraControle = true;
                     });
 
                     break;
 
                 case ANIMATION_MODE.SPARK:
-
-                    Mode_Spark = true;
 
                     foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                     {

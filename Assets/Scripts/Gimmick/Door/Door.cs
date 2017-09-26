@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : GimmickBase
 {
 	[SerializeField]
 	private Transform _doorLeft;
@@ -39,4 +39,9 @@ public class Door : MonoBehaviour
 	{
 		_isDoorOpenReactiveProperty.Value = false;
 	}
+
+    protected override void GimmickAction_Door()
+    {
+        Open();
+    }
 }

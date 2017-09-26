@@ -47,8 +47,8 @@ public class CameraSystem : MonoBehaviour
 
     void Update()
     {
-        //プレイヤーの操作ができる場合のみ
-        if (PlayerSystem.Instance.PlayerControle)
+        //プレイヤーのカメラ操作ができる場合のみ
+        if (PlayerSystem.Instance.PlayerCameraControle)
         {
             OffsetMove();
 

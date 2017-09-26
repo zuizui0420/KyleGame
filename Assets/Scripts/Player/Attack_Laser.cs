@@ -23,13 +23,11 @@ public class Attack_Laser : MonoBehaviour
     //レーザーがヒットしたかどうか
     bool hit;
 
-    //ヒットしたゲームオブジェクト
-    GameObject hitObject;   
-
     //LineRendererの頂点の数
     Vector3[] points = new Vector3[2];
 
     LineRenderer LaserLine;
+
 
     private void Start()
     {
@@ -72,7 +70,7 @@ public class Attack_Laser : MonoBehaviour
 
         if (Physics.Raycast(transform.position, RayTarget.transform.position - transform.position, out hit, 100f))
         {
-            HitPoint = hit.point;
+            HitPoint = hit.point;            
         }
         else
         {
@@ -80,5 +78,5 @@ public class Attack_Laser : MonoBehaviour
         }
 
         return HitPoint;
-    }
+    }   
 }

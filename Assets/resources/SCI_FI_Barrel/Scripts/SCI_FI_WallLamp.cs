@@ -72,4 +72,9 @@ public class SCI_FI_WallLamp : MonoBehaviour
             renderer.material.SetColor("_EmissionColor", Color.Lerp(DefaultEmissionColor, NextEmissionColor, colorValue));
         }   
     }
+
+    public void LampSwitch(bool turn)
+    {
+        LampOn = turn;
+    }
 }

@@ -5,14 +5,19 @@ using GamepadInput;
 
 public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 {
-    [SerializeField, Header("")]
+    [SerializeField, Header("FirstPersonCamera")]
     Camera camera_FirstPerson;
-   
-    float RayDistance = 100f;
 
+    [SerializeField, Header("PlayerSystem")]
+    PlayerSystem player;
+   
     Vector3 HitPoint;
 
     float Z;
+
+    //ヒットしたゲームオブジェクト
+    GameObject hitObject;
+
 
     private void Start()
     {
@@ -68,17 +73,55 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
         ReticleTargetRay();
     }
 
-    public Vector3 ReticleTargetRay()
+    private void ReticleTargetRay()
     {
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, transform.forward, Color.blue);
+        Debug.DrawRay(camera_FirstPerson.transform.position, transform.position - camera_FirstPerson.transform.position, Color.blue);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, RayDistance))
+        if (Physics.Raycast(camera_FirstPerson.transform.position, transform.position - camera_FirstPerson.transform.position, out hit, Mathf.Infinity))
         {
             HitPoint = hit.point;
+
+            HitTagCheck(hit.collider.gameObject, hit.collider.tag);
+        }
+        else
+        {
+            HitTagCheck(hitObject);
+        }      
+    }
+
+    /// <summary>
+    /// Rayで検知したタグのチェック
+    /// </summary>
+    /// <param name="tagName"></param>
+    private void HitTagCheck(GameObject obj = null, string tagName = "")
+    {
+        if (tagName == TAGNAME.TAG_GIMMICK_LASER)
+        {
+            if (player.LaserAttack)
+            {
+                Debug.Log("タグヒット：GIMMICK_LASER");
+                obj.GetComponent<GimmickBase>().GimmickAction(true);
+                hitObject = obj;
+            }            
         }
 
-        return HitPoint;
+        else if (tagName == TAGNAME.TAG_GIMMICK_SPARK)
+        {
+            Debug.Log("タグヒット：GIMMICK_SPARK");
+            obj.GetComponent<GimmickBase>().GimmickAction(true);
+            hitObject = obj;
+        }
+
+        else
+        {
+            Debug.Log("タグヒット：NONE");
+
+            if(hitObject != null)
+            {
+                hitObject.GetComponent<GimmickBase>().GimmickAction(false);
+            }            
+        }
     }
 }

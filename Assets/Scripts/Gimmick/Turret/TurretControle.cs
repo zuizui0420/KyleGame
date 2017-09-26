@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 敵：タレット
 /// </summary>
-public class TurretControle : MonoBehaviour
+public class TurretControle : GimmickBase
 {
     [SerializeField, Header("起動しているかどうか")]
     bool Starting;
@@ -73,7 +73,7 @@ public class TurretControle : MonoBehaviour
         //デバッグ用：タレット起動スイッチ
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Mode_StartUp();
+            GimmickAction_Enemy();
         }      
 	}
 
@@ -100,12 +100,9 @@ public class TurretControle : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// タレット起動
-    /// </summary>
-    public void Mode_StartUp()
+    protected override void GimmickAction_Enemy()
     {
-        Debug.Log("起動");
+        Debug.Log("タレット起動");
 
         StartCoroutine(StartUpAnimation());
     }

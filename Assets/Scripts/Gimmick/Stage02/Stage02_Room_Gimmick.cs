@@ -20,6 +20,7 @@ public class Stage02_Room_Gimmick : MonoBehaviour
 
     Color DefaultColor = new Color(1, 1, 1), MoveColor = new Color(1, 0, 0);
 
+    [SerializeField, Header("色が変わる速度")]
     float ColorLerpSpeed = 0.1f;
 
     //[0] : 通行可能 [1] : 通行不可能
