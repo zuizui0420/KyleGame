@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Attack_Laser : MonoBehaviour
 {
-    //レーザーが発射しているとかどうか
-    [HideInInspector]
+    [SerializeField,Header("レーザー照射中")]
     public bool fire = false;
+
+    [SerializeField, Header("レーザー")]
+    GameObject[] Lasers;
 
     [SerializeField, Header("Ray照射ターゲット")]
     GameObject RayTarget;
@@ -17,17 +19,8 @@ public class Attack_Laser : MonoBehaviour
     //目標座標
     Vector3 targetPos;    
 
-    //レーザーの頂点の数
-    int positions = 2;
-
-    //レーザーがヒットしたかどうか
-    bool hit;
-
-    //LineRendererの頂点の数
-    Vector3[] points = new Vector3[2];
-
-    LineRenderer LaserLine;
-
+    //LineRendererの管理リスト
+    List<LineRenderer> L_Renderer = new List<LineRenderer>();
 
     private void Start()
     {
@@ -35,31 +28,47 @@ public class Attack_Laser : MonoBehaviour
         targetPos = RayTarget.transform.position;
 
         //LineRendererコンポーネントの参照
-        LaserLine = GetComponent<LineRenderer>();
+        foreach(GameObject renderer in Lasers)
+        {
+            L_Renderer.Add(renderer.GetComponent<LineRenderer>());
+        }
 
-        LaserLine.positionCount = 2;        
+        //LineRendererの各種設定
+        foreach(LineRenderer renderer in L_Renderer)
+        {
+            renderer.positionCount = 2;
+            renderer.SetPosition(0, renderer.transform.position);
+        }      
     }
 
     void Update()
     {
-        //頂点0の設定
-        LaserLine.SetPosition(0, transform.position);
-
         if (fire)
         {
-            //頂点1の設定
-            LaserLine.SetPosition(1, RaycastHit_System());
+            //頂点１の設定
+            foreach (LineRenderer renderer in L_Renderer)
+            {
+                renderer.enabled = true;
+                renderer.SetPosition(0, renderer.transform.position);
+                renderer.SetPosition(1, RaycastHit_System());
+            }
 
             //エフェクト生成
             Instantiate(HitFX, RaycastHit_System(), Quaternion.identity);
         }
         else
         {
-            //頂点1を頂点0と同じにすることでレンダリングをさせない
-            LaserLine.SetPosition(1, transform.position);
+            foreach (LineRenderer renderer in L_Renderer)
+            {
+                renderer.enabled = false;
+            }
         }
     }
 
+    /// <summary>
+    /// RayCastの制御・判定
+    /// </summary>
+    /// <returns></returns>
     private Vector3 RaycastHit_System()
     {
         RaycastHit hit;
@@ -68,9 +77,19 @@ public class Attack_Laser : MonoBehaviour
 
         Debug.DrawRay(transform.position, RayTarget.transform.position - transform.position, Color.yellow);
 
-        if (Physics.Raycast(transform.position, RayTarget.transform.position - transform.position, out hit, 100f))
+        if (Physics.Raycast(transform.position, RayTarget.transform.position - transform.position, out hit, Mathf.Infinity))
         {
-            HitPoint = hit.point;            
+            HitPoint = hit.point;
+
+            //ギミック・敵の場合は、ダメージを与える
+            if(hit.collider.tag == TAGNAME.TAG_GIMMICK_ENEMY)
+            {
+                hit.collider.gameObject.GetComponent<GimmickBase>().GimmickDamage();
+            }
+            else if(hit.collider.tag == TAGNAME.TAG_ENEMY)
+            {
+                hit.collider.gameObject.GetComponent<EnemyBase>().EnemyDamage();
+            }
         }
         else
         {

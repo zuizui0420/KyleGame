@@ -8,6 +8,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     [SerializeField, Header("ゲームパッドでプレイをするか")]
     bool PlayIsGamePad;
 
+    [SerializeField, Header("3人称カメラ")]
+    Camera ThirdPerson_Cam;
+
+    [SerializeField, Header("1人称カメラ")]
+    Camera FirstPerson_Cam;
+
     [Header("移動量")]
     [SerializeField]
     [Range(0, 10)]
@@ -28,11 +34,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     [Range(0, 360)]
     float m_MovingTurnSpeed;
 
-    [SerializeField, Header("RightLaser")]
-    Attack_Laser r_Laser;
-
-    [SerializeField, Header("LaserLeft")]
-    Attack_Laser l_Laser;
+    [SerializeField, Header("Attack_Laser")]
+    Attack_Laser LaserSystem;
 
     [SerializeField, Header("エレクトロモード用エフェクト")]
     GameObject Effect_Electric;
@@ -78,6 +81,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     float ElectricModeSpeed;
 
     public bool Zooming = false;
+
+    [SerializeField, Header("プレイヤーのライフ")]
+    public int LIFE = 3;
+
+    //無敵
+    bool OnVisible = false;
 
     enum ANIMATION_MODE
     {
@@ -253,11 +262,11 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
             if (LaserAttack)
             {
-                LazerAttack(true);
+                AttackLaser(true);
             }
             else
             {
-                LazerAttack(false);
+                AttackLaser(false);
             }           
         }
     }
@@ -336,10 +345,9 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     /// レーザー攻撃
     /// </summary>
     /// <param name="atk"></param>
-    private void LazerAttack(bool atk)
+    private void AttackLaser(bool atk)
     {
-        r_Laser.fire = atk;
-        l_Laser.fire = atk;
+        LaserSystem.fire = atk;
     }
 
     /// <summary>
@@ -400,7 +408,9 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     ReticleSystem.Instance.ResetPosition();
 
-                    LazerAttack(false);
+                    LaserAttack = false;
+
+                    AttackLaser(false);
 
                     Zooming = false;
 
@@ -446,5 +456,36 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         {
             PlayerAnim.SetFloat("Speed", Mathf.Clamp(moveDirection.magnitude * 10, 0f, 1f));
         }           
+    }
+
+    public void Damage()
+    {
+        if (!OnVisible)
+        {
+            StartCoroutine(DamageCorutine());
+        }
+    }
+
+    private IEnumerator DamageCorutine()
+    {
+        Debug.Log("ダメージ");
+        ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0.5f;
+        LIFE--;
+
+        OnVisible = true;
+
+        while(ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio > 0)
+        {
+            ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0f;
+
+        WaitAfter(1f, () =>
+        {
+            OnVisible = false;          
+        });     
     }
 }

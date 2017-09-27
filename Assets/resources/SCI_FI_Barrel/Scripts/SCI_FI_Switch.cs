@@ -19,9 +19,6 @@ public class SCI_FI_Switch : MonoBehaviour
     [SerializeField, Header("スイッチの回転速度")]
     float RotateSpeed = 0.1f;
 
-    [SerializeField, Header("スイッチの検知用タグ")]
-    string CheckTagName = "Untagged";
-
     float MoveLerpSpeed = 0.1f;
 
     //移動先座標
@@ -96,9 +93,9 @@ public class SCI_FI_Switch : MonoBehaviour
         m_renderer.material.SetColor("_EmissionColor", new Color(0f, Color_b, 1f));
     }
 
-    private void OnTriggerStay(Collider col)
+    void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.tag == CheckTagName)
+        if (col.gameObject.tag == TAGNAME.TAG_PLAYER)
         {
             SwitchOn = true;
         }       
@@ -106,7 +103,7 @@ public class SCI_FI_Switch : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == CheckTagName)
+        if (col.gameObject.tag == TAGNAME.TAG_PLAYER)
         {
             SwitchOn = false;
         }        

@@ -16,12 +16,22 @@ public class Stage02_Room_Gimmick : MonoBehaviour
     [SerializeField, Header("Panel群")]
     GameObject[] Panel;
 
-    List<MeshRenderer> m_renderer = new List<MeshRenderer>();
-
-    Color DefaultColor = new Color(1, 1, 1), MoveColor = new Color(1, 0, 0);
-
     [SerializeField, Header("色が変わる速度")]
     float ColorLerpSpeed = 0.1f;
+
+    [SerializeField, Header("タレット")]
+    GimmickBase[] Turrets;
+
+    List<MeshRenderer> m_renderer = new List<MeshRenderer>();
+
+    Color DefaultColor = new Color(1, 1, 1), MoveColor = new Color(1, 0, 0);   
+
+    //ギミック作動
+    bool GimmickOn = false;
+
+    //トリガー用パネルのリスト
+    List<Stage2_Room_Gimmick_Panel> TriggerPanels = new List<Stage2_Room_Gimmick_Panel>();
+
 
     //[0] : 通行可能 [1] : 通行不可能
     int[,] Panel_ID =   { 
@@ -45,6 +55,12 @@ public class Stage02_Room_Gimmick : MonoBehaviour
                 if (id == 1)
                 {
                     m_renderer.Add(Panel[num].GetComponent<MeshRenderer>());
+
+                    //トリガーとなるパネルにする
+                    Panel[num].GetComponent<Stage2_Room_Gimmick_Panel>().ThisTrigger = true;
+
+                    //リストに追加
+                    TriggerPanels.Add(Panel[num].GetComponent<Stage2_Room_Gimmick_Panel>());
                 }
             }
 
@@ -62,8 +78,35 @@ public class Stage02_Room_Gimmick : MonoBehaviour
         else
         {
             ColorMove(false);
-        } 
-	}
+        }
+
+        CheckFloorTrigger();
+    }
+
+    /// <summary>
+    /// トリガーのパネルを確認する
+    /// </summary>
+    private void CheckFloorTrigger()
+    {
+        if (!GimmickOn)
+        {
+            foreach (Stage2_Room_Gimmick_Panel trigger in TriggerPanels)
+            {
+                //トリガーのパネルを[プレイヤー]が踏んでいた場合
+                if (trigger.GimmickTrigger)
+                {
+                    //ギミックを作動
+                    GimmickOn = true;
+
+                    //タレット起動
+                    foreach(GimmickBase turret in Turrets)
+                    {
+                        turret.GimmickAction();
+                    }
+                }
+            }
+        }        
+    }
 
     private void ColorMove(bool flg)
     {

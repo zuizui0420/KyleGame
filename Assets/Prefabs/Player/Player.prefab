@@ -56,6 +56,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1028203239110452
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4776850251557864}
+  - component: {fileID: 114934071798866148}
+  m_Layer: 0
+  m_Name: LaserSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1034093922674754
 GameObject:
   m_ObjectHideFlags: 1
@@ -339,7 +355,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4771906753031902}
   - component: {fileID: 120079842492078824}
-  - component: {fileID: 114124008785247022}
   m_Layer: 0
   m_Name: LeftLaser
   m_TagString: Untagged
@@ -386,7 +401,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4130765656459134}
   - component: {fileID: 120459003471612084}
-  - component: {fileID: 114011178090786498}
   m_Layer: 0
   m_Name: RightLaser
   m_TagString: Untagged
@@ -773,6 +787,7 @@ GameObject:
   - component: {fileID: 124614581780676708}
   - component: {fileID: 92406248739570742}
   - component: {fileID: 114561467547784482}
+  - component: {fileID: 114961173251767568}
   m_Layer: 0
   m_Name: FirstPersonCamera
   m_TagString: Untagged
@@ -980,6 +995,7 @@ GameObject:
   - component: {fileID: 124328928029545422}
   - component: {fileID: 81786691809569574}
   - component: {fileID: 114302036687411970}
+  - component: {fileID: 114478122446673492}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1135,10 +1151,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253833014090260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.6, z: 0.2}
+  m_LocalPosition: {x: 0.049999952, y: -0.6, z: 0.19999886}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4988333692371198}
+  m_Father: {fileID: 4776850251557864}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4131991591289148
@@ -1611,13 +1627,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216744979513450}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0017452955, w: 0.9999985}
-  m_LocalPosition: {x: -0.05, y: -0.6, z: 0.152}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0017452955, w: 0.9999985}
+  m_LocalPosition: {x: -0.049999952, y: -0.6, z: 0.15199852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4988333692371198}
+  m_Father: {fileID: 4776850251557864}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.2}
+--- !u!4 &4776850251557864
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1028203239110452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4130765656459134}
+  - {fileID: 4771906753031902}
+  m_Father: {fileID: 4988333692371198}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4788309014139916
 Transform:
   m_ObjectHideFlags: 1
@@ -1671,7 +1702,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4988333692371198}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4814960633714920
 Transform:
@@ -1920,8 +1951,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4130765656459134}
-  - {fileID: 4771906753031902}
+  - {fileID: 4776850251557864}
   - {fileID: 4804568154113972}
   m_Father: {fileID: 4923777399178336}
   m_RootOrder: 5
@@ -2051,20 +2081,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114011178090786498
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1253833014090260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d0f8f042925464f82a413b5cc5ac7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: 0
-  RayTarget: {fileID: 1575738050839268}
-  HitFX: {fileID: 1141906538935920, guid: 13c095b0f4a51284b9a5aaf3d2e301e9, type: 2}
 --- !u!114 &114022453613520952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2088,15 +2104,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayIsGamePad: 1
+  ThirdPerson_Cam: {fileID: 20943434870277818}
+  FirstPerson_Cam: {fileID: 20807364901864376}
   DefaultSpeed: 4.5
   rotateSpeed: 1
   m_StationaryTurnSpeed: 360
   m_MovingTurnSpeed: 360
-  r_Laser: {fileID: 114011178090786498}
-  l_Laser: {fileID: 114124008785247022}
+  r_Laser: {fileID: 0}
+  l_Laser: {fileID: 0}
   Effect_Electric: {fileID: 1267660035697122}
   Effect_Electric_Attack: {fileID: 1040088894961980}
   PlayerControle: 1
+  PlayerCameraControle: 1
   Mode_Aim: 0
   Mode_Spark: 0
   LaserAttack: 0
@@ -2104,20 +2123,7 @@ MonoBehaviour:
   FirstPerson_DebugTest: 0
   ElectricModeSpeed: 6
   Zooming: 0
---- !u!114 &114124008785247022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216744979513450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d0f8f042925464f82a413b5cc5ac7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: 0
-  RayTarget: {fileID: 1575738050839268}
-  HitFX: {fileID: 1141906538935920, guid: 13c095b0f4a51284b9a5aaf3d2e301e9, type: 2}
+  LIFE: 3
 --- !u!114 &114302036687411970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2147,6 +2153,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera_FirstPerson: {fileID: 20807364901864376}
   player: {fileID: 114031021390394148}
+--- !u!114 &114478122446673492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960420438954668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13591161e85327a40aa7ff3b56ef5e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: b8af3d08ae517fc419ec7898de6c29f3, type: 2}
+  damageRatio: 0
 --- !u!114 &114561467547784482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2160,6 +2179,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstPerson_AnglePoint: {fileID: 1391776306852268}
   playerSystem: {fileID: 114031021390394148}
+--- !u!114 &114934071798866148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1028203239110452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d0f8f042925464f82a413b5cc5ac7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: 0
+  Lasers:
+  - {fileID: 1253833014090260}
+  - {fileID: 1216744979513450}
+  RayTarget: {fileID: 1575738050839268}
+  HitFX: {fileID: 1000010608348078, guid: acbe12d0b9c1c5d4faf2faf557ee0062, type: 2}
+--- !u!114 &114961173251767568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1678593481722692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13591161e85327a40aa7ff3b56ef5e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: b8af3d08ae517fc419ec7898de6c29f3, type: 2}
+  damageRatio: 0
 --- !u!120 &120079842492078824
 LineRenderer:
   m_ObjectHideFlags: 1

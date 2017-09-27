@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Gimmick_Spark
   - Gimmick_Laser
+  - Enemy
+  - Gimmick_Enemy
   layers:
   - Default
   - TransparentFX
