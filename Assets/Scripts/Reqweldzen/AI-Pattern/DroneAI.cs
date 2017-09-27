@@ -8,9 +8,6 @@ namespace KyleGame
 {
 	public partial class Drone
 	{
-		private readonly Vector3ReactiveProperty _destination = new Vector3ReactiveProperty();
-		private readonly FloatReactiveProperty _movementSpeed = new FloatReactiveProperty();
-		
 		/// <summary>
 		///     ステート：巡回
 		/// </summary>
@@ -21,6 +18,8 @@ namespace KyleGame
 
 			public StateWander(Drone owner) : base(owner)
 			{
+				ReactionAngle = owner.ReactionAngle;
+				ReactionDistance = owner.ReactionDistance;
 			}
 
 			public override void Enter()
@@ -48,7 +47,12 @@ namespace KyleGame
 					})
 					.AddTo(_disposableList);
 
-				Observable.FromCoroutine(WandererCoroutine).TakeUntilDestroy(Owner).Subscribe().AddTo(_disposableList);
+				Observable.FromCoroutine(token => WandererCoroutine(WaitCoroutine, token)).TakeUntilDestroy(Owner).Subscribe().AddTo(_disposableList);
+			}
+
+			private IEnumerator WaitCoroutine()
+			{
+				yield return new WaitForSeconds(2f);
 			}
 		}
 
@@ -70,26 +74,33 @@ namespace KyleGame
 			{
 				MovementSpeed = 3f;
 
+				// 3s毎に攻撃
 				Observable.Return(Unit.Default)
 					.Delay(TimeSpan.FromSeconds(3))
-					.Subscribe(_ => { Owner.ChangeState(DroneState.Attack); })
+					.Subscribe(_ =>
+					{
+						Agent.isStopped = true;
+						Owner.ChangeState(DroneState.Attack);
+					})
 					.AddTo(_compositeDisposable);
-			}
 
-			public override void Execute()
-			{
-				if (GetDistance(Origin) >= MaxDemarcationDistance)
-				{
-					Owner.ChangeState(DroneState.Return);
-				}
-				else if (!(GetDistance(Player) < RelativeDistance))
-				{
-					Destination = Player.position;
+				// 追跡開始位置から一定距離離れたら追跡中断
+				Owner.UpdateAsObservable()
+					.Where(_ => GetDistance(Origin) >= MaxDemarcationDistance)
+					.Subscribe(_ =>
+					{
+						Owner.ChangeState(DroneState.Return);
+					})
+					.AddTo(_compositeDisposable);
 
-					var moveDir = GetDirection(Destination) * MovementSpeed;
-
-					Move(moveDir);
-				}
+				// 追跡座標を10Fごとに更新
+				Observable.IntervalFrame(10, FrameCountType.FixedUpdate)
+					.Subscribe(_ =>
+					{
+						var relativePos = GetDirection(Player) * RelativeDistance * -1;
+						Destination = Player.position + relativePos;
+					})
+					.AddTo(_compositeDisposable);
 			}
 
 			public override void Exit()
@@ -111,7 +122,11 @@ namespace KyleGame
 			{
 				Debug.Log("Attack");
 				Observable.NextFrame()
-					.Subscribe(_ => Owner.ChangeState(DroneState.Pursuit));
+					.Subscribe(_ =>
+					{
+						Agent.isStopped = false;
+						Owner.ChangeState(DroneState.Pursuit);
+					});
 			}
 		}
 
@@ -131,16 +146,12 @@ namespace KyleGame
 					.Subscribe(_ => { Owner.ChangeState(DroneState.Wander); });
 			}
 
-			private new IEnumerator WandererCoroutine(CancellationToken token)
+			private IEnumerator WandererCoroutine(CancellationToken token)
 			{
 				Destination = Origin;
 
 				while (!token.IsCancellationRequested)
 				{
-					var moveDir = GetDirection(Destination) * MovementSpeed;
-
-					Move(moveDir);
-
 					if (GetDistance(Destination) < 1.0f)
 						break;
 
