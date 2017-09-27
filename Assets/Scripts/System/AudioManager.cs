@@ -1,109 +1,123 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///     オーディオを再生
+/// オーディオを再生
 /// </summary>
 public class AudioManager : MonoBehaviourExtension
 {
-	[SerializeField]
-	private AudioClip[] Audio_Clips;
+    //シングルトンを作成
+    #region Singleton
+    //遷移先のシーンでこのスクリプトを使用するためのインスタンスを保存するためのもの
+    private static AudioManager instance;
 
-	/// <summary>
-	///     オーディオの再生
-	/// </summary>
-	/// <param name="_name">オーディオの名前</param>
-	/// <param name="_volume">ボリューム</param>
-	/// <param name="_loop">ループ</param>
-	/// <param name="_priority">プライオリティ</param>
-	public void PlayAudio(string _name, float _volume = 1.0f, bool _loop = false, int _priority = 128)
-	{
-		//AudioSource生成
-		var AudioObject = new GameObject(_name + "_Audio");
-		AudioObject.AddComponent<AudioSource>();
-		var audio = AudioObject.GetComponent<AudioSource>();
+    //現在のシーンから外部で使用するインスタンスを作成
+    public static AudioManager Instance
+    {
+        get
+        {
+            //送るインスタンスがnullの場合
+            if (instance == null)
+            {
+                //シーンからSceneFaderを探して取得する
+                instance = (AudioManager)FindObjectOfType(typeof(AudioManager));
 
-		//Cilp設定
-		foreach (var _cilp in Audio_Clips)
-			if (_cilp.name == _name)
-			{
-				audio.clip = _cilp;
-			}
+                //もしシーン上にない場合
+                if (instance == null)
+                {
+                    //エラーメッセージをログに出力する
+                    Debug.LogError(typeof(AudioManager) + "is nothing");
+                }
+            }
 
-		//ボリューム設定
-		audio.volume = _volume;
+            //送るインスタンスを返す
+            return instance;
+        }
+    }
 
-		//ループ設定
-		audio.loop = _loop;
+    #endregion Singleton
 
-		//優先度設定
-		audio.priority = _priority;
+    [SerializeField]
+    AudioClip[] Audio_Clips;
 
-		//再生
-		audio.Play();
+    /// <summary>
+    /// オーディオの再生
+    /// </summary>
+    /// <param name="_name">オーディオの名前</param>
+    /// <param name="_volume">ボリューム</param>
+    /// <param name="_loop">ループ</param>
+    /// <param name="_priority">プライオリティ</param>
+    public void PlayAudio(string _name, float _volume = 1.0f, bool _loop = false, int _priority = 128)
+    {
+        //AudioSource生成
+        GameObject AudioObject = new GameObject(_name + "_Audio");
+        AudioObject.AddComponent<AudioSource>();
+        AudioSource audio = AudioObject.GetComponent<AudioSource>();
 
-		//ループではない
-		if (!_loop)
-			WaitAfter(2.0f, () => { Destroy(AudioObject); });
-	}
+        //Cilp設定
+        foreach (AudioClip _cilp in Audio_Clips)
+        {
+            if (_cilp.name == _name)
+            {
+                audio.clip = _cilp;
+            }
+            else
+            {
+                //Debug.Log("ファイルなし");
+            }
+        }
 
-	/// <summary>
-	///     BGMのフェードアウトをします
-	/// </summary>
-	/// <param name="_name">BGM名</param>
-	/// <param name="_speed">速度</param>
-	public IEnumerator BGMFadeOut(string _name, float _speed = 0.1f)
-	{
-		//AudioSourceを検索
-		var AudioObject = GameObject.Find(_name + "_Audio");
+        //ボリューム設定
+        audio.volume = _volume;
 
-		var audio = AudioObject.GetComponent<AudioSource>();
+        //ループ設定
+        audio.loop = _loop;
 
-		var volume = audio.volume;
+        //優先度設定
+        audio.priority = _priority;
 
-		while (true)
-		{
-			volume -= _speed * Time.deltaTime;
+        //再生
+        audio.Play();
 
-			if (volume < 0)
-			{
-				audio.volume = 0;
-				break;
-			}
+        //ループではない
+        if (!_loop)
+        {
+            //破棄する
+            WaitAfter(2.0f, () =>
+            {
+                Destroy(AudioObject);
+            });
+        }
+    }
 
-			audio.volume = volume;
+    /// <summary>
+    /// BGMのフェードアウトをします
+    /// </summary>
+    /// <param name="_name">BGM名</param>
+    /// <param name="_speed">速度</param>
+    public IEnumerator BGMFadeOut(string _name, float _speed = 0.1f)
+    {
+        //AudioSourceを検索
+        GameObject AudioObject = GameObject.Find(_name + "_Audio");
 
-			yield return null;
-		}
-	}
+        AudioSource audio = AudioObject.GetComponent<AudioSource>();
 
-	//シングルトンを作成
+        float volume = audio.volume;
 
-	#region Singleton
+        while (true)
+        {
+            volume -= _speed * Time.deltaTime;
 
-	//遷移先のシーンでこのスクリプトを使用するためのインスタンスを保存するためのもの
-	private static AudioManager instance;
+            if(volume < 0)
+            {
+                audio.volume = 0;
+                break;
+            }
 
-	//現在のシーンから外部で使用するインスタンスを作成
-	public static AudioManager Instance
-	{
-		get
-		{
-			//送るインスタンスがnullの場合
-			if (instance == null)
-			{
-				//シーンからSceneFaderを探して取得する
-				instance = (AudioManager) FindObjectOfType(typeof(AudioManager));
+            audio.volume = volume;
 
-				//もしシーン上にない場合
-				if (instance == null)
-					Debug.LogError(typeof(AudioManager) + "is nothing");
-			}
-
-			//送るインスタンスを返す
-			return instance;
-		}
-	}
-
-	#endregion Singleton
+            yield return null;
+        } 
+    }
 }

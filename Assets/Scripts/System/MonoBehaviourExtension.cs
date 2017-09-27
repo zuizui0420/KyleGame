@@ -1,54 +1,51 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using System;
 using UnityEngine;
 
 /// <summary>
-///     Monobehaviour拡張
+/// Monobehaviour拡張
 /// </summary>
 public class MonoBehaviourExtension : MonoBehaviour
 {
-	private bool Break;
+    bool Break = false;
 
-	/// <summary>
-	///     待機時間を生成する機能
-	/// </summary>
-	/// <param name="_wait"></param>
-	/// <param name="_act"></param>
-	protected void WaitAfter(float _wait, Action _act)
-	{
-		if (_act != null)
-			StartCoroutine(_WaitAfter(_wait, _act));
-	}
+    /// <summary>
+    /// 待機時間を生成する機能
+    /// </summary>
+    /// <param name="_wait"></param>
+    /// <param name="_act"></param>
+    protected void WaitAfter(float _wait, Action _act)
+    {
+        if (_act != null)
+        {
+            StartCoroutine(_WaitAfter(_wait, _act));
+        }
+    }
 
-	private IEnumerator _WaitAfter(float _wait, Action _act)
-	{
-		yield return new WaitForSeconds(_wait);
+    IEnumerator _WaitAfter(float _wait, Action _act)
+    {
+        while(_wait > 0)
+        {
+            _wait -= Time.deltaTime;
 
-		if (!Break)
-			_act();
-	}
+            if (Break)
+            {
+                Debug.Log("Break");
+                Break = false;
+                yield break;
+            }
 
-	/// <summary>
-	///     現在実行中のWaitAfterを全て破棄する
-	/// </summary>
-	public void WaitAfterLock()
-	{
-		Break = true;
-	}
+            yield return null;
+        }
 
-	/// <summary>
-	///     WaitAfterを実行可能状態にする
-	/// </summary>
-	public void WaitAfterUnLock()
-	{
-		Break = false;
-	}
+        _act();
+    }
 
-	/// <summary>
-	///     WaitAfterがLockされているかどうかを返す
-	/// </summary>
-	public bool ReturnLock()
-	{
-		return Break;
-	}
+    /// <summary>
+    /// 現在実行中のWaitAfterを全て破棄する
+    /// </summary>
+    public void WaitAfterBreak()
+    {
+        Break = true;
+    }
 }
