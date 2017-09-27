@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 4068681511356370}
   - component: {fileID: 95082117140071396}
   - component: {fileID: 114714179407523674}
+  - component: {fileID: 114129499789380398}
   m_Layer: 0
   m_Name: PA_Warrior
   m_TagString: Untagged
@@ -706,7 +707,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1454818024441856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -12.72, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4018622743815138}
@@ -1235,6 +1236,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114129499789380398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454818024441856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a411aa1aa69944c9bb20775d98279f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 0
 --- !u!114 &114714179407523674
 MonoBehaviour:
   m_ObjectHideFlags: 1
