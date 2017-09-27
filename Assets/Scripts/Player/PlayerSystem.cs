@@ -14,6 +14,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     [SerializeField, Header("1人称カメラ")]
     Camera FirstPerson_Cam;
 
+    [SerializeField, Header("LifeControl")]
+    LifeControl LifeIcon;
+
+    [SerializeField, Header("BatteryControl")]
+    BatteryControl BatteryIcon;
+
     [Header("移動量")]
     [SerializeField]
     [Range(0, 10)]
@@ -109,8 +115,28 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     void Update()
     {
-        if (Mode_Spark) { MoveSpeed = ElectricModeSpeed; }
-        else { MoveSpeed = DefaultSpeed; }       
+        if (BatteryIcon.OverHeat)
+        {
+            BatteryIcon.BatteryOverHeat();
+            MoveSpeed = DefaultSpeed;
+
+            foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+            {
+                effect.Stop();
+            }
+
+            Mode_Spark = false;
+        }
+        else if (Mode_Spark)
+        {
+            BatteryIcon.BatteryUse();
+            MoveSpeed = ElectricModeSpeed;
+        }
+        else
+        {
+            BatteryIcon.BatteryCharge();
+            MoveSpeed = DefaultSpeed;
+        }       
 
         PlayerAnimation();
 
@@ -321,7 +347,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     /// </summary>
     private void ModeChange()
     {
-        if(!Mode_Spark && !SparkAttack)
+        if(!Mode_Spark && !SparkAttack && !BatteryIcon.OverHeat)
         {
             foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
             {
@@ -350,9 +376,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         LaserSystem.fire = atk;
     }
 
-    /// <summary>
-    /// 構えるアニメーション
-    /// </summary>
+    #region 構えるモーション
     private void AttackAnimation(bool anim, ANIMATION_MODE mode)
     {
         //アニメーション
@@ -438,6 +462,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
             }
         }
     }
+    #endregion
 
     /// <summary>
     /// アニメーション制御
@@ -468,12 +493,22 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     private IEnumerator DamageCorutine()
     {
-        Debug.Log("ダメージ");
+        //ダメージエフェクトを表示する
         ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0.5f;
-        LIFE--;
 
+        //体力減少
+        LIFE--;      
+
+        //体力UIを点滅させる
+        LifeIcon.StartBlink(LIFE);
+
+        //体力がない場合は死亡する
+        if (LIFE == 0) { LifeIcon.Dead = true; }
+
+        //無敵状態にする
         OnVisible = true;
 
+        //徐々にダメージエフェクトを消す
         while(ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio > 0)
         {
             ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio -= Time.deltaTime;
@@ -481,11 +516,15 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
             yield return null;
         }
 
+        //初期値に設定
         ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0f;
 
+        //無敵状態を解除
         WaitAfter(1f, () =>
         {
             OnVisible = false;          
         });     
     }
+
+
 }
