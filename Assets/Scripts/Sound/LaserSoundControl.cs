@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserSoundControl : MonoBehaviour {
 
-    [SerializeField] private AudioSource[] audioSources = new AudioSource[2];
+    [SerializeField] private AudioSource audioSources;
 
 	// Use this for initialization
 	void Start () {
@@ -14,25 +14,11 @@ public class LaserSoundControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        StartCoroutine("LaserSoundPlay");
+        if (Input.GetMouseButtonDown(1))
+            audioSources.Play();
+        else if(Input.GetMouseButtonUp(1))
+            audioSources.Stop();
 		
 	}
 
-    private IEnumerator LaserSoundPlay()
-    {
-        float startTime = Time.timeSinceLevelLoad;
-        audioSources[0].Play();
-
-        while (true)
-        {
-            float time = Time.timeSinceLevelLoad - startTime;
-            if(time >= 2)
-            {
-                audioSources[1].Play();
-                break;
-            }
-        }
-
-        yield return null;
-    }
 }
