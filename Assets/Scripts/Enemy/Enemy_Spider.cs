@@ -7,19 +7,15 @@ using UnityEngine;
 /// </summary>
 public class Enemy_Spider : EnemyBase
 {
-    [SerializeField, Header("敵の体力(０の場合は無敵)")]
-    float Life;
+    [SerializeField, Header("FastSpiderAnimation")]
+    FastSpiderAnimation SpiderAnimation;
 
-	void Start ()
-    {
-        LIFE = Life;	
-	}
-	
     /// <summary>
     /// 敵：死亡処理
     /// </summary>
     protected override void EnemyDead()
     {
+        SpiderAnimation.Dead();
         base.EnemyDead();
     }
 }

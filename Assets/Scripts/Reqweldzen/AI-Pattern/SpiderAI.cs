@@ -8,9 +8,6 @@ namespace KyleGame
 {
 	public partial class Spider
 	{
-		private readonly Vector3ReactiveProperty _destination = new Vector3ReactiveProperty();
-		private readonly FloatReactiveProperty _movementSpeed = new FloatReactiveProperty();
-
 		/// <summary>
 		///     ステート：巡回
 		/// </summary>
@@ -21,6 +18,8 @@ namespace KyleGame
 
 			public StateWander(Spider owner) : base(owner)
 			{
+				ReactionAngle = owner.ReactionAngle;
+				ReactionDistance = owner.ReactionDistance;
 			}
 
 			public override void Enter()
@@ -44,7 +43,12 @@ namespace KyleGame
 					.Subscribe(_ => { Owner.ChangeState(SpiderState.Pursuit); })
 					.AddTo(_disposableList);
 
-				Observable.FromCoroutine(WandererCoroutine).TakeUntilDestroy(Owner).Subscribe().AddTo(_disposableList);
+				Observable.FromCoroutine(token => WandererCoroutine(WaitCoroutine, token)).TakeUntilDestroy(Owner).Subscribe().AddTo(_disposableList);
+			}
+
+			private IEnumerator WaitCoroutine()
+			{
+				yield return new WaitForSeconds(4f);
 			}
 		}
 
@@ -53,6 +57,10 @@ namespace KyleGame
 		/// </summary>
 		private class StatePursuit : WalkerStateBase<Spider>
 		{
+			private const float RelativeDistance = 2f;
+
+			private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
+
 			public StatePursuit(Spider owner) : base(owner)
 			{
 			}
@@ -60,29 +68,30 @@ namespace KyleGame
 			public override void Enter()
 			{
 				MovementSpeed = 5f;
+
+				// 追跡座標を10Fごとに更新
+				Observable.IntervalFrame(10, FrameCountType.FixedUpdate)
+					.Subscribe(_ =>
+					{
+						Destination = Player.position;
+					})
+					.AddTo(_compositeDisposable);
+
+				Owner.UpdateAsObservable()
+					.Where(_ => GetDistance(Player) < RelativeDistance)
+					.Subscribe(_ =>
+					{
+						Owner.ChangeState(SpiderState.Explode);
+					})
+					.AddTo(_compositeDisposable);
+
 				if (Owner._spiderType == SpiderType.InstantSpark)
 					Owner._spiderAnimation.Spark();
 			}
 
-			public override void Execute()
-			{
-				if (!(GetDistance(Player) < 2f))
-				{
-					Destination = Player.position;
-
-					var moveDir = GetDirection(Destination) * MovementSpeed;
-
-					Move(moveDir);
-				}
-				else
-				{
-					Owner.ChangeState(SpiderState.Explode);
-				}
-			}
-
 			public override void Exit()
 			{
-				Stop();
+				Agent.ResetPath();
 			}
 		}
 

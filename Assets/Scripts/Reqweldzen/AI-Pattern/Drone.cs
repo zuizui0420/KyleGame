@@ -5,7 +5,7 @@ namespace KyleGame
 {
 	public partial class Drone : StatefulWalker<Drone, DroneState>
 	{
-		private DroneAnimation _droneAnimation;
+		private Enemy_Drone _droneAnimation;
 
 		private Transform _playerTransform;
 
@@ -19,19 +19,9 @@ namespace KyleGame
 			base.OnInitialize();
 
 			_playerTransform = GameObject.Find("Player").transform;
-			_droneAnimation = GetComponent<DroneAnimation>();
+			_droneAnimation = GetComponent<Enemy_Drone>();
 
-			_destination.TakeUntilDestroy(this)
-				.Subscribe(x =>
-				{
-					var orig = transform.rotation;
-					var direction = x - transform.position;
-					direction.y = 0;
-					var dest = Quaternion.LookRotation(direction);
-
-					transform.rotation = dest /*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
-				});
-			_movementSpeed.TakeUntilDestroy(this)
+			MovementSpeed.TakeUntilDestroy(this)
 				.Subscribe(x => _droneAnimation.Speed = x);
 
 			StateList.Add(new StateWander(this));

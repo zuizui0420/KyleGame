@@ -41,6 +41,9 @@ public class AudioManager : MonoBehaviourExtension
     [SerializeField]
     AudioClip[] Audio_Clips;
 
+    [SerializeField]
+    List<GameObject> GenerateAudioClips = new List<GameObject>();
+
     /// <summary>
     /// オーディオの再生
     /// </summary>
@@ -50,10 +53,21 @@ public class AudioManager : MonoBehaviourExtension
     /// <param name="_priority">プライオリティ</param>
     public void PlayAudio(string _name, float _volume = 1.0f, bool _loop = false, int _priority = 128)
     {
+        foreach(GameObject obj in GenerateAudioClips)
+        {
+            //同一ファイルが既に存在している場合
+            if(obj.name == _name + "_Audio")
+            {
+                return;
+            }
+        }
+
         //AudioSource生成
         GameObject AudioObject = new GameObject(_name + "_Audio");
         AudioObject.AddComponent<AudioSource>();
         AudioSource audio = AudioObject.GetComponent<AudioSource>();
+
+        GenerateAudioClips.Add(AudioObject);
 
         //Cilp設定
         foreach (AudioClip _cilp in Audio_Clips)
@@ -119,5 +133,17 @@ public class AudioManager : MonoBehaviourExtension
 
             yield return null;
         } 
+    }
+
+    /// <summary>
+    /// オーディオを削除
+    /// </summary>
+    /// <param name="_name"></param>
+    public void AudioDelete(string _name)
+    {
+        GenerateAudioClips.Remove(GameObject.Find(_name + "_Audio"));
+
+        //AudioSourceを検索
+        Destroy(GameObject.Find(_name + "_Audio"));
     }
 }

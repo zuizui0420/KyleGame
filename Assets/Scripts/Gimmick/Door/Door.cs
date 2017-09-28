@@ -16,6 +16,8 @@ public class Door : GimmickBase
 
 	[SerializeField]
 	private BoolReactiveProperty _isDoorOpenReactiveProperty = new BoolReactiveProperty();
+
+
 	public IReadOnlyReactiveProperty<bool> OnDoorStateChange { get { return _isDoorOpenReactiveProperty; } }
 
 	private void Start()

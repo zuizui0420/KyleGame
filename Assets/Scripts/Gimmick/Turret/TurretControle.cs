@@ -32,7 +32,13 @@ public class TurretControle : GimmickBase
     GameObject[] ShotPoint;
 
     [SerializeField, Header("タレット用の弾丸オブジェクト")]
-    GameObject Turret_Bullet;  
+    GameObject Turret_Bullet;
+
+    [SerializeField, Header("エフェクト生成座標")]
+    GameObject EffectInsPoint;
+
+    [SerializeField, Header("マズルフラッシュのエフェクト")]
+    GameObject Effect_hit;
 
     //攻撃態勢かどうか
     bool AttackMode = false;
@@ -108,7 +114,7 @@ public class TurretControle : GimmickBase
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(Turret.transform.position,Turret.transform.forward, out hit))
+        if(Physics.Raycast(Turret.transform.position, Turret.transform.forward, out hit,Mathf.Infinity))
         {
             if(hit.collider.gameObject.tag == TAGNAME.TAG_PLAYER)
             {
@@ -193,8 +199,12 @@ public class TurretControle : GimmickBase
             if(BulletInsTime < 0f)
             {
                 foreach (GameObject Point in ShotPoint)
-                {
-                    Instantiate(Turret_Bullet, Point.transform.position, Point.transform.rotation);
+                {                   
+                    GameObject bullet = Instantiate(Turret_Bullet, Point.transform.position, Point.transform.rotation);
+                    bullet.SetActive(true);
+
+                    //エフェクトを生成
+                    Instantiate(Effect_hit, EffectInsPoint.transform.position, Quaternion.identity);
                 }
 
                 BulletInsTime = 0.5f;
@@ -237,7 +247,7 @@ public class TurretControle : GimmickBase
         {
             if(!DefaultAngleBack)
             {
-                float YAngle = Mathf.Lerp(Turret.transform.localEulerAngles.y, 0f, turretAngularSpeed);
+                float YAngle = Mathf.MoveTowards(Turret.transform.localEulerAngles.y, 0f, turretAngularSpeed);
 
                 Turret.transform.localEulerAngles = new Vector3(0f, YAngle, 0f);
 

@@ -288,10 +288,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
             if (LaserAttack)
             {
+                AudioManager.Instance.PlayAudio(AUDIONAME.SE_LASER, 1, true, 130);
                 AttackLaser(true);
             }
             else
             {
+                AudioManager.Instance.AudioDelete(AUDIONAME.SE_LASER);
                 AttackLaser(false);
             }           
         }
@@ -372,7 +374,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     /// </summary>
     /// <param name="atk"></param>
     private void AttackLaser(bool atk)
-    {
+    {      
         LaserSystem.fire = atk;
     }
 
@@ -411,6 +413,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     WaitAfter(0.3f, () =>
                     {
+                        AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 1, true, 130);
+
                         foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                         {
                             effect.Play();
@@ -447,6 +451,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
                     break;
 
                 case ANIMATION_MODE.SPARK:
+
+                    AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
 
                     foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                     {

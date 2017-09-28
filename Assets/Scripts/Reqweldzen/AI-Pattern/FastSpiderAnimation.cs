@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 {
@@ -37,16 +38,22 @@ public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 		_animator = GetComponentInChildren<Animator>();
 	}
 
+    public void Dead()
+    {
+        GetComponent<NavMeshAgent>().speed = 0f;
+        StartCoroutine(Explosion());       
+    }
+
 	private IEnumerator Explosion()
 	{
-		// コルーチンの処理  
-		// 2秒待つ  
-		//yield return new WaitForSeconds(1.0f);
-		//2秒後に爆発
+        _sparkEffect.Play();
+
+        yield return new WaitForSeconds(0.5f);
+
 		_explosionEffect.Play();
 
 		yield return new WaitForSeconds(1.0f);
-		//爆発後消去
+
 		Destroy(gameObject);
 	}
 }

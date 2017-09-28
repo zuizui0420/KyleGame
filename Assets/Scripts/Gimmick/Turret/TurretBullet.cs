@@ -12,7 +12,8 @@ public class TurretBullet : MonoBehaviour
     [SerializeField, Header("着弾時のエフェクト")]
     GameObject Effect_Hit;
 
-    float BulletPower = 10f;
+    [SerializeField,Header("弾速")]
+    float BulletPower;
 
 	void Start ()
     {
@@ -24,9 +25,14 @@ public class TurretBullet : MonoBehaviour
         StartCoroutine(BulletDestroy());
 	}
 
-    private void OnTriggerEnter()
+    private void OnTriggerEnter(Collider col)
     {
-        //Instantiate(Effect_Hit, transform.position, Quaternion.identity);
+        if(col.gameObject.tag == TAGNAME.TAG_PLAYER)
+        {
+            col.gameObject.GetComponent<PlayerSystem>().Damage();
+        }
+
+        Instantiate(Effect_Hit, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }

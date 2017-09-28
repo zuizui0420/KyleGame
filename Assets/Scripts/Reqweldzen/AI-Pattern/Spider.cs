@@ -23,18 +23,8 @@ namespace KyleGame
 
 			_spiderAnimation = GetComponent<ISpiderAnimation>();
 			_playerTransform = GameObject.Find("Player").transform;
-
-			_destination.TakeUntilDestroy(this)
-				.Subscribe(x =>
-				{
-					var orig = transform.rotation;
-					var direction = x - transform.position;
-					direction.y = 0;
-					var dest = Quaternion.LookRotation(direction);
-
-					transform.rotation = dest /*Quaternion.Slerp(orig, dest, Time.deltaTime)*/;
-				});
-			_movementSpeed.TakeUntilDestroy(this)
+			
+			MovementSpeed.TakeUntilDestroy(this)
 				.Subscribe(x => _spiderAnimation.Speed = x);
 
 

@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class EnemyBase : MonoBehaviour
 {
-    //敵の体力
-    protected float LIFE;
+    [SerializeField, Header("敵の体力(０の場合は無敵)")]
+    float LIFE;
 
     //死亡フラグ
     bool Dead = false;
@@ -25,6 +25,8 @@ public class EnemyBase : MonoBehaviour
             if (LIFE <= 0f)
             {
                 Debug.Log(gameObject.name + "を撃破");
+
+                Dead = true;
 
                 EnemyDead();
             }
