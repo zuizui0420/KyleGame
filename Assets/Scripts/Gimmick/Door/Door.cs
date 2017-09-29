@@ -13,6 +13,7 @@ public class Door : GimmickBase
 	private Transform _doorRight;
 
 	private Animator _animator;
+    public AudioSource _audio;
 
 	[SerializeField]
 	private BoolReactiveProperty _isDoorOpenReactiveProperty = new BoolReactiveProperty();
@@ -21,6 +22,7 @@ public class Door : GimmickBase
 	private void Start()
 	{
 		_animator = GetComponent<Animator>();
+        //_audio = GetComponent<AudioSource>();
 
 		_isDoorOpenReactiveProperty
 			.TakeUntilDestroy(this)
@@ -38,7 +40,7 @@ public class Door : GimmickBase
 	public void Close()
 	{
 		_isDoorOpenReactiveProperty.Value = false;
-	}
+    }
 
     protected override void GimmickAction_Door()
     {
