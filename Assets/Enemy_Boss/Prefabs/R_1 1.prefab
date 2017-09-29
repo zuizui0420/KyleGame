@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4204550370739966}
   - component: {fileID: 95781098567566516}
+  - component: {fileID: 114419322521956572}
   m_Layer: 0
   m_Name: R_1 1
   m_TagString: Untagged
@@ -2454,6 +2455,17 @@ MonoBehaviour:
   targetPos: {fileID: 1767312798075320}
   laser: {fileID: 1408856144790282, guid: 7a100a86e5d0a1d428f2190f524a1715, type: 2}
   fire: 0
+--- !u!114 &114419322521956572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285824742119908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae98ad4c38f68044b1f8379759903ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &120085512821903102
 LineRenderer:
   m_ObjectHideFlags: 1

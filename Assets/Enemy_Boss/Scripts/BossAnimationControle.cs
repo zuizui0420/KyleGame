@@ -8,6 +8,7 @@ public class BossAnimationControle : MonoBehaviour
 
     float debug_speed = 0f;
 
+
     void Start ()
     {
         BossAnimator = GetComponent<Animator>();
@@ -15,7 +16,17 @@ public class BossAnimationControle : MonoBehaviour
 	
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.V))
+        AnimatorStateInfo state = BossAnimator.GetCurrentAnimatorStateInfo(0);
+        if (state.fullPathHash == Animator.StringToHash("Base Layer.Tackle"))
+        {
+            if (state.normalizedTime > 0.3f)
+            {
+                BossAnimator.speed = 0;
+            }
+        }
+        else BossAnimator.speed = 1;
+
+        if (Input.GetKeyDown(KeyCode.V))
         {
             Animation_Death();
         }
@@ -66,5 +77,21 @@ public class BossAnimationControle : MonoBehaviour
     public void Animation_Death()
     {
         BossAnimator.SetTrigger("Death");
+    }
+
+    /// <summary>
+    /// アニメーション：タックル
+    /// </summary>
+    public void Animation_Tackle()
+    {
+        BossAnimator.SetBool("Tackle", true);
+    }
+
+    /// <summary>
+    /// アニメーション：タックル
+    /// </summary>
+    public void Animation_Damage()
+    {
+        BossAnimator.SetBool("Damage", true);
     }
 }
