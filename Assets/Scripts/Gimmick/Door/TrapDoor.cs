@@ -16,11 +16,14 @@ public class TrapDoor : GimmickBase
     [SerializeField, Header("通行禁止用のコライダー")]
     GameObject NoEntryCollider;
 
-    [SerializeField, Header("")]
+    [SerializeField, Header("バー群")]
     Gimmick_Bar[] Bars;
 
     [SerializeField, Header("通行禁止状態")]
     bool NO_ENTRY_Mode;
+
+    //ギミックが作動しているかどうか
+    bool GimmickStart = false;
 
     void Start()
     {
@@ -48,65 +51,64 @@ public class TrapDoor : GimmickBase
         }
     }
 
-    void Update()
+    protected override void GimmickAction_Door()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        //通行禁止状態の場合は扉を開く
+        if (NO_ENTRY_Mode)
         {
-            foreach(Gimmick_Bar bar in Bars)
-            {
-                bar.BarShuftUp();
-            }
+            NoEntryCollider.SetActive(false);
 
-            GetComponent<Door>().Close();
-        }
+            NO_ENTRY_Mode = false;
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
+            GetComponent<Door>().Open();
+
             foreach (Gimmick_Bar bar in Bars)
             {
                 bar.BarShuftDown();
             }
-
-            GetComponent<Door>().Open();
         }
-    }
-
-    protected override void GimmickAction_Door()
-    {
-        NoEntryCollider.SetActive(false);
-
-        NO_ENTRY_Mode = false;
-
-        GetComponent<Door>().Open();
-
-        foreach (Gimmick_Bar bar in Bars)
+        else
         {
-            bar.BarShuftDown();
-        }       
+            NoEntryCollider.SetActive(true);
+
+            NO_ENTRY_Mode = true;
+
+            GetComponent<Door>().Close();
+
+            foreach (Gimmick_Bar bar in Bars)
+            {
+                bar.BarShuftUp();
+            }
+        }             
     }
 
     private void OnTriggerEnter(Collider col)
     {
-        if (TriggerGimmick)
+        if (!GimmickStart)
         {
-            if(Gimmick != null)
+            if (col.gameObject.tag == TAGNAME.TAG_PLAYER)
             {
-                if (col.gameObject.tag == TAGNAME.TAG_PLAYER)
+                NoEntryCollider.SetActive(true);
+
+                NO_ENTRY_Mode = true;
+
+                GetComponent<Door>().Close();
+
+                GimmickStart = true;
+
+                foreach (Gimmick_Bar bar in Bars)
                 {
-                    NoEntryCollider.SetActive(true);
-
-                    NO_ENTRY_Mode = true;
-
-                    GetComponent<Door>().Close();
-
-                    foreach (Gimmick_Bar bar in Bars)
-                    {
-                        bar.BarShuftUp();
-                    }
-
-                    Gimmick.GimmickAction();
+                    bar.BarShuftUp();
                 }
-            }            
-        }        
+
+                if (TriggerGimmick)
+                {
+                    if (Gimmick != null)
+                    {
+                        Gimmick.GimmickAction();
+                    }
+                }
+            }
+        }                     
     }  
 }

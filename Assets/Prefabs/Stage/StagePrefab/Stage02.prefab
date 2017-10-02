@@ -7194,7 +7194,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4147912017020702}
-  - component: {fileID: 95691225961595068}
   m_Layer: 9
   m_Name: Door Gate
   m_TagString: Untagged
@@ -11024,10 +11023,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4473279104456724}
-  - component: {fileID: 95279363217581862}
-  - component: {fileID: 65296086583280098}
-  - component: {fileID: 114725952789987460}
-  - component: {fileID: 114149887173828670}
   m_Layer: 0
   m_Name: Elevetor_Door
   m_TagString: Untagged
@@ -67882,18 +67877,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0000029, y: 3.000002, z: 0.00000026226843}
   m_Center: {x: -1.5000005, y: -1.5000007, z: 0.00000013113421}
---- !u!65 &65296086583280098
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526087614539654}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.72445, y: 2.9086967, z: 3.88583}
-  m_Center: {x: 4.6493955, y: 0.0055806637, z: 2.7501698}
 --- !u!65 &65297657516063792
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -72809,23 +72792,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95279363217581862
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526087614539654}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91243f3819553334fa1b92925bd7c325, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95279377753760994
 Animator:
   serializedVersion: 3
@@ -73295,23 +73261,6 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 638f44b41e0a6471486ec2c4e9ca96fd, type: 3}
   m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95691225961595068
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1337526689308178}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91243f3819553334fa1b92925bd7c325, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -74010,18 +73959,6 @@ MonoBehaviour:
   ID: 10
   ThisTrigger: 0
   GimmickTrigger: 0
---- !u!114 &114149887173828670
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526087614539654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fee42b00459e37c4b8bdd831a887e834, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovePoint: {fileID: 1306340473414088}
 --- !u!114 &114181172343449900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74160,7 +74097,7 @@ MonoBehaviour:
   GIMMICK_TYPE: 0
   ReStartTime: 0
   GimmickActive: 0
-  Gimmick: {fileID: 114425754695187282}
+  Gimmick: {fileID: 0}
   Lamp: {fileID: 114289319594910760}
   Laser_HitTime: 2
 --- !u!114 &114283820024162872
@@ -74430,9 +74367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 3
-  ReStartTime: 0
-  GimmickActive: 0
   _doorLeft: {fileID: 4275080123635966}
   _doorRight: {fileID: 4191794239719968}
   _isDoorOpenReactiveProperty:
@@ -74516,9 +74450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 0
-  ReStartTime: 0
-  GimmickActive: 0
   _doorLeft: {fileID: 4200066821205880}
   _doorRight: {fileID: 4915003043992108}
   _isDoorOpenReactiveProperty:
@@ -74721,9 +74652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 0
-  ReStartTime: 0
-  GimmickActive: 0
   _doorLeft: {fileID: 4981128452545700}
   _doorRight: {fileID: 4979393934316918}
   _isDoorOpenReactiveProperty:
@@ -74801,9 +74729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 0
-  ReStartTime: 0
-  GimmickActive: 0
   _doorLeft: {fileID: 4031524248187146}
   _doorRight: {fileID: 4653139969397954}
   _isDoorOpenReactiveProperty:
@@ -74822,24 +74747,6 @@ MonoBehaviour:
   ID: 16
   ThisTrigger: 0
   GimmickTrigger: 0
---- !u!114 &114725952789987460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526087614539654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 0
-  ReStartTime: 0
-  GimmickActive: 0
-  _doorLeft: {fileID: 4952786051192130}
-  _doorRight: {fileID: 4598699464211454}
-  _isDoorOpenReactiveProperty:
-    value: 1
 --- !u!114 &114737351082367816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74879,9 +74786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 0
-  ReStartTime: 0
-  GimmickActive: 0
   _doorLeft: {fileID: 4110392509825230}
   _doorRight: {fileID: 4207791650214044}
   _isDoorOpenReactiveProperty:
@@ -75065,9 +74969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c78c5c95e0a40478e38a08161ef8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GIMMICK_TYPE: 0
-  ReStartTime: 0
-  GimmickActive: 0
   _doorLeft: {fileID: 4456230524982570}
   _doorRight: {fileID: 4418322156497102}
   _isDoorOpenReactiveProperty:

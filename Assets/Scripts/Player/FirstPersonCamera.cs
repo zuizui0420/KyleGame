@@ -26,12 +26,12 @@ public class FirstPersonCamera : SingletonMonoBehaviour<FirstPersonCamera>
         if (PlayerSystem.instance.Zooming)
         {
             GetComponent<Camera>().enabled = true;
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, FirstPersonPointPos, 0.3f);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, FirstPersonPointPos, 0.2f);
         }
         else
         {
             GetComponent<Camera>().enabled = false;
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, DefaultPointPos, 0.3f);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, DefaultPointPos, 0.2f);
         }        
 	}
 }

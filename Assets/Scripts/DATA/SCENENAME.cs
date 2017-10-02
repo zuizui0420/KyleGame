@@ -7,9 +7,11 @@ using UnityEngine;
 /// </summary>
 public class SCENENAME : MonoBehaviour
 {
+    public static string SCENE_TITLE = "Title";
     public static string SCENE_STAGE1 = "Stage1";
     public static string SCENE_STAGE2 = "Stage2";
     public static string SCENE_STAGE3 = "Stage3";
     public static string SCENE_STAGE_BOSS = "Stage_Boss";
-	
+    public static string SCENE_GAMEOVER = "GameOver";
+    public static string SCENE_RESULT = "Result";	
 }

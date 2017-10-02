@@ -393,10 +393,12 @@ MonoBehaviour:
   GIMMICK_TYPE: 0
   ReStartTime: 0
   GimmickActive: 0
+  LaserTrap_LineRenderer: {fileID: 1033454697087696}
   LaserTrap: {fileID: 1655021425944134}
   TrapWorking: 1
   MoveLaser: 0
-  LaserMovePoints: {fileID: 0}
+  LaserMovePoints:
+  - {fileID: 0}
   MoveLerpSpeed: 0
 --- !u!120 &120713321153110494
 LineRenderer:

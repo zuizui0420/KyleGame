@@ -56,6 +56,13 @@ namespace KyleGame
 			}
 		}
 
+		private class StateIdle : State<Drone>
+		{
+			public StateIdle(Drone owner) : base(owner)
+			{
+			}
+		}
+
 		/// <summary>
 		///     ステート：追跡
 		/// </summary>
@@ -173,6 +180,7 @@ namespace KyleGame
 	public enum DroneState
 	{
 		Wander,
+		Idle,
 		Pursuit,
 		Attack,
 		Return

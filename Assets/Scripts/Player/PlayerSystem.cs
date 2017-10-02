@@ -49,6 +49,9 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     [SerializeField, Header("エレクトロモード用攻撃エフェクト")]
     GameObject Effect_Electric_Attack;
 
+    [SerializeField, Header("死亡時の爆発エフェクト")]
+    GameObject Effect_Explosion;
+
     float MoveSpeed;
 
     //最終角度
@@ -94,6 +97,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     //無敵
     bool OnVisible = false;
 
+    bool MoveFlg = true;
+
     enum ANIMATION_MODE
     {
         AIM,
@@ -115,32 +120,47 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     void Update()
     {
-        if (BatteryIcon.OverHeat)
+        if (BatteryIcon.OverHeat && MoveFlg && !BatteryIcon.DummyOverHeat)
         {
             BatteryIcon.BatteryOverHeat();
             MoveSpeed = DefaultSpeed;
 
-            foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
-            {
-                effect.Stop();
-            }
-
             Mode_Spark = false;
+
+            if (BatteryIcon.ResetFlg)
+            {
+                Damage();
+
+                foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+                {
+                    effect.Stop();
+                }
+
+                SparkAttack = false;
+                AttackAnimation(false, ANIMATION_MODE.SPARK);
+
+                BatteryIcon.ResetFlg = false;         
+            }
         }
-        else if (Mode_Spark)
+        else if (!BatteryIcon.OverHeat && MoveFlg && BatteryIcon.DummyOverHeat)
+        {
+            BatteryIcon.BatteryDummyOverHeat();
+            MoveSpeed = ElectricModeSpeed;
+        }
+        else if (Mode_Spark && MoveFlg)
         {
             BatteryIcon.BatteryUse();
             MoveSpeed = ElectricModeSpeed;
         }
-        else
+        else if(MoveFlg)
         {
             BatteryIcon.BatteryCharge();
             MoveSpeed = DefaultSpeed;
-        }       
+        }
 
         PlayerAnimation();
 
-        PlayerCommand();        
+        PlayerCommand();
 
         AimMode();
     }
@@ -305,7 +325,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     /// <param name="atk"></param>
     private void Attack(bool atk)
     {               
-        if (!Zooming && !Mode_Aim && Mode_Spark) //放電
+        if (!Zooming && !Mode_Aim && Mode_Spark && !BatteryIcon.DummyOverHeat) //放電
         {
             if (atk)
             {
@@ -340,7 +360,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         if (!SparkAttack)
         {
             if (aim) { AttackAnimation(true, ANIMATION_MODE.AIM); }
-            else { AttackAnimation(false, ANIMATION_MODE.AIM); }
+            else { AttackAnimation(false, ANIMATION_MODE.AIM); AudioManager.Instance.AudioDelete(AUDIONAME.SE_LASER); }
         }
     }
 
@@ -358,7 +378,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
             Mode_Spark = true;            
         }
-        else
+        else if(!SparkAttack)
         {
             foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
             {
@@ -396,14 +416,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     Mode_Aim = true;
 
-                    WaitAfter(0.3f, () => 
+                    if (Mode_Aim)
                     {
-                        if (Mode_Aim)
-                        {
-                            Zooming = true;
-                            ReticleSystem.Instance.ReticleEnable(true);
-                        }           
-                    });
+
+                        Zooming = true;
+                        ReticleSystem.Instance.ReticleEnable(true);
+                    }
 
                     break;
 
@@ -411,15 +429,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     Mode_Spark = true;
 
-                    WaitAfter(0.3f, () =>
-                    {
-                        AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 1, true, 130);
+                    AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 1, true, 130);
 
-                        foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
-                        {
-                            effect.Play();
-                        }
-                    });                   
+                    foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
+                    {
+                        effect.Play();
+                    }               
 
                     break;
             }
@@ -442,11 +457,18 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     Zooming = false;
 
+                    MoveFlg = false;
+
+                    MoveSpeed = 0f;                  
+
                     WaitAfter(0.3f, () =>
                     {
-                        PlayerControle = true;
-                        PlayerCameraControle = true;
+                        MoveSpeed = DefaultSpeed;
+                        MoveFlg = true;
                     });
+
+                    PlayerControle = true;
+                    PlayerCameraControle = true;
 
                     break;
 
@@ -454,15 +476,28 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
 
+                    if (!BatteryIcon.OverHeat)
+                    {
+                        BatteryIcon.DummyOverHeat = true;
+                    }                   
+
                     foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                     {
                         effect.Stop();
                     }
 
+                    MoveFlg = false;
+
+                    MoveSpeed = 0f;
+
                     WaitAfter(0.3f, () =>
                     {
-                        PlayerControle = true;
-                    });                   
+                        MoveSpeed = DefaultSpeed;
+                        MoveFlg = true;
+
+                    });
+
+                    PlayerControle = true;
 
                     break;
             }
@@ -478,6 +513,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //移動速度０の場合は、Animatorの即時ステートを防ぐために、0.1秒のインターバルを設ける
         if ((moveDirection.magnitude * 10) == 0)
         {
+            //PlayerAnim.SetFloat("Speed", Mathf.Clamp(moveDirection.magnitude * 10, 0f, 1f));
+
             WaitAfter(0.05f, () =>
             {
                 PlayerAnim.SetFloat("Speed", Mathf.Clamp(moveDirection.magnitude * 10, 0f, 1f));
@@ -509,7 +546,24 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         LifeIcon.StartBlink(LIFE);
 
         //体力がない場合は死亡する
-        if (LIFE == 0) { LifeIcon.Dead = true; }
+        if (LIFE == 0)
+        {
+            LifeIcon.Dead = true;
+
+            Effect_Explosion.GetComponent<ParticleSystem>().Play();
+
+            PlayerAnim.SetBool("Death", true);
+
+            PlayerControle = false;
+            PlayerCameraControle = false;
+
+            AudioManager.Instance.BGMFadeOut(AUDIONAME.BGM_STAGE);
+
+            WaitAfter(3f, () =>
+            {
+                SceneFader.Instance.LoadLevel(SCENENAME.SCENE_GAMEOVER);
+            });
+        }
 
         //無敵状態にする
         OnVisible = true;

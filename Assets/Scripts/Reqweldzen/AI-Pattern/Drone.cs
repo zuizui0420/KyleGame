@@ -1,75 +1,97 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using KyleGame.ViewModel;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
+using Zenject;
 
 namespace KyleGame
 {
 	public partial class Drone : StatefulWalker<Drone, DroneState>
 	{
-		private Enemy_Drone _droneAnimation;
+		[SerializeField]
+		private GameObject _bulletPrefab;
+
+		private DroneAnimation _droneAnimation;
+
+		[SerializeField]
+		private bool _isIdleMode;
 
 		private Transform _playerTransform;
 
 		[SerializeField, Header("弾丸を生成する座標")]
 		private Transform[] _shotPointList;
 
-		[SerializeField, Header("弾丸オブジェクト")]
-		private TurretBullet _bulletPrefab;
-
 		protected override Transform PlayerTransform
 		{
 			get { return _playerTransform; }
+		}
+
+		[Inject]
+		private void Construct(PlayerSystem player)
+		{
+			_playerTransform = player.transform;
 		}
 
 		protected override void OnInitialize()
 		{
 			base.OnInitialize();
 
-			_playerTransform = GameObject.Find("Player").transform;
-			_droneAnimation = GetComponent<Enemy_Drone>();
+			_droneAnimation = GetComponent<DroneAnimation>();
+
+			if (_shotPointList == null || !_shotPointList.Any())
+			{
+				_shotPointList = new[] {transform};
+;			}
 
 			MovementSpeed.TakeUntilDestroy(this)
 				.Subscribe(x => _droneAnimation.Speed = x);
 
 			StateList.Add(new StateWander(this));
+			StateList.Add(new StateIdle(this));
 			StateList.Add(new StatePursuit(this));
 			StateList.Add(new StateAttack(this));
 			StateList.Add(new StateReturn(this));
 
 			StateMachine = new StateMachine<Drone>();
 
-			ChangeState(DroneState.Wander);
+			ChangeState(_isIdleMode ? DroneState.Idle : DroneState.Wander);
 		}
 
 		private IEnumerator ShotBullet(CancellationToken token)
 		{
-			var attackDuration = 2f;
-			var bulletRate = 0.2f;
-			var bulletContinuity = 3f;
-			var bulletInterval = 0.4f;
+			var duration = 3;
+			var burstRate = 200;
+			var burstCount = 3f;
+			var shotIntervalTime = 200;
 
-			int count = 0;
-
-			var startTime = Time.timeSinceLevelLoad;
-
-			while (!token.IsCancellationRequested)
+			for (var j = 0; j < duration; j++)
 			{
-				var diff = Time.timeSinceLevelLoad - startTime;
-				if (diff >= attackDuration) break;
-
-				if (count >= bulletContinuity)
+				for (var i = 0; i < burstCount; i++)
 				{
-					yield return new WaitForSeconds(bulletInterval);
-					count = 0;
+					foreach (var shotPoint in _shotPointList)
+					{
+						var bullet = Instantiate(_bulletPrefab, shotPoint.position, shotPoint.rotation);
+
+						bullet.OnTriggerEnterAsObservable().AsUnitObservable()
+							.Merge(Observable.Timer(TimeSpan.FromSeconds(2)).AsUnitObservable())
+							.TakeUntilDestroy(this)
+							.Take(1)
+							.Subscribe(_ =>
+							{
+								Observable.NextFrame()
+									.Subscribe(__ => Destroy(bullet));
+
+							});
+					}
+
+					yield return this.Wait(TimeSpan.FromMilliseconds(burstRate)).ToYieldInstruction();
 				}
 
-				for (var i = 0; i < _shotPointList.Length; i++)
-				{
-					Instantiate(_bulletPrefab, _shotPointList[i].position, _shotPointList[i].rotation);
-				}
-
-				count++;
-				yield return new WaitForSeconds(bulletRate);
+				yield return this.Wait(TimeSpan.FromMilliseconds(shotIntervalTime)).ToYieldInstruction();
 			}
 		}
 	}

@@ -45,8 +45,8 @@ public class ReticleSystem : SingletonMonoBehaviour<ReticleSystem>
 
             Vector3 Pos = transform.localPosition;
 
-            X = -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).y;
-            Y = -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).x;
+            X = -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).y * 1.5f;
+            Y = -GamePad.GetAxis(GamePad.Axis.RightStick, GamePad.Index.One, true).x * 1.5f;
 
             Pos.x += X;
             Pos.y += Y;

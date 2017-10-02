@@ -16,11 +16,17 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
         Stage2,
         Stage3,
         Stage_Boss,
+        Result,
     }
 
     void Start()
     {
         AudioManager.Instance.PlayAudio(AUDIONAME.BGM_STAGE, 1, true, 128);
+    }
+
+    void Update()
+    {
+        DATABASE.ResultTimer += Time.deltaTime;
     }
 
     public string ReturnNextSceneName()
@@ -50,6 +56,12 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
             case STAGE.Stage_Boss:
 
                 name = SCENENAME.SCENE_STAGE_BOSS;
+
+                break;
+
+            case STAGE.Result:
+
+                name = SCENENAME.SCENE_RESULT;
 
                 break;
         }

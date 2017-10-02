@@ -92,19 +92,7 @@ public class TurretControle : GimmickBase
             AngleRay();
 
             IdleTurret();
-        }
-
-        //デバッグ用：タレット起動スイッチ
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            GimmickAction_Enemy();
-        }
-
-        //デバッグ用：タレット破壊スイッチ
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            GimmickBreak();
-        }    
+        } 
 	}
 
     /// <summary>

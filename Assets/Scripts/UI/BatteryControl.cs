@@ -17,12 +17,20 @@ public class BatteryControl : MonoBehaviour
     [SerializeField,Header("オーバーヒート")]
     public bool OverHeat = false;
 
+    [HideInInspector]
+    public bool ResetFlg = false;
+
     //バッテリー残量
     float CurrentBattery;   
 
     float rate = 0.25f;
 
-    Image BatteryImage;  
+    Image BatteryImage;
+
+    [SerializeField]
+    public bool DummyOverHeat = false;
+
+    float DummyBattery = 3f;
 
     void Start()
     {
@@ -54,7 +62,13 @@ public class BatteryControl : MonoBehaviour
         else
         {
             //オーバーヒートする
-            OverHeat = true;              
+            OverHeat = true;
+
+            DummyOverHeat = false;
+
+            DummyBattery = 3f;
+
+            ResetFlg = true;
         }
     }
 
@@ -112,5 +126,47 @@ public class BatteryControl : MonoBehaviour
 
             OverHeat = false;
         }
+    }
+
+    /// <summary>
+    /// 3秒間使用できなくする疑似的なオーバーヒート
+    /// </summary>
+    public void BatteryDummyOverHeat()
+    {
+        if (!OverHeat)
+        {
+            BatteryImage.enabled = true;            
+
+            DummyBattery -= Time.deltaTime;
+
+            CurrentBattery -= Time.deltaTime;
+
+            //消費するバッテリー値
+            float lossBatteryValue = 0f;
+
+            //1秒に消費するバッテリー値を算出
+            lossBatteryValue = (1 / BatteryLimitCount) * CurrentBattery;
+
+            if (DummyBattery > 0f)
+            {
+                // 現在のAlpha値を取得
+                float alpha = BatteryImage.color.a;
+
+                // Alphaが0 または 1になったら増減値を反転
+                if (alpha < 0 || alpha > 1) { rate = rate * -1; }
+
+                // Alpha値を増減させてセット
+                BatteryImage.color = new Color(1f, lossBatteryValue, lossBatteryValue, alpha + rate);
+            }
+            else
+            {
+                // Alpha値をリセット
+                BatteryImage.color = new Color(1f, lossBatteryValue, lossBatteryValue, 1f);
+
+                DummyBattery = 3f;
+
+                DummyOverHeat = false;
+            }
+        }  
     }
 }

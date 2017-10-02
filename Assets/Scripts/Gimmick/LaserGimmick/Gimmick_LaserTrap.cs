@@ -82,10 +82,9 @@ public class Gimmick_LaserTrap : GimmickBase
     {
         RaycastHit hit;
 
-        Debug.DrawRay(LaserTrap_LineRenderer.transform.position, LaserTrap.transform.position - LaserTrap_LineRenderer.transform.position, Color.cyan);
+        Debug.DrawLine(LaserTrap_LineRenderer.transform.position, LaserTrap.transform.position, Color.cyan);
 
-        if(Physics.Raycast(LaserTrap_LineRenderer.transform.position,LaserTrap.transform.position - LaserTrap_LineRenderer.transform.position,out hit,
-            Vector3.Distance(LaserTrap_LineRenderer.transform.position, LaserTrap.transform.position)))
+        if(Physics.Linecast(LaserTrap_LineRenderer.transform.position, LaserTrap.transform.position, out hit, 1 << LayerMask.NameToLayer("Player")))
         {
             if(hit.collider.tag == TAGNAME.TAG_PLAYER)
             {

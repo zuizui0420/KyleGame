@@ -25,7 +25,7 @@ public class Gimmick_Bar : MonoBehaviour
     //一番下のバーの最終的なY座標
     float LastYPos = -1.9f;
 
-    void Start ()
+    void Awake ()
     {
         //初期座標・移動先座標を設定
         for (int i = 0; i < Bars.Length; i++)

@@ -19,12 +19,13 @@ public class ElevatorDoor : MonoBehaviourExtension
             if (col.gameObject.tag == TAGNAME.TAG_PLAYER)
             {
                 col.gameObject.transform.parent = transform;
-                //col.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
-                GetComponent<Door>().Close();
+                GetComponent<Door>().Close();                
 
                 WaitAfter(3.0f, () =>
                 {
+                    AudioManager.Instance.BGMFadeOut(AUDIONAME.BGM_STAGE, 0.5f);
+
                     //シーン遷移
                     SceneFader.Instance.LoadLevel(StageManager.Instance.ReturnNextSceneName());
 

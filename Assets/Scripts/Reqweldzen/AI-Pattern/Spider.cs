@@ -12,6 +12,9 @@ namespace KyleGame
 		[SerializeField]
 		private SpiderType _spiderType = SpiderType.TimerBomb;
 
+		[SerializeField]
+		private bool _isIdleMode;
+
 		protected override Transform PlayerTransform
 		{
 			get { return _playerTransform; }
@@ -29,12 +32,13 @@ namespace KyleGame
 
 
 			StateList.Add(new StateWander(this));
+			StateList.Add(new StateIdle(this));
 			StateList.Add(new StatePursuit(this));
 			StateList.Add(new StateExplosion(this));
 
 			StateMachine = new StateMachine<Spider>();
 
-			ChangeState(SpiderState.Wander);
+			ChangeState(_isIdleMode ? SpiderState.Idle : SpiderState.Wander);
 		}
 	}
 
@@ -47,6 +51,7 @@ namespace KyleGame
 	public enum SpiderState
 	{
 		Wander,
+		Idle,
 		Pursuit,
 		Explode
 	}

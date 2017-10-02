@@ -52,6 +52,13 @@ namespace KyleGame
 			}
 		}
 
+		private class StateIdle : State<Spider>
+		{
+			public StateIdle(Spider owner) : base(owner)
+			{
+			}
+		}
+
 		/// <summary>
 		///     ステート：追跡
 		/// </summary>

@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 135287835219455240}
   m_Layer: 0
   m_Name: Gimmick_WallSwitch
-  m_TagString: Gimmcik_Laser
+  m_TagString: Gimmick_Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223903031166542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.243, y: -1.011, z: 8.534}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4168507629866162}
@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GIMMICK_TYPE: 0
+  ReStartTime: 0
   GimmickActive: 0
   Gimmick: {fileID: 0}
   Lamp: {fileID: 114037295974464868}
