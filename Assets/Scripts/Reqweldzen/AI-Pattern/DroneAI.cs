@@ -56,6 +56,13 @@ namespace KyleGame
 			}
 		}
 
+		private class StateIdle : State<Drone>
+		{
+			public StateIdle(Drone owner) : base(owner)
+			{
+			}
+		}
+
 		/// <summary>
 		///     ステート：追跡
 		/// </summary>
@@ -114,6 +121,8 @@ namespace KyleGame
 		/// </summary>
 		private class StateAttack : WalkerStateBase<Drone>
 		{
+			private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
+
 			public StateAttack(Drone owner) : base(owner)
 			{
 			}
@@ -121,12 +130,19 @@ namespace KyleGame
 			public override void Enter()
 			{
 				Debug.Log("Attack");
-				Observable.NextFrame()
+
+				Observable.FromCoroutine(Owner.ShotBullet)
 					.Subscribe(_ =>
 					{
 						Agent.isStopped = false;
 						Owner.ChangeState(DroneState.Pursuit);
-					});
+					})
+					.AddTo(_compositeDisposable);
+			}
+
+			public override void Exit()
+			{
+				_compositeDisposable.Clear();
 			}
 		}
 
@@ -164,6 +180,7 @@ namespace KyleGame
 	public enum DroneState
 	{
 		Wander,
+		Idle,
 		Pursuit,
 		Attack,
 		Return
