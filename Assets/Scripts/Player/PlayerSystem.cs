@@ -371,6 +371,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     {
         if(!Mode_Spark && !SparkAttack && !BatteryIcon.OverHeat)
         {
+            AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 0.5f, true, 150);
+
             foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
             {
                 effect.Play();
@@ -380,6 +382,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         }
         else if(!SparkAttack)
         {
+            AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
+
             foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
             {
                 effect.Stop();
@@ -429,7 +433,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     Mode_Spark = true;
 
-                    AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 1, true, 130);
+                    AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_2, 1, true, 130);
 
                     foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -474,7 +478,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                 case ANIMATION_MODE.SPARK:
 
-                    AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
+                    AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_2);
 
                     if (!BatteryIcon.OverHeat)
                     {
@@ -548,6 +552,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //体力がない場合は死亡する
         if (LIFE == 0)
         {
+            Debug.Log("死亡");
+
             LifeIcon.Dead = true;
 
             Effect_Explosion.GetComponent<ParticleSystem>().Play();

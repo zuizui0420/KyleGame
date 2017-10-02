@@ -10092,9 +10092,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useBattery: 1
-  BatteryLimitCount: 20
+  BatteryLimitCount: 1
   OverHeat: 0
   ResetFlg: 0
+  DummyOverHeat: 0
 --- !u!114 &464172300
 MonoBehaviour:
   m_ObjectHideFlags: 0

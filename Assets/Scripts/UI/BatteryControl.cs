@@ -69,6 +69,8 @@ public class BatteryControl : MonoBehaviour
             DummyBattery = 3f;
 
             ResetFlg = true;
+
+            AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
         }
     }
 
