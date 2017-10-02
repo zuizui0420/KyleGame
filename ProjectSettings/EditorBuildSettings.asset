@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Taitol.unity
+    guid: 2b7b37e83244af74cb77b3c643ce196b
+  - enabled: 1
+    path: Assets/setumei.unity
+    guid: a865925fa4dff8943925bcb7fa3db288
+  - enabled: 1
+    path: Assets/DemoScene.unity
+    guid: 8f8fad8c694b6db48bba6770168d9393
