@@ -6,31 +6,26 @@ public class BossLaserControl : MonoBehaviour {
 
     public GameObject eyesPos,targetPos,laser;//Laserの発射座標と着弾座標
     public bool fire;
-  
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
 
         //レーザー照射
         if (fire)
         {
-            Instantiate(laser, transform.position, Quaternion.identity);
-            fire = false;
+	        Shot();
+			fire = false;
           
         }
-        //照射していない時
-        else
-        {
-            
-        }
-
 
     }
+
+	public void Shot()
+	{
+		Instantiate(laser, transform.position, Quaternion.identity);
+	}
 
     private void FixedUpdate()
     {

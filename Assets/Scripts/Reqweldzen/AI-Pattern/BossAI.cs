@@ -28,22 +28,19 @@ namespace KyleGame
 			public override void Enter()
 			{
 				MovementSpeed = 1f;
+				Agent.isStopped = false;
+				Owner._bossAnimatorControl.MovementSpeed = 0.2f;
 
 				// 追跡座標を10Fごとに更新
-				Observable.IntervalFrame(10 /*, FrameCountType.FixedUpdate*/)
-					.Subscribe(_ =>
-					{
-						var relativePos = GetDirection(Player) * RelativeDistance * -1;
-						Destination = Player.position + relativePos;
-					})
+				Observable.IntervalFrame(10)
+					.Subscribe(_ => UpdateDestination())
 					.AddTo(_compositeDisposable);
 
 				// プレイヤーが近い場合すぐに行動する
 				Owner.UpdateAsObservable()
 					.Where(_ => GetDistance(Player) <= RelativeDistance)
 					.FirstOrDefault()
-					.Do(_ => Owner.ChangeState(BossState.Tackle))
-					.Subscribe()
+					.Subscribe(_ => Owner.ChangeState(BossState.Laser))
 					.AddTo(_compositeDisposable);
 
 				// 最長5秒後に行動を決定する
@@ -51,30 +48,31 @@ namespace KyleGame
 					.TakeUntilDestroy(Owner)
 					.Subscribe(_ =>
 					{
+						Owner._bossAnimatorControl.MovementSpeed = 0;
+
 						// タックル
 						if (GetDistance(Player) > 5f)
+						{
 							Owner.ChangeState(BossState.Tackle);
+							return;
+						}
+
+
+						Owner.ChangeState(BossState.Laser);
 					})
 					.AddTo(_compositeDisposable);
+			}
+
+			private void UpdateDestination()
+			{
+				var relativePos = GetDirection(Player) * RelativeDistance * -1;
+				Destination = Player.position + relativePos;
 			}
 
 			public override void Exit()
 			{
 				_compositeDisposable.Clear();
-			}
-		}
-
-		private class StateCallEnemy : WalkerStateBase<Boss>
-		{
-			public StateCallEnemy(Boss owner) : base(owner)
-			{
-			}
-
-			public override void Enter()
-			{
-				Observable.Timer(TimeSpan.FromSeconds(3))
-					.TakeUntilDestroy(Owner)
-					.Subscribe(_ => { Owner.ChangeState(BossState.Pursuit); });
+				MovementSpeed = 0;
 			}
 		}
 
@@ -86,7 +84,7 @@ namespace KyleGame
 
 			public override void Enter()
 			{
-				Observable.FromCoroutine(Owner.LaserCoroutine).TakeUntilDestroy(Owner).Subscribe(_ =>
+				Owner._bossAnimatorControl.Beam().TakeUntilDestroy(Owner).Subscribe(_ =>
 				{
 					Owner.ChangeState(BossState.Pursuit);
 				});
@@ -111,7 +109,9 @@ namespace KyleGame
 
 			public override void Enter()
 			{
-				
+				Observable.Timer(TimeSpan.FromSeconds(3))
+					.TakeUntilDestroy(Owner)
+					.Subscribe(_ => { Owner.ChangeState(BossState.Pursuit); });
 			}
 		}
 
@@ -119,38 +119,55 @@ namespace KyleGame
 		{
 			private const float RelativeDistance = 1.5f;
 
+			private readonly BossAnimatorControl _animatorControl;
+
 			public StateTackle(Boss owner) : base(owner)
 			{
+				_animatorControl = owner._bossAnimatorControl;
 			}
 
 			public override void Enter()
 			{
+				_animatorControl.MovementSpeed = 0;
+				Agent.ResetPath();
+
 				Observable.FromCoroutine(_ => Tackle())
 					.TakeUntilDestroy(Owner)
 					.Subscribe(_ => Owner.ChangeState(BossState.Pursuit));
 			}
 
+			private bool _isHit;
+
+			private void Hit()
+			{
+				_isHit = true;
+			}
+
 			// 電気タックル
 			private IEnumerator Tackle()
 			{
-				Agent.isStopped = true;
-				MovementSpeed = 20f;
-
-				var relativePos = GetDirection(Player) * RelativeDistance * -1;
-				Destination = Player.position + relativePos;
+				yield return _animatorControl.TackleReady().ToYieldInstruction();
 
 				yield return new WaitForSeconds(0.5f);
 
+				var startTime = Time.timeSinceLevelLoad;
 
-				Agent.isStopped = false;
+				_isHit = false;
+				Owner.OnCollisionEnterAsObservable().Where(x => x.collider.GetComponent<PlayerSystem>()).FirstOrDefault().Subscribe(_ => Hit()).AddTo(Owner);
 
-				yield return new WaitForSeconds(2f);
+				while (true)
+				{
+					var time = Time.timeSinceLevelLoad - startTime;
+					if (time >= 1f) break;
+					if (_isHit) break;
 
-				Agent.isStopped = true;
+					Agent.Move(GetDirection(Player) * 8f * Time.deltaTime);
+					yield return null;
+				}
 
-				yield return new WaitForSeconds(0.5f);
+				_animatorControl.TackleRelease();
 
-				Agent.isStopped = false;
+				yield return new WaitForSeconds(1f);
 			}
 		}
 

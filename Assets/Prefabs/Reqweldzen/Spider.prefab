@@ -621,7 +621,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4773518372802696}
   - component: {fileID: 198642216856519316}
-  - component: {fileID: 114691202485545914}
   m_Layer: 0
   m_Name: ExplosionEffect
   m_TagString: Untagged
@@ -639,8 +638,8 @@ GameObject:
   - component: {fileID: 4061875736045640}
   - component: {fileID: 143626168289515214}
   - component: {fileID: 114687548219761106}
-  - component: {fileID: 114112768033558118}
-  - component: {fileID: 114162404594567514}
+  - component: {fileID: 195387034552878844}
+  - component: {fileID: 114802786559922118}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -1267,30 +1266,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114112768033558118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1935651323890364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e3b7b2477b43e148a9574af6be958a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114162404594567514
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1935651323890364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf893d3586f6b940a4b2479a1479fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 198642216856519316}
-  _sparkEffect: {fileID: 198161696262552580}
 --- !u!114 &114687548219761106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1302,19 +1277,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac56b5bb369bd041bfa8ddfe0059975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114691202485545914
+--- !u!114 &114802786559922118
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1912932635240326}
+  m_GameObject: {fileID: 1935651323890364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ca76ed29a34be47b7b4cdcb7193528, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f277fbfeb2cc0741a2a19911c6f4139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spider: {fileID: 1820343679065718}
-  particle: {fileID: 198642216856519316}
+  ReactionAngle: 0
+  ReactionDistance: 0
+  DestinationData:
+    DestinationList: []
+  _spiderType: 1
+  _isIdleMode: 0
 --- !u!137 &137196131610659320
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1405,6 +1384,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!195 &195387034552878844
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935651323890364}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!198 &198161696262552580
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1460,7 +1460,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1267225435
+  randomSeed: -674684287
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4416,7 +4416,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 477073684
+  randomSeed: -1434283100
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7360,7 +7360,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1249600465
+  randomSeed: -2099406856
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10286,7 +10286,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -384339544
+  randomSeed: -165964978
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13200,7 +13200,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1203547535
+  randomSeed: 2004071875
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16120,7 +16120,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1701906087
+  randomSeed: -1401581675
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -19124,7 +19124,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 359924920
+  randomSeed: 1574493397
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -21942,7 +21942,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1280824228
+  randomSeed: -966367326
   InitialModule:
     serializedVersion: 3
     enabled: 1

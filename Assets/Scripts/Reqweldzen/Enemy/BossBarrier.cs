@@ -13,7 +13,7 @@ namespace KyleGame
 
 		public void HalfBroken()
 		{
-			_sparkEffect.Play();
+			//_sparkEffect.Play();
 		}
 
 		public void Broke()

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using UniRx;
+using UnityEditorInternal;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +14,8 @@ namespace KyleGame
 
 		[SerializeField]
 		private BossBarrier _bossBarrier;
+
+		private BossAnimatorControl _bossAnimatorControl;
 
 		/// <summary>
 		/// 
@@ -40,16 +43,21 @@ namespace KyleGame
 
 			_playerTransform = _player.transform;
 
+			_bossAnimatorControl = GetComponent<BossAnimatorControl>();
+
 			WeaponSetup();
 
 			StateList.Add(new StateIdle(this));
 			StateList.Add(new StatePursuit(this));
+			StateList.Add(new StateLaser(this));
+			StateList.Add(new StateSummonEnemy(this));
 			StateList.Add(new StateTackle(this));
 			StateList.Add(new StateFreeze(this));
 			StateList.Add(new StateDead(this));
 			StateMachine = new StateMachine<Boss>();
 			ChangeState(BossState.Pursuit);
 		}
+
 
 		private void WeaponSetup()
 		{
@@ -67,11 +75,6 @@ namespace KyleGame
 			barrierHalfBroken.Merge(barrierBroken).TakeUntilDestroy(this).Subscribe();
 		}
 
-		private IEnumerator LaserCoroutine()
-		{
-			yield return null;
-		}
-
 		private IEnumerator SummonCoroutine()
 		{
 			yield return null;
@@ -87,6 +90,8 @@ namespace KyleGame
 	{
 		Idle,
 		Pursuit,
+		Laser,
+		SummonEnemy,
 		Tackle,
 		Freeze,
 		Dead
