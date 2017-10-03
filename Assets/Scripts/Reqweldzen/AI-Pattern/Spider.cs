@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using System;
+using UniRx;
 using UnityEngine;
 
 namespace KyleGame
@@ -23,8 +24,8 @@ namespace KyleGame
 		protected override void OnInitialize()
 		{
 			base.OnInitialize();
+			
 
-			_spiderAnimation = GetComponent<ISpiderAnimation>();
 			_playerTransform = GameObject.Find("Player").transform;
 			
 			MovementSpeed.TakeUntilDestroy(this)
@@ -39,6 +40,21 @@ namespace KyleGame
 			StateMachine = new StateMachine<Spider>();
 
 			ChangeState(_isIdleMode ? SpiderState.Idle : SpiderState.Wander);
+		}
+
+		private void SelectAnimation()
+		{
+			switch (_spiderType)
+			{
+				case SpiderType.InstantSpark:
+					_spiderAnimation = gameObject.AddComponent<FastSpiderAnimation>();
+					break;
+				case SpiderType.TimerBomb:
+					_spiderAnimation = gameObject.AddComponent<SlowSpiderAnimation>();
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 		}
 	}
 
