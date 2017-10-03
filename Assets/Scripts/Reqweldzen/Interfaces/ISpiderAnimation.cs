@@ -1,3 +1,5 @@
+using UniRx;
+
 public interface ISpiderAnimation
 {
 	/// <summary>
@@ -6,5 +8,6 @@ public interface ISpiderAnimation
 	float Speed { set; }
 
 	void Spark();
-	void Suicide();
+	IObservable<Unit> Suicide();
+	IObservable<Unit> Dead();
 }

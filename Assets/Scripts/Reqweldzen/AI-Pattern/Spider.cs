@@ -1,4 +1,5 @@
 ﻿using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace KyleGame
@@ -15,6 +16,9 @@ namespace KyleGame
 		[SerializeField]
 		private bool _isIdleMode;
 
+		[SerializeField, Header("Damage Area")]
+		private GameObject _damageArea;
+
 		protected override Transform PlayerTransform
 		{
 			get { return _playerTransform; }
@@ -30,7 +34,6 @@ namespace KyleGame
 			MovementSpeed.TakeUntilDestroy(this)
 				.Subscribe(x => _spiderAnimation.Speed = x);
 
-
 			StateList.Add(new StateWander(this));
 			StateList.Add(new StateIdle(this));
 			StateList.Add(new StatePursuit(this));
@@ -39,6 +42,11 @@ namespace KyleGame
 			StateMachine = new StateMachine<Spider>();
 
 			ChangeState(_isIdleMode ? SpiderState.Idle : SpiderState.Wander);
+		}
+
+		public void Dead()
+		{
+			ChangeState(SpiderState.Explode);
 		}
 	}
 

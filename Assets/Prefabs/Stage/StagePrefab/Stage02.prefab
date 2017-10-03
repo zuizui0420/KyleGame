@@ -7090,8 +7090,9 @@ GameObject:
   - component: {fileID: 4673264595824252}
   - component: {fileID: 95586198561616962}
   - component: {fileID: 114425754695187282}
+  - component: {fileID: 114554000977413656}
   m_Layer: 9
-  m_Name: GimmickDoor Gate
+  m_Name: SwitchDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12517,6 +12518,7 @@ GameObject:
   - component: {fileID: 114012911601925356}
   - component: {fileID: 114417850348122296}
   - component: {fileID: 114236705366880362}
+  - component: {fileID: 114724210646295012}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Enemy
@@ -18251,6 +18253,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1872576193075548
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4143985816921738}
+  - component: {fileID: 135262167369548992}
+  m_Layer: 0
+  m_Name: DamageArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1874230029376742
 GameObject:
   m_ObjectHideFlags: 1
@@ -22983,6 +23001,19 @@ Transform:
   m_Father: {fileID: 4846693402025366}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
+--- !u!4 &4143985816921738
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872576193075548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4982550039832320}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4144989893309016
 Transform:
   m_ObjectHideFlags: 1
@@ -30956,7 +30987,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246739057268180}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -7.49, y: -3, z: 50.44}
+  m_LocalPosition: {x: -4.44, y: -3, z: 53.47}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_Children:
   - {fileID: 4066396005132078}
@@ -33110,7 +33141,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815277067550240}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 1.49, y: -3, z: 50.45}
+  m_LocalPosition: {x: -1.46, y: -3, z: 53.48}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_Children:
   - {fileID: 4422438516680276}
@@ -37722,6 +37753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4204129924097740}
+  - {fileID: 4143985816921738}
   m_Father: {fileID: 4639158747194444}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74097,7 +74129,7 @@ MonoBehaviour:
   GIMMICK_TYPE: 0
   ReStartTime: 0
   GimmickActive: 0
-  Gimmick: {fileID: 0}
+  Gimmick: {fileID: 114554000977413656}
   Lamp: {fileID: 114289319594910760}
   Laser_HitTime: 2
 --- !u!114 &114283820024162872
@@ -74340,9 +74372,10 @@ MonoBehaviour:
     DestinationList:
     - {fileID: 4904180960482454}
     - {fileID: 4947444013816568}
+  _bulletPrefab: {fileID: 0}
+  _isIdleMode: 0
   _shotPointList:
   - {fileID: 4685674958225100}
-  _bulletPrefab: {fileID: 114578508928886458}
 --- !u!114 &114423051048343966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74370,7 +74403,7 @@ MonoBehaviour:
   _doorLeft: {fileID: 4275080123635966}
   _doorRight: {fileID: 4191794239719968}
   _isDoorOpenReactiveProperty:
-    value: 1
+    value: 0
 --- !u!114 &114454623610851218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74397,7 +74430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d50805a389e5b4fac6408ffc8182bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: 0
+  NextSceneName: 2
 --- !u!114 &114467592263804322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74466,6 +74499,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _censorDistance: 10
+--- !u!114 &114554000977413656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333712453889228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafd8dce7068902409dda2d2de8757c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GIMMICK_TYPE: 3
+  ReStartTime: 0
+  GimmickActive: 0
+  Gimmick: {fileID: 0}
 --- !u!114 &114561917736799708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74703,6 +74751,8 @@ MonoBehaviour:
     - {fileID: 4188938833758698}
     - {fileID: 4437495539010788}
   _spiderType: 1
+  _isIdleMode: 0
+  _damageArea: {fileID: 1872576193075548}
 --- !u!114 &114713773704422870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74747,6 +74797,19 @@ MonoBehaviour:
   ID: 16
   ThisTrigger: 0
   GimmickTrigger: 0
+--- !u!114 &114724210646295012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604459822795776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0efd4b799cd7b41af96b56e5f4f372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionEffect: {fileID: 198930529349382404}
+  _sparkEffect: {fileID: 198929915588089830}
 --- !u!114 &114737351082367816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75181,6 +75244,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.38800728
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!135 &135262167369548992
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872576193075548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135347867567742980
 SphereCollider:
   m_ObjectHideFlags: 1

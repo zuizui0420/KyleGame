@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using KyleGame;
 using UnityEngine;
 
 /// <summary>
@@ -7,15 +8,11 @@ using UnityEngine;
 /// </summary>
 public class Enemy_Spider : EnemyBase
 {
-    [SerializeField, Header("FastSpiderAnimation")]
-    FastSpiderAnimation SpiderAnimation;
-
     /// <summary>
     /// 敵：死亡処理
     /// </summary>
     protected override void EnemyDead()
     {
-        SpiderAnimation.Dead();
-        base.EnemyDead();
+        GetComponent<Spider>().Dead();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UniRx;
 using UnityEngine;
 
 public class SlowSpiderAnimation : MonoBehaviour, ISpiderAnimation
@@ -22,15 +23,20 @@ public class SlowSpiderAnimation : MonoBehaviour, ISpiderAnimation
 
 	public void Spark()
 	{
-		_animator.SetTrigger("Attack");
 		_sparkEffect.Play();
+		_animator.SetTrigger("Attack");
 	}
 
-
 	//攻撃
-	public void Suicide()
+	public IObservable<Unit> Suicide()
 	{
-		StartCoroutine(Explosion());
+		return Observable.FromCoroutine<Unit>(Explosion);
+	}
+
+	public IObservable<Unit> Dead()
+	{
+		_sparkEffect.Play();
+		return Observable.FromCoroutine<Unit>(Explosion);
 	}
 
 	private void Awake()
@@ -38,16 +44,15 @@ public class SlowSpiderAnimation : MonoBehaviour, ISpiderAnimation
 		_animator = GetComponentInChildren<Animator>();
 	}
 
-	private IEnumerator Explosion()
+	private IEnumerator Explosion(IObserver<Unit> observer)
 	{
-		// コルーチンの処理  
-		// 2秒待つ  
-		yield return new WaitForSeconds(2.0f);
-		//2秒後に爆発
+		yield return new WaitForSeconds(0.5f);
+
+		observer.OnNext(Unit.Default);
 		_explosionEffect.Play();
 
-		yield return new WaitForSeconds(1.0f);
-		//爆発後消去
-		Destroy(gameObject);
+		yield return new WaitForSeconds(_explosionEffect.main.duration);
+
+		observer.OnCompleted();
 	}
 }

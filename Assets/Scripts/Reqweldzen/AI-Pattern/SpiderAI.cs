@@ -86,6 +86,7 @@ namespace KyleGame
 
 				Owner.UpdateAsObservable()
 					.Where(_ => GetDistance(Player) < RelativeDistance)
+					.Take(1)
 					.Subscribe(_ =>
 					{
 						Owner.ChangeState(SpiderState.Explode);
@@ -113,14 +114,30 @@ namespace KyleGame
 
 			public override void Enter()
 			{
+				MovementSpeed = 0;
+
 				switch (Owner._spiderType)
 				{
 					case SpiderType.InstantSpark:
-						Owner._spiderAnimation.Suicide();
+						Owner._spiderAnimation.Suicide().Subscribe(_ =>
+							{
+								Owner._damageArea.SetActive(true);
+							},
+							() =>
+							{
+								Destroy(Owner.gameObject);
+							});
 						break;
 					case SpiderType.TimerBomb:
 						Owner._spiderAnimation.Spark();
-						Owner._spiderAnimation.Suicide();
+						Owner._spiderAnimation.Suicide().Subscribe(_ =>
+							{
+								Owner._damageArea.SetActive(true);
+							},
+							() =>
+							{
+								Destroy(Owner.gameObject);
+							});
 						break;
 					default:
 						throw new ArgumentOutOfRangeException();

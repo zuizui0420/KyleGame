@@ -30,15 +30,11 @@ namespace KyleGame
 			get { return _playerTransform; }
 		}
 
-		[Inject]
-		private void Construct(PlayerSystem player)
-		{
-			_playerTransform = player.transform;
-		}
-
 		protected override void OnInitialize()
 		{
 			base.OnInitialize();
+
+			_playerTransform = GameObject.Find("Player").transform;
 
 			_droneAnimation = GetComponent<DroneAnimation>();
 

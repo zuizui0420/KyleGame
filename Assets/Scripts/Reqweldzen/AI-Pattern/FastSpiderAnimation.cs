@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using UniRx;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 {
@@ -27,10 +27,16 @@ public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 	}
 
 	//攻撃
-	public void Suicide()
+	public IObservable<Unit> Suicide()
 	{
 		_animator.SetTrigger("Attack");
-		StartCoroutine(Explosion());
+		return Observable.FromCoroutine<Unit>(Explosion);
+	}
+
+	public IObservable<Unit> Dead()
+	{
+		_sparkEffect.Play();
+		return Observable.FromCoroutine<Unit>(Explosion);
 	}
 
 	private void Awake()
@@ -38,22 +44,16 @@ public class FastSpiderAnimation : MonoBehaviour, ISpiderAnimation
 		_animator = GetComponentInChildren<Animator>();
 	}
 
-    public void Dead()
-    {
-        GetComponent<NavMeshAgent>().speed = 0f;
-        StartCoroutine(Explosion());       
-    }
-
-	private IEnumerator Explosion()
+	private IEnumerator Explosion(IObserver<Unit> observer)
 	{
-        _sparkEffect.Play();
+		yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(0.5f);
-
+		observer.OnNext(Unit.Default);
 		_explosionEffect.Play();
+		Debug.Log("Play Effect");
 
-		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForSeconds(_explosionEffect.main.duration);
 
-		Destroy(gameObject);
+		observer.OnCompleted();
 	}
 }
