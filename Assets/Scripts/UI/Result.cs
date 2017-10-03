@@ -27,19 +27,51 @@ public class Result : MonoBehaviour
 
     Vector3 DefaultRankScale;
 
+    string[] RankNum = { "D", "C", "B", "A", "S" };
+
     //[0] リプレイ [1] タイトル
     int selectID = 0;
+
+    int deadCount = 0;
 
 	void Start ()
     {
         //クリア時間を取得
         ClearTime = DATABASE.ResultTimer;
 
+        if(DATABASE.DeadCount == 0)
+        {
+            deadCount = 4;
+        }
+        else if(DATABASE.DeadCount <= 1)
+        {
+            deadCount = 3;
+        }
+        else if(DATABASE.DeadCount <= 3)
+        {
+            deadCount = 2;
+        }
+        else if(DATABASE.DeadCount <= 5)
+        {
+            deadCount = 1;
+        }
+        else if(DATABASE.DeadCount <= 7)
+        {
+            deadCount = 0;
+        }
+
+        //死亡回数
+        deadCount = DATABASE.DeadCount;
+
         DefaultRankScale = PlayerRank_Text.transform.localScale;
 
         PlayerRank_Text.transform.localScale = Vector3.zero;
 
         StartCoroutine(TimeCountAnimation());
+
+        //データベースを初期化
+        DATABASE.ResultTimer = 0f;
+        DATABASE.DeadCount = 0;
 	}
 
     void Update()
@@ -104,6 +136,8 @@ public class Result : MonoBehaviour
 
     private IEnumerator RankAnimation()
     {
+        PlayerRank_Text.text = RankNum[deadCount];
+
         while (PlayerRank_Text.transform.localScale.x < DefaultRankScale.x)
         {
             PlayerRank_Text.transform.localScale = Vector3.MoveTowards(PlayerRank_Text.transform.localScale, DefaultRankScale, 0.1f);

@@ -412,6 +412,16 @@ Prefab:
       propertyPath: Starting
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114708508448149104, guid: a3e893a897e5c82498acca1c50f28bb7,
+        type: 2}
+      propertyPath: ReactionDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114708508448149104, guid: a3e893a897e5c82498acca1c50f28bb7,
+        type: 2}
+      propertyPath: ReactionAngle
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3e893a897e5c82498acca1c50f28bb7, type: 2}
   m_IsPrefabParent: 0

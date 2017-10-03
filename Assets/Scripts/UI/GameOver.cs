@@ -22,7 +22,7 @@ public class GameOver : MonoBehaviourExtension
 
     void Start()
     {
-        WaitAfter(1.0f, () =>
+        WaitAfter(3.0f, () =>
         {
             SelectMode = true;
         });
@@ -53,11 +53,13 @@ public class GameOver : MonoBehaviourExtension
                 switch (selectID)
                 {
                     case 0:
-                        SceneFader.Instance.LoadLevel(SCENENAME.SCENE_STAGE1);
+                        SceneFader.Instance.LoadLevel(DATABASE.SaveScene);
+                        DATABASE.Life = 3;
                         break;
 
                     case 1:
                         SceneFader.Instance.LoadLevel(SCENENAME.SCENE_TITLE);
+                        DATABASE.Life = 3;
                         break;
                 }
             }

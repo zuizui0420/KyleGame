@@ -91,9 +91,6 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     public bool Zooming = false;
 
-    [SerializeField, Header("プレイヤーのライフ")]
-    public int LIFE = 3;
-
     //無敵
     bool OnVisible = false;
 
@@ -471,7 +468,11 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
                         MoveFlg = true;
                     });
 
-                    PlayerControle = true;
+                    if(DATABASE.Life != 0)
+                    {
+                        PlayerControle = true;
+                    }
+                    
                     PlayerCameraControle = true;
 
                     break;
@@ -502,7 +503,10 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     });
 
-                    PlayerControle = true;
+                    if (DATABASE.Life != 0)
+                    {
+                        PlayerControle = true;
+                    }
 
                     break;
             }
@@ -545,14 +549,17 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0.5f;
 
         //体力減少
-        LIFE--;      
+        DATABASE.Life--;      
 
         //体力UIを点滅させる
-        LifeIcon.StartBlink(LIFE);
+        LifeIcon.StartBlink(DATABASE.Life);
 
         //体力がない場合は死亡する
-        if (LIFE == 0)
+        if (DATABASE.Life == 0)
         {
+            gameObject.tag = TAGNAME.TAG_UNTAGGED;
+            gameObject.layer = LayerMask.NameToLayer("Default");
+
             Debug.Log("死亡");
 
             LifeIcon.Dead = true;

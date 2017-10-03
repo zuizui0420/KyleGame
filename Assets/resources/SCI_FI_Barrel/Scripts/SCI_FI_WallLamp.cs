@@ -17,7 +17,7 @@ public class SCI_FI_WallLamp : MonoBehaviour
     float ColorLerpSpeed;
 
     [SerializeField, Header("回転速度"), Range(0f, 1f)]
-    float RotateSpeed;
+    public float RotateSpeed;
 
     [SerializeField, Header("ランプ起動")]
     bool LampOn;

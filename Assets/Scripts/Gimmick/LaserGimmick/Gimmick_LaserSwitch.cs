@@ -26,6 +26,10 @@ public class Gimmick_LaserSwitch : GimmickBase
             {
                 Laser_currentTime += Time.deltaTime;
 
+                GetComponent<SCI_FI_WallLamp>().RotateSpeed += 0.1f;
+
+                GetComponent<SCI_FI_WallLamp>().RotateSpeed = Mathf.Clamp(GetComponent<SCI_FI_WallLamp>().RotateSpeed, 0f, 5f);
+
                 if (Laser_currentTime > Laser_HitTime)
                 {
                     Lamp.LampSwitch(true);
@@ -38,6 +42,12 @@ public class Gimmick_LaserSwitch : GimmickBase
                 Lamp.LampSwitch(false);
                 Laser_currentTime -= Time.deltaTime;
             }
-        }        
+        }
+        else
+        {
+            GetComponent<SCI_FI_WallLamp>().RotateSpeed -= 0.1f;
+
+            GetComponent<SCI_FI_WallLamp>().RotateSpeed = Mathf.Clamp(GetComponent<SCI_FI_WallLamp>().RotateSpeed, 0f, 5f);
+        }    
     }
 }

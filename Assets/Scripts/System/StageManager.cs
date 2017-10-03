@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ステージ情報を管理
@@ -22,6 +23,8 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
     void Start()
     {
         AudioManager.Instance.Play(AUDIONAME.BGM_STAGE, 0.5f, true, 128);
+
+        DATABASE.SaveScene = SceneManager.GetActiveScene().name;    
     }
 
     void Update()

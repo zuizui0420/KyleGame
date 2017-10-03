@@ -12,7 +12,7 @@ public class BatteryControl : MonoBehaviour
     bool useBattery;
 
     [SerializeField, Header("バッテリーが使える時間"), Range(1, 30)]
-    float BatteryLimitCount;
+    float BatteryLimitCount = 20f;
 
     [SerializeField,Header("オーバーヒート")]
     public bool OverHeat = false;
@@ -36,8 +36,10 @@ public class BatteryControl : MonoBehaviour
     {
         BatteryImage = GetComponent<Image>();
 
+        BatteryLimitCount = 20f;
+
         //バッテリー残量を設定
-        CurrentBattery = BatteryLimitCount;       
+        CurrentBattery = BatteryLimitCount;         
     }
 
     /// <summary>

@@ -23,7 +23,7 @@ public class LifeControl : MonoBehaviour
         LifeImage = GetComponent<Image>();
 
         //初期画像を設定
-        LifeImage.sprite = LifeImages[3];
+        LifeImage.sprite = LifeImages[DATABASE.Life];
     }
 
     /// <summary>
