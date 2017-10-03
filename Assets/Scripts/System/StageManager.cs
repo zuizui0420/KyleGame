@@ -21,7 +21,7 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 
     void Start()
     {
-        AudioManager.Instance.PlayAudio(AUDIONAME.BGM_STAGE, 0.5f, true, 128);
+        AudioManager.Instance.Play(AUDIONAME.BGM_STAGE, 0.5f, true, 128);
     }
 
     void Update()

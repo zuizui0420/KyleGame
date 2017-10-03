@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1426876359565492}
+  m_IsPrefabParent: 1
+--- !u!1 &1426876359565492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4678631655194012}
+  - component: {fileID: 114768149562203678}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4678631655194012
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1426876359565492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114768149562203678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1426876359565492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3382407526dfb642a994ac9547330b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio_Clips:
+  - {fileID: 8300000, guid: a61f32549175855449b2d57f474b71d3, type: 3}
+  - {fileID: 8300000, guid: 07b23cb5be9c3a0409914eadc22dfd6b, type: 3}
+  - {fileID: 8300000, guid: 1bab035da89d3d84b9fda91008fe06ed, type: 3}
+  - {fileID: 8300000, guid: e6d3cd533dac150458ae1104138a8d17, type: 3}
+  - {fileID: 8300000, guid: 6d59c39abd1c7a045a05fa6542e5c3c0, type: 3}
+  - {fileID: 8300000, guid: 713fe4e906f4ddb4ead004d09218b9ba, type: 3}
+  - {fileID: 8300000, guid: 4d45eecb3e1507d4caea08439408923a, type: 3}
+  - {fileID: 8300000, guid: 3a7f6ec893a624643b47264625e430ad, type: 3}
+  GenerateAudioClips: []

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// オーディオを再生
@@ -44,6 +45,40 @@ public class AudioManager : MonoBehaviourExtension
     [SerializeField]
     List<GameObject> GenerateAudioClips = new List<GameObject>();
 
+    private Dictionary<string, GameObject> _generatedAudioClips = new Dictionary<string, GameObject>();
+
+    public void Play(string name, float volume = 1.0f, bool loop = false, int priority = 128, bool isRecord = true)
+    {
+		var clipName = name + "_Audio";
+       
+		if (isRecord)
+		{
+			if (_generatedAudioClips.ContainsKey(clipName)) return;
+		}
+
+        //AudioSource生成
+        var audioObj = new GameObject(clipName);
+		var audioSource = audioObj.AddComponent<AudioSource>();
+
+        //GenerateAudioClips.Add(AudioObject);
+		if (isRecord && loop) _generatedAudioClips.Add(clipName, audioObj);
+
+		audioSource.clip = Audio_Clips.FirstOrDefault(x => x.name.Equals(name));
+
+		//ボリューム設定
+		audioSource.volume = volume;
+
+		//ループ設定
+		audioSource.loop = loop;
+		if (!loop) WaitAfter(2.0f, () => Destroy(audioObj));
+
+		//優先度設定
+		audioSource.priority = priority;
+
+		//再生
+		audioSource.Play();
+    }
+
     /// <summary>
     /// オーディオの再生
     /// </summary>
@@ -51,7 +86,7 @@ public class AudioManager : MonoBehaviourExtension
     /// <param name="_volume">ボリューム</param>
     /// <param name="_loop">ループ</param>
     /// <param name="_priority">プライオリティ</param>
-    public void PlayAudio(string _name, float _volume = 1.0f, bool _loop = false, int _priority = 128)
+    public void Play2(string _name, float _volume = 1.0f, bool _loop = false, int _priority = 128)
     {
         foreach(GameObject obj in GenerateAudioClips)
         {
@@ -141,9 +176,19 @@ public class AudioManager : MonoBehaviourExtension
     /// <param name="_name"></param>
     public void AudioDelete(string _name)
     {
-        GenerateAudioClips.Remove(GameObject.Find(_name + "_Audio"));
+		var clipName = _name + "_Audio";
 
-        //AudioSourceを検索
-        Destroy(GameObject.Find(_name + "_Audio"));
+		//GenerateAudioClips.Remove(GameObject.Find(_name + "_Audio"));
+
+		if (_generatedAudioClips.ContainsKey(clipName))
+		{
+			var obj = _generatedAudioClips[clipName];
+
+			Destroy(obj);
+
+			_generatedAudioClips.Remove(clipName);
+
+			//AudioSourceを検索
+		}
     }
 }

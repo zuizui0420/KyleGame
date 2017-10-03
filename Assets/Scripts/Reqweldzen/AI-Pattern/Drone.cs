@@ -42,6 +42,8 @@ namespace KyleGame
 
 			_droneAnimation = GetComponent<DroneAnimation>();
 
+			_playerTransform = GameObject.Find("Player").transform;
+
 			if (_shotPointList == null || !_shotPointList.Any())
 			{
 				_shotPointList = new[] {transform};

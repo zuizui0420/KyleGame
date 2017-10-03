@@ -407,6 +407,11 @@ Prefab:
       propertyPath: Gimmick
       value: 
       objectReference: {fileID: 65827923}
+    - target: {fileID: 114680183626662818, guid: a3e893a897e5c82498acca1c50f28bb7,
+        type: 2}
+      propertyPath: Starting
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3e893a897e5c82498acca1c50f28bb7, type: 2}
   m_IsPrefabParent: 0
@@ -598,6 +603,52 @@ MonoBehaviour:
   - {fileID: 21300012, guid: c9be23f8ee75a0f4d823041aa7fda99a, type: 3}
   - {fileID: 21300014, guid: c9be23f8ee75a0f4d823041aa7fda99a, type: 3}
   Dead: 0
+--- !u!1001 &630899916
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678631655194012, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426876359565492, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+      propertyPath: m_Name
+      value: 'AudioManager '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 85230f2a112a58b4aaf16cf4d85e74d4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &807837499
 Prefab:
   m_ObjectHideFlags: 0
@@ -737,52 +788,8 @@ MonoBehaviour:
   useBattery: 1
   BatteryLimitCount: 20
   OverHeat: 0
---- !u!1 &1142215993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1142215995}
-  - component: {fileID: 1142215994}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1142215994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1142215993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3382407526dfb642a994ac9547330b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Audio_Clips:
-  - {fileID: 8300000, guid: a61f32549175855449b2d57f474b71d3, type: 3}
-  - {fileID: 8300000, guid: 07b23cb5be9c3a0409914eadc22dfd6b, type: 3}
-  - {fileID: 8300000, guid: 1bab035da89d3d84b9fda91008fe06ed, type: 3}
-  - {fileID: 8300000, guid: e6d3cd533dac150458ae1104138a8d17, type: 3}
-  GenerateAudioClips: []
---- !u!4 &1142215995
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1142215993}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  ResetFlg: 0
+  DummyOverHeat: 0
 --- !u!1 &1512036844
 GameObject:
   m_ObjectHideFlags: 0

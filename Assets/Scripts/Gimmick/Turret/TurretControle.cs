@@ -193,6 +193,9 @@ public class TurretControle : GimmickBase
 
                     //エフェクトを生成
                     Instantiate(Effect_hit, EffectInsPoint.transform.position, Quaternion.identity);
+
+					//サウンド再生
+					AudioManager.Instance.Play(AUDIONAME.SE_GUNSHOT, 1, false, 200, false);
                 }
 
                 BulletInsTime = 0.5f;
