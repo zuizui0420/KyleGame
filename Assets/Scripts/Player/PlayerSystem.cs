@@ -308,7 +308,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
             if (LaserAttack)
             {
-                AudioManager.Instance.PlayAudio(AUDIONAME.SE_LASER, 1, true, 130);
+                AudioManager.Instance.PlayAudio(AUDIONAME.SE_LASER, 1, true, 200);
                 AttackLaser(true);
             }
             else
@@ -371,7 +371,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     {
         if(!Mode_Spark && !SparkAttack && !BatteryIcon.OverHeat)
         {
-            AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 0.5f, true, 150);
+            AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_2, 1.0f, true, 180);
 
             foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
             {
@@ -382,7 +382,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         }
         else if(!SparkAttack)
         {
-            AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
+            AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_2);
 
             foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
             {
@@ -433,7 +433,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                     Mode_Spark = true;
 
-                    AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_2, 1, true, 130);
+                    AudioManager.Instance.PlayAudio(AUDIONAME.SE_SPARK_1, 0.7f, true, 130);
 
                     foreach (ParticleSystem effect in Effect_Electric_Attack.GetComponentsInChildren<ParticleSystem>())
                     {
@@ -478,7 +478,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
                 case ANIMATION_MODE.SPARK:
 
-                    AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_2);
+                    AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
 
                     if (!BatteryIcon.OverHeat)
                     {
