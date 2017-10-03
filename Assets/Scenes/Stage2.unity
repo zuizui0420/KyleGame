@@ -10093,6 +10093,11 @@ Prefab:
       propertyPath: DestinationData.DestinationList.Array.data[1]
       value: 
       objectReference: {fileID: 1076733572}
+    - target: {fileID: 195501316925115778, guid: afbeb1b58c457a84da961bca2cb89384,
+        type: 2}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afbeb1b58c457a84da961bca2cb89384, type: 2}
   m_IsPrefabParent: 0
@@ -16113,6 +16118,7 @@ GameObject:
   - component: {fileID: 433905020}
   - component: {fileID: 433905019}
   - component: {fileID: 433905018}
+  - component: {fileID: 433905021}
   m_Layer: 9
   m_Name: Door_01_R
   m_TagString: Untagged
@@ -16189,6 +16195,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 433905016}
   m_Mesh: {fileID: 4300000, guid: 7fe4a827493384beea453a7d680fa266, type: 3}
+--- !u!208 &433905021
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 433905016}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.3750001, y: 0.20400001, z: 1.7500001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.6250001, y: -0.5, z: 1.7500001}
+  m_TimeToStationary: 0.5
 --- !u!1 &434439767
 GameObject:
   m_ObjectHideFlags: 0
@@ -26767,6 +26788,7 @@ GameObject:
   - component: {fileID: 727822110}
   - component: {fileID: 727822109}
   - component: {fileID: 727822108}
+  - component: {fileID: 727822111}
   m_Layer: 9
   m_Name: Door_01_L
   m_TagString: Untagged
@@ -26843,6 +26865,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 727822106}
   m_Mesh: {fileID: 4300000, guid: 7fe4a827493384beea453a7d680fa266, type: 3}
+--- !u!208 &727822111
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727822106}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.3750001, y: 0.20400001, z: 1.7500001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1.6250001, y: -0.5, z: 1.7500001}
+  m_TimeToStationary: 0.5
 --- !u!1 &733778425
 GameObject:
   m_ObjectHideFlags: 0
