@@ -72,10 +72,8 @@ namespace KyleGame
 			var orbIsBroken = Observable.Merge(FindObjectsOfType<EnergyOrb>().Select(x => x.IsOrbBroken));
 
 			// バリアが消えたら硬直させる
-			_bossBarrier.IsBrokeEvent.TakeUntilDestroy(this).Subscribe(_ =>
+			_bossBarrier.IsBrokeEvent.TakeUntilDestroy(this).Take(1).Subscribe(_ =>
 			{
-				this.OnCollisionEnterAsObservable().Where(x => x.collider.CompareTag(TAGNAME.TAG_ELECTRICWIRE));
-
 				ChangeState(BossState.Freeze);
 			});
 

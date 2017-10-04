@@ -78,6 +78,8 @@ namespace KyleGame
 
 		private class StateLaser : WalkerStateBase<Boss>
 		{
+			private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
+
 			public StateLaser(Boss owner) : base(owner)
 			{
 			}
@@ -85,19 +87,15 @@ namespace KyleGame
 			public override void Enter()
 			{
 				Owner._bossAnimatorControl.Beam().TakeUntilDestroy(Owner).Subscribe(_ =>
-				{
-					Owner.ChangeState(BossState.Pursuit);
-				});
-			}
-
-			public override void Execute()
-			{
-				base.Execute();
+					{
+						Owner.ChangeState(BossState.Pursuit);
+					})
+					.AddTo(_compositeDisposable);
 			}
 
 			public override void Exit()
 			{
-				base.Exit();
+				_compositeDisposable.Clear();
 			}
 		}
 
@@ -207,6 +205,10 @@ namespace KyleGame
 
 			public override void Enter()
 			{
+				MovementSpeed = 0f;
+				Agent.isStopped = true;
+
+				Owner._bossAnimatorControl.Death();
 			}
 		}
 	}

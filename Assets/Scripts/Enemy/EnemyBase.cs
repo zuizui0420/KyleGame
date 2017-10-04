@@ -13,6 +13,12 @@ public class EnemyBase : MonoBehaviour
     //死亡フラグ
     bool Dead = false;
 
+	public float Life
+	{
+		get { return LIFE; }
+		set { LIFE = value; }
+	}
+
     /// <summary>
     /// 敵：ダメージ処理
     /// </summary>

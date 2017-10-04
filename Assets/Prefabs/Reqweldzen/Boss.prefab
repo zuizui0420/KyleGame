@@ -674,6 +674,8 @@ GameObject:
   - component: {fileID: 114777953929906416}
   - component: {fileID: 114085331436603602}
   - component: {fileID: 114359353818353868}
+  - component: {fileID: 114156657774155918}
+  - component: {fileID: 114106936368130732}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1107,7 +1109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1809874559258988
 GameObject:
   m_ObjectHideFlags: 1
@@ -2638,6 +2640,29 @@ MonoBehaviour:
   DestinationData:
     DestinationList: []
   _bossBarrier: {fileID: 114557663168028092}
+--- !u!114 &114106936368130732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490784081264858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5e8eb44aa6e7b439966e802ec42881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LIFE: 60
+--- !u!114 &114156657774155918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490784081264858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fceb6891d5e645e3848cdef1c346901e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114359353818353868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2694,7 +2719,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724135019070094}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -2851,7 +2876,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0
@@ -2895,7 +2920,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1562399961
+  randomSeed: 1562334209
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5729,7 +5754,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0
@@ -5773,7 +5798,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 87386972
+  randomSeed: -829126808
   InitialModule:
     serializedVersion: 3
     enabled: 1
