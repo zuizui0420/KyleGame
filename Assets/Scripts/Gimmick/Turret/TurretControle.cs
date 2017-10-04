@@ -163,7 +163,7 @@ public class TurretControle : GimmickBase
     {
 		AudioManager.Instance.AudioDelete(AUDIONAME.SE_EXPLOSION_1);
 
-        float currentTime = 5f;
+        float currentTime = 1f;
 
         if (!starting) { Starting = starting; }
 
