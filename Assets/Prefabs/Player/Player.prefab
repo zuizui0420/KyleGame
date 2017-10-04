@@ -997,6 +997,8 @@ GameObject:
   - component: {fileID: 54678029975082820}
   - component: {fileID: 114031021390394148}
   - component: {fileID: 114022453613520952}
+  - component: {fileID: 114570265137259308}
+  - component: {fileID: 114191221580831586}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1112,6 +1114,22 @@ GameObject:
   - component: {fileID: 199851383312557474}
   m_Layer: 0
   m_Name: particle spark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1996354439032186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4764981503946316}
+  - component: {fileID: 135125571835094316}
+  m_Layer: 8
+  m_Name: SparkDamageArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1774,6 +1792,19 @@ Transform:
   m_Father: {fileID: 4494344574522750}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4764981503946316
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996354439032186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4923777399178336}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4771906753031902
 Transform:
   m_ObjectHideFlags: 1
@@ -2041,7 +2072,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906262914488206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 0.3, z: -0.3}
+  m_LocalPosition: {x: -3.03, y: -2.98, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4443399232812848}
@@ -2051,6 +2082,7 @@ Transform:
   - {fileID: 4344502705558110}
   - {fileID: 4571049457830592}
   - {fileID: 4988333692371198}
+  - {fileID: 4764981503946316}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2257,7 +2289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af54367da0b7a244c8c1a438a0f72283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayIsGamePad: 1
+  PlayIsGamePad: 0
   ThirdPerson_Cam: {fileID: 20943434870277818}
   FirstPerson_Cam: {fileID: 20807364901864376}
   LifeIcon: {fileID: 0}
@@ -2280,6 +2312,18 @@ MonoBehaviour:
   ElectricModeSpeed: 6
   Zooming: 0
   LIFE: 3
+--- !u!114 &114191221580831586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906262914488206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df5370f9d859504f8c05ea0d13f7921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sparkDamageArea: {fileID: 1996354439032186}
 --- !u!114 &114302036687411970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2335,6 +2379,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstPerson_AnglePoint: {fileID: 1391776306852268}
   playerSystem: {fileID: 114031021390394148}
+--- !u!114 &114570265137259308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906262914488206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40e9f977e624453a0e2ca23fa278584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114934071798866148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2557,6 +2612,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678593481722692}
   m_Enabled: 1
+--- !u!135 &135125571835094316
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1996354439032186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &136041933056644196
 CapsuleCollider:
   m_ObjectHideFlags: 1

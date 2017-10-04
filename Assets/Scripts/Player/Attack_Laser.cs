@@ -73,29 +73,29 @@ public class Attack_Laser : MonoBehaviour
     {
         RaycastHit hit;
 
-        Vector3 HitPoint = Vector3.zero;
+        Vector3 hitPoint;
 
         Debug.DrawRay(transform.position, RayTarget.transform.position - transform.position, Color.yellow);
 
         if (Physics.Raycast(transform.position, RayTarget.transform.position - transform.position, out hit, Mathf.Infinity))
         {
-            HitPoint = hit.point;
+            hitPoint = hit.point;
 
             //ギミック・敵の場合は、ダメージを与える
-            if(hit.collider.tag == TAGNAME.TAG_GIMMICK_ENEMY)
+            if(hit.collider.CompareTag(TAGNAME.TAG_GIMMICK_ENEMY))
             {
                 hit.collider.gameObject.GetComponent<GimmickBase>().GimmickDamage();
             }
-            else if(hit.collider.tag == TAGNAME.TAG_ENEMY)
+            else if(hit.collider.CompareTag(TAGNAME.TAG_ENEMY))
             {
                 hit.collider.gameObject.GetComponent<EnemyBase>().EnemyDamage();
             }
         }
         else
         {
-            HitPoint = RayTarget.transform.position;
+            hitPoint = RayTarget.transform.position;
         }
 
-        return HitPoint;
+        return hitPoint;
     }   
 }
