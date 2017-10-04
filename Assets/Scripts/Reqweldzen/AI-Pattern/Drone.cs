@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using KyleGame.ViewModel;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
-using Zenject;
 
 namespace KyleGame
 {
+	/// <summary>
+	/// ドローンクラス
+	/// </summary>
 	public partial class Drone : StatefulWalker<Drone, DroneState>
 	{
 		[SerializeField]
@@ -22,11 +22,14 @@ namespace KyleGame
 
 		private Transform _playerTransform;
 
-		[SerializeField, Header("弾丸を生成する座標")]
+		[SerializeField]
 		private Transform[] _shotPointList;
 
 		[SerializeField, Header("Damage Area")]
 		private GameObject _damageArea;
+
+		[SerializeField]
+		private ShotSetting _shotSetting;
 
 		protected override Transform PlayerTransform
 		{
@@ -56,6 +59,7 @@ namespace KyleGame
 			StateList.Add(new StatePursuit(this));
 			StateList.Add(new StateAttack(this));
 			StateList.Add(new StateReturn(this));
+			StateList.Add(new StateExplode(this));
 
 			StateMachine = new StateMachine<Drone>();
 
@@ -100,5 +104,14 @@ namespace KyleGame
 		{
 			ChangeState(DroneState.Explode);
 		}
+	}
+
+	[Serializable]
+	public class ShotSetting
+	{
+		public float Duration;
+		public float BurstRate;
+		public float BurstCount;
+		public float ShotIntervalTime;
 	}
 }
