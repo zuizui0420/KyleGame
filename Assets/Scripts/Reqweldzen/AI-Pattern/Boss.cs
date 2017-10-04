@@ -3,7 +3,6 @@ using System.Collections;
 using System.Linq;
 using UniRx;
 using UniRx.Triggers;
-using UnityEditorInternal;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +16,8 @@ namespace KyleGame
 		private BossBarrier _bossBarrier;
 
 		private BossAnimatorControl _bossAnimatorControl;
+
+		private ElectricDamageable _electricDamageable;
 
 		[Inject]
 		private PlayerSystem _player;
@@ -40,8 +41,10 @@ namespace KyleGame
 			_playerTransform = GameObject.Find("Player").transform;
 
 			_bossAnimatorControl = GetComponent<BossAnimatorControl>();
+			_electricDamageable = GetComponent<ElectricDamageable>();
 
 			WeaponSetup();
+			EventSubscribe();
 
 			StateList.Add(new StateIdle(this));
 			StateList.Add(new StatePursuit(this));
@@ -54,6 +57,15 @@ namespace KyleGame
 			ChangeState(BossState.Pursuit);
 		}
 
+		private void EventSubscribe()
+		{
+			_electricDamageable.DamageEvent
+				.Where(_ => !(StateMachine.CurrentState is StateFreeze))
+				.TakeUntilDestroy(this).Subscribe(_ =>
+			{
+				ChangeState(BossState.Freeze);
+			});
+		}
 
 		private void WeaponSetup()
 		{

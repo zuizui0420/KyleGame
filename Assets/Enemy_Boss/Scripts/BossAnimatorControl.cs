@@ -7,6 +7,7 @@ using UnityEngine;
 public class BossAnimatorControl : MonoBehaviour
 {
 	private readonly int _tackleHash = Animator.StringToHash("Base Layer.Tackle");
+	private readonly int _damageHash = Animator.StringToHash("Base Layer.Damage");
 	private Animator _animator;
 
 	private BossLaserControl _bossLaserControl;
@@ -89,19 +90,24 @@ public class BossAnimatorControl : MonoBehaviour
 		_animator.SetTrigger("Death");
 	}
 
-	/// <summary>
-	///     アニメーション：タックル
-	/// </summary>
-	public void Animation_Damage()
-	{
-		_animator.SetBool("Damage", true);
-	}
-	
-
-
 	private void Tackle()
 	{
 		_animator.Play(_tackleHash);
+	}
+
+	public IObservable<Unit> Damage(float time)
+	{
+		return Observable.Create<Unit>(observer =>
+		{
+			_animator.Play(_damageHash);
+
+			return Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe(_ =>
+			{
+				_animator.SetTrigger("Return");
+				observer.OnNext(Unit.Default);
+				observer.OnCompleted();
+			});
+		});
 	}
 
 	public IObservable<Unit> TackleReady()
@@ -109,14 +115,12 @@ public class BossAnimatorControl : MonoBehaviour
 		return Observable.Create<Unit>(observer =>
 		{
 			Tackle();
-			var disposable = Observable.Return(Unit.Default).Delay(TimeSpan.FromMilliseconds(220)).Subscribe(_ =>
+			return Observable.Return(Unit.Default).Delay(TimeSpan.FromMilliseconds(220)).Subscribe(_ =>
 			{
 				_animator.speed = 0;
 				observer.OnNext(Unit.Default);
 				observer.OnCompleted();
 			});
-
-			return disposable;
 		});
 	}
 

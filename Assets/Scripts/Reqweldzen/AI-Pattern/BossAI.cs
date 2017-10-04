@@ -121,6 +121,8 @@ namespace KyleGame
 
 			private readonly BossAnimatorControl _animatorControl;
 
+			private readonly CompositeDisposable _compositeDisposable = new CompositeDisposable();
+
 			public StateTackle(Boss owner) : base(owner)
 			{
 				_animatorControl = owner._bossAnimatorControl;
@@ -131,9 +133,16 @@ namespace KyleGame
 				_animatorControl.MovementSpeed = 0;
 				Agent.ResetPath();
 
-				Observable.FromCoroutine(_ => Tackle())
+				Observable.FromCoroutine(Tackle)
 					.TakeUntilDestroy(Owner)
-					.Subscribe(_ => Owner.ChangeState(BossState.Pursuit));
+					.Subscribe(_ => Owner.ChangeState(BossState.Pursuit))
+					.AddTo(_compositeDisposable);
+			}
+
+			public override void Exit()
+			{
+				_animatorControl.TackleRelease();
+				_compositeDisposable.Clear();
 			}
 
 			private bool _isHit;
@@ -144,7 +153,7 @@ namespace KyleGame
 			}
 
 			// 電気タックル
-			private IEnumerator Tackle()
+			private IEnumerator Tackle(CancellationToken token)
 			{
 				var direction = GetDirection(Player);
 
@@ -155,7 +164,7 @@ namespace KyleGame
 				var startTime = Time.timeSinceLevelLoad;
 
 				_isHit = false;
-				Owner.OnCollisionEnterAsObservable().Where(x => x.collider.GetComponent<PlayerSystem>()).FirstOrDefault().Subscribe(_ => Hit()).AddTo(Owner);
+				Owner.OnCollisionEnterAsObservable().Where(x => x.collider.GetComponent<PlayerSystem>()).FirstOrDefault().Subscribe(_ => Hit()).AddTo(_compositeDisposable);
 
 				while (true)
 				{
@@ -181,8 +190,11 @@ namespace KyleGame
 
 			public override void Enter()
 			{
-				Observable.Timer(TimeSpan.FromSeconds(5))
-					.Subscribe(_ => { Owner.ChangeState(BossState.Pursuit); })
+				MovementSpeed = 0f;
+				Owner._bossAnimatorControl.Damage(5).Subscribe(_ =>
+					{
+						Owner.ChangeState(BossState.Pursuit);
+					})
 					.AddTo(Owner);
 			}
 		}

@@ -108,23 +108,798 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: cdf4fc823a49baa4d8371134174813ab, type: 2}
---- !u!1 &24330169 stripped
+--- !u!1 &11825298
 GameObject:
-  m_PrefabParentObject: {fileID: 1244976846787938, guid: 52c4e62496dcb7248bbba043541d5ee4,
-    type: 2}
-  m_PrefabInternal: {fileID: 219254122}
---- !u!135 &24330171
-SphereCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 1115277992338950, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 24330169}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 11825299}
+  - component: {fileID: 11825303}
+  - component: {fileID: 11825302}
+  - component: {fileID: 11825301}
+  m_Layer: 0
+  m_Name: Cylinder (26)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &11825299
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4970448808556466, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11825298}
+  m_LocalRotation: {x: -0.05547892, y: -0.05547891, z: 0.7049271, w: 0.704927}
+  m_LocalPosition: {x: 3.82, y: 1.2, z: -24.34}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90.00001}
+--- !u!23 &11825301
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23506056560495382, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11825298}
   m_Enabled: 1
-  serializedVersion: 2
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &11825302
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136760113395527922, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11825298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &11825303
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33907055978740564, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11825298}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &17442738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1119085252334658, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 17442739}
+  - component: {fileID: 17442743}
+  - component: {fileID: 17442742}
+  - component: {fileID: 17442741}
+  m_Layer: 0
+  m_Name: Cylinder (27)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &17442739
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4325873229525902, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17442738}
+  m_LocalRotation: {x: 0.05547898, y: 0.055478975, z: 0.704927, w: 0.704927}
+  m_LocalPosition: {x: 3.82, y: 1.2, z: 24.26}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.09999999}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 90.00001}
+--- !u!23 &17442741
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23382799989935700, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17442738}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &17442742
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136589052121652068, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17442738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &17442743
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33831307304453962, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17442738}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &69378628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1792095331365832, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 69378629}
+  - component: {fileID: 69378633}
+  - component: {fileID: 69378632}
+  - component: {fileID: 69378631}
+  m_Layer: 0
+  m_Name: Cylinder
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &69378629
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4941811661390060, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69378628}
+  m_LocalRotation: {x: 0.16956735, y: 0.16956733, z: 0.6864743, w: 0.68647426}
+  m_LocalPosition: {x: 10.81, y: 1.2, z: 22.17}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.099999994}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 27.75, z: 90.00001}
+--- !u!23 &69378631
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23911458481048328, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69378628}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &69378632
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136925330186385720, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69378628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &69378633
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33782929976184696, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69378628}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &83697880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1734131918505132, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 83697881}
+  - component: {fileID: 83697885}
+  - component: {fileID: 83697884}
+  - component: {fileID: 83697883}
+  m_Layer: 0
+  m_Name: Cylinder (29)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &83697881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4747482842042986, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83697880}
+  m_LocalRotation: {x: -0.7049271, y: -0.704927, z: 0.055478983, w: 0.055478975}
+  m_LocalPosition: {x: -3.82, y: 1.6, z: -24.26}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 90.00001}
+--- !u!23 &83697883
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23864088814323954, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83697880}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &83697884
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136653066009951286, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83697880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &83697885
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33524078101514338, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83697880}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &105083045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1100548048153840, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 105083046}
+  - component: {fileID: 105083050}
+  - component: {fileID: 105083049}
+  - component: {fileID: 105083048}
+  m_Layer: 0
+  m_Name: Cylinder
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &105083046
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4317179186461586, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105083045}
+  m_LocalRotation: {x: -0.6864743, y: -0.68647426, z: 0.16956735, w: 0.16956733}
+  m_LocalPosition: {x: -10.81, y: 1.2, z: -22.17}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 59
+  m_LocalEulerAnglesHint: {x: 0, y: 27.75, z: 90.00001}
+--- !u!23 &105083048
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23211135193991626, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105083045}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &105083049
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136299474536816800, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105083045}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &105083050
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33710153237595856, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105083045}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &105856836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1094906105761686, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 105856837}
+  - component: {fileID: 105856841}
+  - component: {fileID: 105856840}
+  - component: {fileID: 105856839}
+  m_Layer: 0
+  m_Name: Cylinder (11)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &105856837
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4145334035159070, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105856836}
+  m_LocalRotation: {x: 0.4592291, y: 0.45922905, z: 0.5376883, w: 0.53768826}
+  m_LocalPosition: {x: 24.35, y: 1.6, z: 3.91}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 81, z: 90.00001}
+--- !u!23 &105856839
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23726114436759270, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105856836}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &105856840
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136706763297898874, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105856836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &105856841
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33578302494530252, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 105856836}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &117714909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1815369034309650, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 117714910}
+  - component: {fileID: 117714914}
+  - component: {fileID: 117714913}
+  - component: {fileID: 117714912}
+  m_Layer: 0
+  m_Name: Cylinder (21)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &117714910
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4782919231652432, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117714909}
+  m_LocalRotation: {x: -0.1695674, y: -0.16956739, z: 0.6864743, w: 0.68647426}
+  m_LocalPosition: {x: 10.98, y: 1.2, z: -21.98}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: -27.75, z: 90.00001}
+--- !u!23 &117714912
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23770744041351012, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117714909}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &117714913
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136102301608096508, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117714909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &117714914
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33604663175838508, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117714909}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &128069405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1944907835202378, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 128069406}
+  - component: {fileID: 128069410}
+  - component: {fileID: 128069409}
+  - component: {fileID: 128069408}
+  m_Layer: 0
+  m_Name: Cylinder (1)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &128069406
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4240511311094218, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128069405}
+  m_LocalRotation: {x: 0.16956735, y: 0.16956733, z: 0.6864743, w: 0.68647426}
+  m_LocalPosition: {x: 10.81, y: 1.4, z: 22.17}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.099999994}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 27.75, z: 90.00001}
+--- !u!23 &128069408
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23109380137838614, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128069405}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &128069409
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136715031729052402, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128069405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &128069410
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33253451474446554, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 128069405}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &165381932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1311278570079800, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 165381933}
+  - component: {fileID: 165381937}
+  - component: {fileID: 165381936}
+  - component: {fileID: 165381935}
+  m_Layer: 0
+  m_Name: Cylinder (3)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &165381933
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4467616080630846, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165381932}
+  m_LocalRotation: {x: -0.65328157, y: -0.65328145, z: 0.27059805, w: 0.27059802}
+  m_LocalPosition: {x: -17.16, y: 1.2, z: -17.67}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 56
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 90.00001}
+--- !u!23 &165381935
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23243433894425390, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165381932}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &165381936
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136657116812864946, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165381932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &165381937
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33810601675127976, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165381932}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &189074166
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +988,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189074166}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &207587164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1922865306919084, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 207587165}
+  - component: {fileID: 207587169}
+  - component: {fileID: 207587168}
+  - component: {fileID: 207587167}
+  m_Layer: 0
+  m_Name: Cylinder (19)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &207587165
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4491131436620290, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207587164}
+  m_LocalRotation: {x: -0.27059805, y: -0.27059802, z: 0.65328157, w: 0.65328145}
+  m_LocalPosition: {x: 17.16, y: 1.4, z: -17.66}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90.00001}
+--- !u!23 &207587167
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23469041974867270, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207587164}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &207587168
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136205275263849418, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207587164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &207587169
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33723970189843550, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207587164}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &219254122
 Prefab:
   m_ObjectHideFlags: 0
@@ -268,11 +1131,109 @@ Transform:
   m_PrefabParentObject: {fileID: 4057465245511600, guid: 52c4e62496dcb7248bbba043541d5ee4,
     type: 2}
   m_PrefabInternal: {fileID: 219254122}
---- !u!4 &285433965 stripped
+--- !u!1 &220247482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1732764428383360, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 220247483}
+  - component: {fileID: 220247487}
+  - component: {fileID: 220247486}
+  - component: {fileID: 220247485}
+  m_Layer: 0
+  m_Name: Cylinder (28)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &220247483
 Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4242950258567776, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220247482}
+  m_LocalRotation: {x: -0.7049271, y: -0.704927, z: 0.055478983, w: 0.055478975}
+  m_LocalPosition: {x: -3.82, y: 1.4, z: -24.26}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 90.00001}
+--- !u!23 &220247485
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23530840336669292, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220247482}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &220247486
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136091529915280976, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220247482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &220247487
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33214132091920824, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220247482}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &285433965
+Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
     type: 2}
-  m_PrefabInternal: {fileID: 1507597425}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1028050891}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1056161938}
+  m_Father: {fileID: 1051103329}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285910531
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,23 +1414,94 @@ Transform:
   m_PrefabParentObject: {fileID: 4057465245511600, guid: 52c4e62496dcb7248bbba043541d5ee4,
     type: 2}
   m_PrefabInternal: {fileID: 1702325988}
---- !u!1 &353778117 stripped
+--- !u!1 &343935210
 GameObject:
-  m_PrefabParentObject: {fileID: 1244976846787938, guid: 52c4e62496dcb7248bbba043541d5ee4,
-    type: 2}
-  m_PrefabInternal: {fileID: 423638138}
---- !u!135 &353778119
-SphereCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 1288247879206332, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 353778117}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 343935211}
+  - component: {fileID: 343935215}
+  - component: {fileID: 343935214}
+  - component: {fileID: 343935213}
+  m_Layer: 0
+  m_Name: Cylinder (4)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &343935211
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4645812695279878, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343935210}
+  m_LocalRotation: {x: -0.65328157, y: -0.65328145, z: 0.27059805, w: 0.27059802}
+  m_LocalPosition: {x: -17.16, y: 1.4, z: -17.67}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 55
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 90.00001}
+--- !u!23 &343935213
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23542705354835228, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343935210}
   m_Enabled: 1
-  serializedVersion: 2
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &343935214
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136810359975337060, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343935210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &343935215
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33708844284124444, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 343935210}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &361715334
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +1888,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e71057e8409726498ac9178744f9720, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &413052618 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1490784081264858, guid: 3e71057e8409726498ac9178744f9720,
+    type: 2}
+  m_PrefabInternal: {fileID: 413052617}
+--- !u!114 &413052619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 413052618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fceb6891d5e645e3848cdef1c346901e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &413841545
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +2046,94 @@ Transform:
   m_PrefabParentObject: {fileID: 4057465245511600, guid: 52c4e62496dcb7248bbba043541d5ee4,
     type: 2}
   m_PrefabInternal: {fileID: 423638138}
+--- !u!1 &458537296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1851347043170790, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 458537297}
+  - component: {fileID: 458537301}
+  - component: {fileID: 458537300}
+  - component: {fileID: 458537299}
+  m_Layer: 0
+  m_Name: Cylinder (25)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &458537297
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4065043218640566, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458537296}
+  m_LocalRotation: {x: -0.05547892, y: -0.05547891, z: 0.7049271, w: 0.704927}
+  m_LocalPosition: {x: 3.82, y: 1.4, z: -24.34}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90.00001}
+--- !u!23 &458537299
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23701395242378780, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458537296}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &458537300
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136489938157729596, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458537296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &458537301
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33329706770362258, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458537296}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &476775004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +2398,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 487022229}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &493393882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1222610733622692, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 493393883}
+  - component: {fileID: 493393887}
+  - component: {fileID: 493393886}
+  - component: {fileID: 493393885}
+  m_Layer: 0
+  m_Name: Cylinder (23)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &493393883
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4674896838776412, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493393882}
+  m_LocalRotation: {x: -0.1695674, y: -0.16956739, z: 0.6864743, w: 0.68647426}
+  m_LocalPosition: {x: 10.98, y: 1.6, z: -21.98}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: -27.75, z: 90.00001}
+--- !u!23 &493393885
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23138187319770444, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493393882}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &493393886
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136121687888994930, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493393882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &493393887
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33314321126131150, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 493393882}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &529932873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +2662,270 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 530641351}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &539475107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1918367593943792, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 539475108}
+  - component: {fileID: 539475112}
+  - component: {fileID: 539475111}
+  - component: {fileID: 539475110}
+  m_Layer: 0
+  m_Name: Cylinder (3)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &539475108
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4767373144803990, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539475107}
+  m_LocalRotation: {x: 0.27059805, y: 0.27059802, z: 0.65328157, w: 0.65328145}
+  m_LocalPosition: {x: 17.16, y: 1.2, z: 17.67}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 90.00001}
+--- !u!23 &539475110
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23460940244570392, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539475107}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &539475111
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136022337147430772, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539475107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &539475112
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33615661638882704, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539475107}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &565032755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1821338021134606, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 565032756}
+  - component: {fileID: 565032760}
+  - component: {fileID: 565032759}
+  - component: {fileID: 565032758}
+  m_Layer: 0
+  m_Name: Cylinder (7)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &565032756
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4651263421591944, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565032755}
+  m_LocalRotation: {x: 0.3641869, y: 0.36418688, z: 0.6061089, w: 0.60610884}
+  m_LocalPosition: {x: 21.86, y: 1.4, z: 11.27}
+  m_LocalScale: {x: 0.099999994, y: 4, z: 0.09999999}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 62, z: 90.00001}
+--- !u!23 &565032758
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23452220546415636, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565032755}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &565032759
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136104655101127544, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565032755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &565032760
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33565981039840346, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565032755}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &567706145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1894976814663592, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 567706146}
+  - component: {fileID: 567706150}
+  - component: {fileID: 567706149}
+  - component: {fileID: 567706148}
+  m_Layer: 0
+  m_Name: Cylinder (8)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &567706146
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4578903066810632, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567706145}
+  m_LocalRotation: {x: -0.60610884, y: -0.60610884, z: 0.36418688, w: 0.36418688}
+  m_LocalPosition: {x: -21.86, y: 1.2, z: -11.27}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 52
+  m_LocalEulerAnglesHint: {x: 0, y: 62, z: 90.00001}
+--- !u!23 &567706148
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23653872867957736, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567706145}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &567706149
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136094468967386232, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567706145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &567706150
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33595446198861074, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567706145}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &574340199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +3013,798 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 574340199}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &615632662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1717829538161150, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 615632663}
+  - component: {fileID: 615632667}
+  - component: {fileID: 615632666}
+  - component: {fileID: 615632665}
+  m_Layer: 0
+  m_Name: Cylinder (13)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &615632663
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4042078523398390, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615632662}
+  m_LocalRotation: {x: -0.5456211, y: -0.545621, z: -0.44977522, w: -0.44977513}
+  m_LocalPosition: {x: -24.28, y: 1.4, z: 4.18}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000005}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 47
+  m_LocalEulerAnglesHint: {x: 0, y: -79, z: 90.00001}
+--- !u!23 &615632665
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23449814614784590, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615632662}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &615632666
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136624611353604134, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615632662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &615632667
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33565036640224432, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615632662}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &624935391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1267114533281224, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 624935392}
+  - component: {fileID: 624935396}
+  - component: {fileID: 624935395}
+  - component: {fileID: 624935394}
+  m_Layer: 0
+  m_Name: Cylinder (13)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &624935392
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4261839956339906, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624935391}
+  m_LocalRotation: {x: -0.44977522, y: -0.44977513, z: 0.5456211, w: 0.545621}
+  m_LocalPosition: {x: 24.28, y: 1.4, z: -4.18}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: -79, z: 90.00001}
+--- !u!23 &624935394
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23032913965593744, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624935391}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &624935395
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136048062808259244, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624935391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &624935396
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33767317063593640, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624935391}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &649762976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1585679568794338, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 649762977}
+  - component: {fileID: 649762981}
+  - component: {fileID: 649762980}
+  - component: {fileID: 649762979}
+  m_Layer: 0
+  m_Name: Cylinder (17)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &649762977
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4199216219679324, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649762976}
+  m_LocalRotation: {x: -0.36418688, y: -0.36418688, z: 0.60610884, w: 0.60610884}
+  m_LocalPosition: {x: 21.69, y: 1.2, z: -11.29}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 90.00001}
+--- !u!23 &649762979
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23698241896535562, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649762976}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &649762980
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136297880786773270, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649762976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &649762981
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33261618634895598, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649762976}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &652790101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1637902883306190, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 652790102}
+  - component: {fileID: 652790106}
+  - component: {fileID: 652790105}
+  - component: {fileID: 652790104}
+  m_Layer: 0
+  m_Name: Cylinder (24)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &652790102
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4134176448533958, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652790101}
+  m_LocalRotation: {x: -0.055478916, y: -0.05547891, z: 0.704927, w: 0.704927}
+  m_LocalPosition: {x: 3.82, y: 1.6, z: -24.34}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90.00001}
+--- !u!23 &652790104
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23164004582755138, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652790101}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &652790105
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136366149859722106, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652790101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &652790106
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33331584749970262, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652790101}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &667554203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1369938778360622, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 667554204}
+  - component: {fileID: 667554208}
+  - component: {fileID: 667554207}
+  - component: {fileID: 667554206}
+  m_Layer: 0
+  m_Name: Cylinder (6)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &667554204
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4719608995704098, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667554203}
+  m_LocalRotation: {x: 0.36418688, y: 0.36418688, z: 0.60610884, w: 0.60610884}
+  m_LocalPosition: {x: 21.86, y: 1.6, z: 11.27}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 62, z: 90.00001}
+--- !u!23 &667554206
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23875662625841524, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667554203}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &667554207
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136606328307119850, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667554203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &667554208
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33163425441559696, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667554203}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &679008018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1295853919185260, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 679008019}
+  - component: {fileID: 679008023}
+  - component: {fileID: 679008022}
+  - component: {fileID: 679008021}
+  m_Layer: 0
+  m_Name: Cylinder (15)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &679008019
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4842041493703352, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679008018}
+  m_LocalRotation: {x: -0.36418688, y: -0.36418688, z: 0.60610884, w: 0.60610884}
+  m_LocalPosition: {x: 21.69, y: 1.6, z: -11.29}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 90.00001}
+--- !u!23 &679008021
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23565469389391296, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679008018}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &679008022
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136735254788975816, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679008018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &679008023
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33250672317726398, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 679008018}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &737763130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1383007211033174, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 737763131}
+  - component: {fileID: 737763135}
+  - component: {fileID: 737763134}
+  - component: {fileID: 737763133}
+  m_Layer: 0
+  m_Name: Cylinder (6)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &737763131
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4983824410207172, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737763130}
+  m_LocalRotation: {x: -0.60610884, y: -0.60610884, z: 0.36418688, w: 0.36418688}
+  m_LocalPosition: {x: -21.86, y: 1.6, z: -11.27}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 54
+  m_LocalEulerAnglesHint: {x: 0, y: 62, z: 90.00001}
+--- !u!23 &737763133
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23094685868710344, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737763130}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &737763134
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136027104572453704, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737763130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &737763135
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33118938972909972, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737763130}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &741738991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1027446621503720, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 741738992}
+  - component: {fileID: 741738996}
+  - component: {fileID: 741738995}
+  - component: {fileID: 741738994}
+  m_Layer: 0
+  m_Name: Cylinder (11)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &741738992
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4249568044594948, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741738991}
+  m_LocalRotation: {x: -0.54562104, y: -0.545621, z: 0.44977522, w: 0.4497752}
+  m_LocalPosition: {x: -24.35, y: 1.6, z: -3.91}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000003}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 49
+  m_LocalEulerAnglesHint: {x: 0, y: 79, z: 90.00001}
+--- !u!23 &741738994
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23608979858086056, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741738991}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &741738995
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136060263500100852, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741738991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &741738996
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33567840165999494, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 741738991}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &742340689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1007901288554504, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 742340690}
+  - component: {fileID: 742340694}
+  - component: {fileID: 742340693}
+  - component: {fileID: 742340692}
+  m_Layer: 0
+  m_Name: Cylinder (12)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &742340690
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4447088849101234, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742340689}
+  m_LocalRotation: {x: -0.44977522, y: -0.44977513, z: 0.5456211, w: 0.545621}
+  m_LocalPosition: {x: 24.28, y: 1.6, z: -4.18}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: -79, z: 90.00001}
+--- !u!23 &742340692
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23327065209357856, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742340689}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &742340693
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136062156636576788, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742340689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &742340694
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33105601571913840, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742340689}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &760144656
 Prefab:
   m_ObjectHideFlags: 0
@@ -1574,9 +3854,366 @@ Prefab:
       propertyPath: BatteryIcon
       value: 
       objectReference: {fileID: 1758877469}
+    - target: {fileID: 114031021390394148, guid: b6e8869bc7d81704fabff4234c39e957,
+        type: 2}
+      propertyPath: PlayIsGamePad
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &785707014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1869317573791478, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 785707015}
+  - component: {fileID: 785707019}
+  - component: {fileID: 785707018}
+  - component: {fileID: 785707017}
+  m_Layer: 0
+  m_Name: Cylinder (24)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &785707015
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4914093090313342, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785707014}
+  m_LocalRotation: {x: -0.704927, y: -0.704927, z: -0.055478916, w: -0.05547891}
+  m_LocalPosition: {x: -3.82, y: 1.6, z: 24.34}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90.00001}
+--- !u!23 &785707017
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23961299447650924, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785707014}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &785707018
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136310219832676012, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785707014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &785707019
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33100429936501436, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785707014}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &792041171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1749897411039784, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 792041172}
+  - component: {fileID: 792041176}
+  - component: {fileID: 792041175}
+  - component: {fileID: 792041174}
+  m_Layer: 0
+  m_Name: Cylinder (25)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &792041172
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4990438167820436, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 792041171}
+  m_LocalRotation: {x: -0.7049271, y: -0.704927, z: -0.05547892, w: -0.05547891}
+  m_LocalPosition: {x: -3.82, y: 1.4, z: 24.34}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90.00001}
+--- !u!23 &792041174
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23601171118367812, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 792041171}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &792041175
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136440092116075874, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 792041171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &792041176
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33649209363217456, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 792041171}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &796098958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1536123245326294, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 796098959}
+  - component: {fileID: 796098963}
+  - component: {fileID: 796098962}
+  - component: {fileID: 796098961}
+  m_Layer: 0
+  m_Name: Cylinder (18)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &796098959
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4379897376336348, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 796098958}
+  m_LocalRotation: {x: -0.65328157, y: -0.65328145, z: -0.27059805, w: -0.27059802}
+  m_LocalPosition: {x: -17.16, y: 1.6, z: 17.66}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 42
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90.00001}
+--- !u!23 &796098961
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23901028344014608, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 796098958}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &796098962
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136103127107979558, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 796098958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &796098963
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33304406002949920, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 796098958}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &822479457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1083420743203710, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 822479458}
+  - component: {fileID: 822479462}
+  - component: {fileID: 822479461}
+  - component: {fileID: 822479460}
+  m_Layer: 0
+  m_Name: Cylinder (4)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &822479458
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4324335151366760, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822479457}
+  m_LocalRotation: {x: 0.27059805, y: 0.27059802, z: 0.65328157, w: 0.65328145}
+  m_LocalPosition: {x: 17.16, y: 1.4, z: 17.67}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 90.00001}
+--- !u!23 &822479460
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23917557635648460, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822479457}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &822479461
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136505399235245154, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822479457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &822479462
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33370267022578032, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822479457}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &844029659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +4389,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 860151736}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &889526697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1858632643618190, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 889526698}
+  - component: {fileID: 889526702}
+  - component: {fileID: 889526701}
+  - component: {fileID: 889526700}
+  m_Layer: 0
+  m_Name: Cylinder (9)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &889526698
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4617688256943354, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889526697}
+  m_LocalRotation: {x: -0.54562104, y: -0.545621, z: 0.44977522, w: 0.4497752}
+  m_LocalPosition: {x: -24.35, y: 1.2, z: -3.91}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000003}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 51
+  m_LocalEulerAnglesHint: {x: 0, y: 79, z: 90.00001}
+--- !u!23 &889526700
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23086264820305154, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889526697}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &889526701
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136436014485665374, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889526697}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &889526702
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33902659937519950, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889526697}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &919996701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +4597,182 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &936933700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1684484027085342, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 936933701}
+  - component: {fileID: 936933705}
+  - component: {fileID: 936933704}
+  - component: {fileID: 936933703}
+  m_Layer: 0
+  m_Name: Cylinder (23)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &936933701
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4387685487472492, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936933700}
+  m_LocalRotation: {x: -0.6864743, y: -0.68647426, z: -0.1695674, w: -0.16956739}
+  m_LocalPosition: {x: -10.98, y: 1.6, z: 21.98}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000003}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: -27.75, z: 90.00001}
+--- !u!23 &936933703
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23785053119782674, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936933700}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &936933704
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136264468639382700, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936933700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &936933705
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33098081229270654, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936933700}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &952593978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1746558917970586, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 952593979}
+  - component: {fileID: 952593983}
+  - component: {fileID: 952593982}
+  - component: {fileID: 952593981}
+  m_Layer: 0
+  m_Name: Cylinder (29)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &952593979
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4606485327532732, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952593978}
+  m_LocalRotation: {x: 0.055478983, y: 0.055478975, z: 0.7049271, w: 0.704927}
+  m_LocalPosition: {x: 3.82, y: 1.6, z: 24.26}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.099999994}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 90.00001}
+--- !u!23 &952593981
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23673656036577890, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952593978}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &952593982
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136876452977121702, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952593978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &952593983
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33119521069680556, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 952593978}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &956018170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,6 +4860,374 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 956018170}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &962871746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1614254607678816, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 962871747}
+  - component: {fileID: 962871751}
+  - component: {fileID: 962871750}
+  - component: {fileID: 962871749}
+  m_Layer: 0
+  m_Name: Cylinder (12)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &962871747
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4457543465397800, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962871746}
+  m_LocalRotation: {x: -0.5456211, y: -0.545621, z: -0.44977522, w: -0.44977513}
+  m_LocalPosition: {x: -24.28, y: 1.6, z: 4.18}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000005}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 48
+  m_LocalEulerAnglesHint: {x: 0, y: -79, z: 90.00001}
+--- !u!23 &962871749
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23442230880183590, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962871746}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &962871750
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136008381520366516, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962871746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &962871751
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33535320798829244, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 962871746}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1014158593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1492665734491592, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1014158594}
+  - component: {fileID: 1014158598}
+  - component: {fileID: 1014158597}
+  - component: {fileID: 1014158596}
+  m_Layer: 0
+  m_Name: Cylinder (8)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1014158594
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4396552930302610, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014158593}
+  m_LocalRotation: {x: 0.36418688, y: 0.36418688, z: 0.60610884, w: 0.60610884}
+  m_LocalPosition: {x: 21.86, y: 1.2, z: 11.27}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 62, z: 90.00001}
+--- !u!23 &1014158596
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23848964951083924, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014158593}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1014158597
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136087109444252624, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014158593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1014158598
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33540830632216490, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014158593}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1023705635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1633259195565224, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1023705636}
+  - component: {fileID: 1023705640}
+  - component: {fileID: 1023705639}
+  - component: {fileID: 1023705638}
+  m_Layer: 0
+  m_Name: Cylinder (20)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1023705636
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4529261392888826, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023705635}
+  m_LocalRotation: {x: -0.65328157, y: -0.65328145, z: -0.27059805, w: -0.27059802}
+  m_LocalPosition: {x: -17.16, y: 1.2, z: 17.66}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90.00001}
+--- !u!23 &1023705638
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23898462590044206, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023705635}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1023705639
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136137101679732524, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023705635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1023705640
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33434536751784422, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1023705635}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1025934828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1527640351478456, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1025934829}
+  - component: {fileID: 1025934833}
+  - component: {fileID: 1025934832}
+  - component: {fileID: 1025934831}
+  m_Layer: 0
+  m_Name: Cylinder (9)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1025934829
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4458281164733688, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025934828}
+  m_LocalRotation: {x: 0.4592291, y: 0.45922905, z: 0.5376883, w: 0.53768826}
+  m_LocalPosition: {x: 24.35, y: 1.2, z: 3.91}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 81, z: 90.00001}
+--- !u!23 &1025934831
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23840864918793348, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025934828}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1025934832
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136310146651362328, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025934828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1025934833
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33813965816899878, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025934828}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1028050891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1817039455538590, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 285433965}
+  m_Layer: 0
+  m_Name: Electrical ring
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1051103328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,6 +5263,96 @@ Transform:
   m_Father: {fileID: 932878612}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1056161937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1338515894749324, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1056161938}
+  m_Layer: 0
+  m_Name: ' Electrical wire (1)'
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1056161938
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4853377585375994, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056161937}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1270032960}
+  - {fileID: 458537297}
+  - {fileID: 952593979}
+  - {fileID: 1476765199}
+  - {fileID: 17442739}
+  - {fileID: 11825299}
+  - {fileID: 652790102}
+  - {fileID: 493393883}
+  - {fileID: 1845336159}
+  - {fileID: 117714910}
+  - {fileID: 1971967573}
+  - {fileID: 207587165}
+  - {fileID: 1651579976}
+  - {fileID: 649762977}
+  - {fileID: 2110824445}
+  - {fileID: 679008019}
+  - {fileID: 1471313856}
+  - {fileID: 624935392}
+  - {fileID: 742340690}
+  - {fileID: 105856837}
+  - {fileID: 1243024667}
+  - {fileID: 1025934829}
+  - {fileID: 1014158594}
+  - {fileID: 565032756}
+  - {fileID: 667554204}
+  - {fileID: 822479458}
+  - {fileID: 539475108}
+  - {fileID: 1828541331}
+  - {fileID: 128069406}
+  - {fileID: 69378629}
+  - {fileID: 1630621876}
+  - {fileID: 792041172}
+  - {fileID: 83697881}
+  - {fileID: 220247483}
+  - {fileID: 2043077024}
+  - {fileID: 1166921170}
+  - {fileID: 785707015}
+  - {fileID: 936933701}
+  - {fileID: 1231991597}
+  - {fileID: 2057449992}
+  - {fileID: 1023705636}
+  - {fileID: 1293315039}
+  - {fileID: 796098959}
+  - {fileID: 2044184275}
+  - {fileID: 1395944158}
+  - {fileID: 1220892759}
+  - {fileID: 1411402317}
+  - {fileID: 615632663}
+  - {fileID: 962871747}
+  - {fileID: 741738992}
+  - {fileID: 1415876797}
+  - {fileID: 889526698}
+  - {fileID: 567706146}
+  - {fileID: 1952549223}
+  - {fileID: 737763131}
+  - {fileID: 343935211}
+  - {fileID: 165381933}
+  - {fileID: 1252179112}
+  - {fileID: 2140670932}
+  - {fileID: 105083046}
+  m_Father: {fileID: 285433965}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1058249846
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,23 +5440,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1058249846}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1061128910 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1244976846787938, guid: 52c4e62496dcb7248bbba043541d5ee4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1303737016}
---- !u!135 &1061128912
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1061128910}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1069074929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +5647,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1164616282}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1166921169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1092723330542182, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1166921170}
+  - component: {fileID: 1166921174}
+  - component: {fileID: 1166921173}
+  - component: {fileID: 1166921172}
+  m_Layer: 0
+  m_Name: Cylinder (26)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1166921170
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4031977096759648, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166921169}
+  m_LocalRotation: {x: -0.7049271, y: -0.704927, z: -0.05547892, w: -0.05547891}
+  m_LocalPosition: {x: -3.82, y: 1.2, z: 24.34}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90.00001}
+--- !u!23 &1166921172
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23283108526256130, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166921169}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1166921173
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136846999997977144, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166921169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1166921174
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33383964322175280, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1166921169}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1168695743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +5928,270 @@ MonoBehaviour:
   - {fileID: 21300012, guid: c9be23f8ee75a0f4d823041aa7fda99a, type: 3}
   - {fileID: 21300014, guid: c9be23f8ee75a0f4d823041aa7fda99a, type: 3}
   Dead: 0
+--- !u!1 &1220892758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1586597647949974, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1220892759}
+  - component: {fileID: 1220892763}
+  - component: {fileID: 1220892762}
+  - component: {fileID: 1220892761}
+  m_Layer: 0
+  m_Name: Cylinder (15)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1220892759
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4504065893601228, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220892758}
+  m_LocalRotation: {x: -0.60610884, y: -0.60610884, z: -0.36418688, w: -0.36418688}
+  m_LocalPosition: {x: -21.69, y: 1.6, z: 11.29}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 45
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 90.00001}
+--- !u!23 &1220892761
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23841069099639786, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220892758}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1220892762
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136732795163154852, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220892758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1220892763
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33797827462519128, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1220892758}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1231991596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1480061945141912, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1231991597}
+  - component: {fileID: 1231991601}
+  - component: {fileID: 1231991600}
+  - component: {fileID: 1231991599}
+  m_Layer: 0
+  m_Name: Cylinder (22)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1231991597
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4034183005268712, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231991596}
+  m_LocalRotation: {x: -0.6864743, y: -0.68647426, z: -0.1695674, w: -0.16956739}
+  m_LocalPosition: {x: -10.98, y: 1.4, z: 21.98}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000003}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: -27.75, z: 90.00001}
+--- !u!23 &1231991599
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23252060684392852, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231991596}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1231991600
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136203087430628838, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231991596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1231991601
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33023436966809958, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1231991596}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1243024666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1431119658211386, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1243024667}
+  - component: {fileID: 1243024671}
+  - component: {fileID: 1243024670}
+  - component: {fileID: 1243024669}
+  m_Layer: 0
+  m_Name: Cylinder (10)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1243024667
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4515045649918176, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243024666}
+  m_LocalRotation: {x: 0.4592291, y: 0.45922905, z: 0.5376883, w: 0.53768826}
+  m_LocalPosition: {x: 24.35, y: 1.4, z: 3.91}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000002}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 81, z: 90.00001}
+--- !u!23 &1243024669
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23199553349766624, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243024666}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1243024670
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136657537162898254, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243024666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1243024671
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33146277105489246, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1243024666}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1245411579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +6265,182 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245411579}
+--- !u!1 &1252179111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1484989775264678, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1252179112}
+  - component: {fileID: 1252179116}
+  - component: {fileID: 1252179115}
+  - component: {fileID: 1252179114}
+  m_Layer: 0
+  m_Name: Cylinder (2)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1252179112
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4654194254725468, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1252179111}
+  m_LocalRotation: {x: -0.6864743, y: -0.68647426, z: 0.16956735, w: 0.16956733}
+  m_LocalPosition: {x: -10.81, y: 1.6, z: -22.17}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 57
+  m_LocalEulerAnglesHint: {x: 0, y: 27.75, z: 90.00001}
+--- !u!23 &1252179114
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23306108476854568, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1252179111}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1252179115
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136516534373870898, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1252179111}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1252179116
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33514360676278762, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1252179111}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1270032959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1348535503389390, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1270032960}
+  - component: {fileID: 1270032964}
+  - component: {fileID: 1270032963}
+  - component: {fileID: 1270032962}
+  m_Layer: 0
+  m_Name: Cylinder (5)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1270032960
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4016176800473056, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1270032959}
+  m_LocalRotation: {x: 0.27059805, y: 0.27059802, z: 0.65328157, w: 0.65328145}
+  m_LocalPosition: {x: 17.16, y: 1.6, z: 17.67}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 90.00001}
+--- !u!23 &1270032962
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23223739056272494, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1270032959}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1270032963
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136558468024734678, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1270032959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1270032964
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33736028370330362, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1270032959}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1270101809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +6528,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1270101809}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1293315038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1468476503756544, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1293315039}
+  - component: {fileID: 1293315043}
+  - component: {fileID: 1293315042}
+  - component: {fileID: 1293315041}
+  m_Layer: 0
+  m_Name: Cylinder (19)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1293315039
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4976521751621188, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293315038}
+  m_LocalRotation: {x: -0.65328157, y: -0.65328145, z: -0.27059805, w: -0.27059802}
+  m_LocalPosition: {x: -17.16, y: 1.4, z: 17.66}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90.00001}
+--- !u!23 &1293315041
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23743533743862640, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293315038}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1293315042
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136616903538881810, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293315038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1293315043
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33137221301544150, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1293315038}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1303737016
 Prefab:
   m_ObjectHideFlags: 0
@@ -2958,6 +6916,270 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1385960743}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1395944157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1153884262862564, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1395944158}
+  - component: {fileID: 1395944162}
+  - component: {fileID: 1395944161}
+  - component: {fileID: 1395944160}
+  m_Layer: 0
+  m_Name: Cylinder (16)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1395944158
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4800994774024760, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395944157}
+  m_LocalRotation: {x: -0.6061089, y: -0.60610884, z: -0.3641869, w: -0.36418688}
+  m_LocalPosition: {x: -21.69, y: 1.4, z: 11.29}
+  m_LocalScale: {x: 0.09999999, y: 4, z: 0.09999999}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 44
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 90.00001}
+--- !u!23 &1395944160
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23923198544909834, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395944157}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1395944161
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136823356269103216, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395944157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1395944162
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33816388165510992, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1395944157}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1411402316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1129721501548824, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1411402317}
+  - component: {fileID: 1411402321}
+  - component: {fileID: 1411402320}
+  - component: {fileID: 1411402319}
+  m_Layer: 0
+  m_Name: Cylinder (14)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1411402317
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4242861902877842, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411402316}
+  m_LocalRotation: {x: -0.5456211, y: -0.545621, z: -0.44977522, w: -0.44977513}
+  m_LocalPosition: {x: -24.28, y: 1.2, z: 4.18}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000005}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 46
+  m_LocalEulerAnglesHint: {x: 0, y: -79, z: 90.00001}
+--- !u!23 &1411402319
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23671884113555794, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411402316}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1411402320
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136762260975894188, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411402316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1411402321
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33127418786135344, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411402316}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1415876796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1839930020257552, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1415876797}
+  - component: {fileID: 1415876801}
+  - component: {fileID: 1415876800}
+  - component: {fileID: 1415876799}
+  m_Layer: 0
+  m_Name: Cylinder (10)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1415876797
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4320649497641066, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415876796}
+  m_LocalRotation: {x: -0.54562104, y: -0.545621, z: 0.44977522, w: 0.4497752}
+  m_LocalPosition: {x: -24.35, y: 1.4, z: -3.91}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.10000003}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 50
+  m_LocalEulerAnglesHint: {x: 0, y: 79, z: 90.00001}
+--- !u!23 &1415876799
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23260283128171056, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415876796}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1415876800
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136465045207038532, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415876796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1415876801
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33570584438408656, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1415876796}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1416951122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3266,364 +7488,182 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1463758267}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1507597425
-Prefab:
+--- !u!1 &1471313855
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1051103329}
-    m_Modifications:
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4085651759053024, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4239336955070614, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.36418688
-      objectReference: {fileID: 0}
-    - target: {fileID: 4239336955070614, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.36418685
-      objectReference: {fileID: 0}
-    - target: {fileID: 4239336955070614, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.60610884
-      objectReference: {fileID: 0}
-    - target: {fileID: 4239336955070614, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.6061088
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432530132199958, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.3641869
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432530132199958, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.36418688
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432530132199958, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.6061089
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432530132199958, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.60610884
-      objectReference: {fileID: 0}
-    - target: {fileID: 4651263421591944, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.36418688
-      objectReference: {fileID: 0}
-    - target: {fileID: 4651263421591944, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.36418685
-      objectReference: {fileID: 0}
-    - target: {fileID: 4651263421591944, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.60610884
-      objectReference: {fileID: 0}
-    - target: {fileID: 4651263421591944, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.6061088
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800994774024760, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.3641869
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800994774024760, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.36418688
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800994774024760, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.6061089
-      objectReference: {fileID: 0}
-    - target: {fileID: 4800994774024760, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.60610884
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431119658211386, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492665734491592, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1094906105761686, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1894976814663592, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119085252334658, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1792095331365832, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1746558917970586, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944907835202378, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1129721501548824, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1684484027085342, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1734131918505132, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1527640351478456, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1083420743203710, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1167284210797124, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1585679568794338, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599616671025420, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484989775264678, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1348535503389390, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1869317573791478, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092723330542182, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1682357965368456, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1468476503756544, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1576499213237292, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1839930020257552, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1916014511749632, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1267114533281224, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1288247879206332, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027446621503720, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1100548048153840, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1295853919185260, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1563337856274272, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918367593943792, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1815369034309650, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633259195565224, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383007211033174, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253420735306990, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338515894749324, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1817039455538590, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858632643618190, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821338021134606, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732764428383360, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070451106890530, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1614254607678816, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1851347043170790, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1110484100631546, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1749897411039784, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1115277992338950, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1311380830575826, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1369938778360622, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1620961167744018, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1222610733622692, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1311278570079800, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1586597647949974, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922865306919084, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007901288554504, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480061945141912, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1562121888866094, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1637902883306190, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536123245326294, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374019212257546, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1288056275996006, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1717829538161150, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 1153884262862564, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-      propertyPath: m_TagString
-      value: ElectricWire
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: fdc996a8f371ab0469f8bd3e748aaf2a, type: 2}
-  m_IsPrefabParent: 0
+  m_PrefabParentObject: {fileID: 1916014511749632, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1471313856}
+  - component: {fileID: 1471313860}
+  - component: {fileID: 1471313859}
+  - component: {fileID: 1471313858}
+  m_Layer: 0
+  m_Name: Cylinder (14)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1471313856
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4991713820014724, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471313855}
+  m_LocalRotation: {x: -0.44977522, y: -0.44977513, z: 0.5456211, w: 0.545621}
+  m_LocalPosition: {x: 24.28, y: 1.2, z: -4.18}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: -79, z: 90.00001}
+--- !u!23 &1471313858
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23205760428984524, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471313855}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1471313859
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136726823803915758, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471313855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1471313860
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33137361385639452, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471313855}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1476765198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1070451106890530, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1476765199}
+  - component: {fileID: 1476765203}
+  - component: {fileID: 1476765202}
+  - component: {fileID: 1476765201}
+  m_Layer: 0
+  m_Name: Cylinder (28)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1476765199
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4106268288878320, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476765198}
+  m_LocalRotation: {x: 0.055478983, y: 0.055478975, z: 0.7049271, w: 0.704927}
+  m_LocalPosition: {x: 3.82, y: 1.4, z: 24.26}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.099999994}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 90.00001}
+--- !u!23 &1476765201
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23810879628685322, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476765198}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1476765202
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136354195146443958, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476765198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1476765203
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33503620625585236, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476765198}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1532769906
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,6 +8100,182 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1573354619}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1630621875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1563337856274272, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1630621876}
+  - component: {fileID: 1630621880}
+  - component: {fileID: 1630621879}
+  - component: {fileID: 1630621878}
+  m_Layer: 0
+  m_Name: Cylinder (5)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1630621876
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4108473735408514, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630621875}
+  m_LocalRotation: {x: -0.65328157, y: -0.65328145, z: 0.27059805, w: 0.27059802}
+  m_LocalPosition: {x: -17.16, y: 1.6, z: -17.67}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 90.00001}
+--- !u!23 &1630621878
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23960972975417304, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630621875}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1630621879
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136332811171139496, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630621875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1630621880
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33083833452990840, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630621875}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1651579975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1110484100631546, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1651579976}
+  - component: {fileID: 1651579980}
+  - component: {fileID: 1651579979}
+  - component: {fileID: 1651579978}
+  m_Layer: 0
+  m_Name: Cylinder (18)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1651579976
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4554247317661288, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651579975}
+  m_LocalRotation: {x: -0.27059805, y: -0.27059802, z: 0.65328157, w: 0.65328145}
+  m_LocalPosition: {x: 17.16, y: 1.6, z: -17.66}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90.00001}
+--- !u!23 &1651579978
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23734185758105250, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651579975}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1651579979
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136460946467649498, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651579975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1651579980
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33784718010276810, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651579975}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1687242366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,6 +8858,358 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817549443}
+--- !u!1 &1828541330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1620961167744018, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1828541331}
+  - component: {fileID: 1828541335}
+  - component: {fileID: 1828541334}
+  - component: {fileID: 1828541333}
+  m_Layer: 0
+  m_Name: Cylinder (2)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1828541331
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4621411172504980, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828541330}
+  m_LocalRotation: {x: 0.16956735, y: 0.16956733, z: 0.6864743, w: 0.68647426}
+  m_LocalPosition: {x: 10.81, y: 1.6, z: 22.17}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.099999994}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 27.75, z: 90.00001}
+--- !u!23 &1828541333
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23205095131214680, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828541330}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1828541334
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136500721893479756, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828541330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1828541335
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33936227043408414, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828541330}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1845336158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1311380830575826, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1845336159}
+  - component: {fileID: 1845336163}
+  - component: {fileID: 1845336162}
+  - component: {fileID: 1845336161}
+  m_Layer: 0
+  m_Name: Cylinder (22)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1845336159
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4686907024381612, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845336158}
+  m_LocalRotation: {x: -0.1695674, y: -0.16956739, z: 0.6864743, w: 0.68647426}
+  m_LocalPosition: {x: 10.98, y: 1.4, z: -21.98}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -27.75, z: 90.00001}
+--- !u!23 &1845336161
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23110575542536146, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845336158}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1845336162
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136998652296637338, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845336158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1845336163
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33053057729194692, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845336158}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1952549222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1374019212257546, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1952549223}
+  - component: {fileID: 1952549227}
+  - component: {fileID: 1952549226}
+  - component: {fileID: 1952549225}
+  m_Layer: 0
+  m_Name: Cylinder (7)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1952549223
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4432530132199958, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952549222}
+  m_LocalRotation: {x: -0.6061089, y: -0.60610884, z: 0.3641869, w: 0.36418688}
+  m_LocalPosition: {x: -21.86, y: 1.4, z: -11.27}
+  m_LocalScale: {x: 0.09999999, y: 4, z: 0.09999999}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 53
+  m_LocalEulerAnglesHint: {x: 0, y: 62, z: 90.00001}
+--- !u!23 &1952549225
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23835731558693722, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952549222}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1952549226
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136408332994804540, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952549222}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1952549227
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33850400587670994, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952549222}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1971967572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1167284210797124, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1971967573}
+  - component: {fileID: 1971967577}
+  - component: {fileID: 1971967576}
+  - component: {fileID: 1971967575}
+  m_Layer: 0
+  m_Name: Cylinder (20)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1971967573
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4096439881362250, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971967572}
+  m_LocalRotation: {x: -0.27059805, y: -0.27059802, z: 0.65328157, w: 0.65328145}
+  m_LocalPosition: {x: 17.16, y: 1.2, z: -17.66}
+  m_LocalScale: {x: 0.10000006, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90.00001}
+--- !u!23 &1971967575
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23466238173568590, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971967572}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1971967576
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136303240814052682, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971967572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1971967577
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33137879971902002, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971967572}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2000311778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,6 +9474,182 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2038557481}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2043077023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1599616671025420, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2043077024}
+  - component: {fileID: 2043077028}
+  - component: {fileID: 2043077027}
+  - component: {fileID: 2043077026}
+  m_Layer: 0
+  m_Name: Cylinder (27)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2043077024
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4347413301085150, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043077023}
+  m_LocalRotation: {x: -0.704927, y: -0.704927, z: 0.05547898, w: 0.055478975}
+  m_LocalPosition: {x: -3.82, y: 1.2, z: -24.26}
+  m_LocalScale: {x: 0.1, y: 4, z: 0.09999998}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 9, z: 90.00001}
+--- !u!23 &2043077026
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23126575562266616, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043077023}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &2043077027
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136458616167054460, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043077023}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2043077028
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33929328442648158, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2043077023}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2044184274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1562121888866094, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2044184275}
+  - component: {fileID: 2044184279}
+  - component: {fileID: 2044184278}
+  - component: {fileID: 2044184277}
+  m_Layer: 0
+  m_Name: Cylinder (17)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2044184275
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4499474710749218, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044184274}
+  m_LocalRotation: {x: -0.60610884, y: -0.60610884, z: -0.36418688, w: -0.36418688}
+  m_LocalPosition: {x: -21.69, y: 1.2, z: 11.29}
+  m_LocalScale: {x: 0.100000046, y: 4, z: 0.100000024}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 43
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 90.00001}
+--- !u!23 &2044184277
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23956093835006394, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044184274}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &2044184278
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136936098982236368, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044184274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2044184279
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33352214715747098, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044184274}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2053930670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,6 +9737,94 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2053930670}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2057449991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1288056275996006, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2057449992}
+  - component: {fileID: 2057449996}
+  - component: {fileID: 2057449995}
+  - component: {fileID: 2057449994}
+  m_Layer: 0
+  m_Name: Cylinder (21)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2057449992
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4477116826902374, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057449991}
+  m_LocalRotation: {x: -0.6864743, y: -0.68647426, z: -0.1695674, w: -0.16956739}
+  m_LocalPosition: {x: -10.98, y: 1.2, z: 21.98}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000003}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 39
+  m_LocalEulerAnglesHint: {x: 0, y: -27.75, z: 90.00001}
+--- !u!23 &2057449994
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23350086002739428, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057449991}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &2057449995
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136595055248925366, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057449991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2057449996
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33724677422679140, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057449991}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2082975202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5080,4 +9912,180 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2082975202}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2110824444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1576499213237292, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2110824445}
+  - component: {fileID: 2110824449}
+  - component: {fileID: 2110824448}
+  - component: {fileID: 2110824447}
+  m_Layer: 0
+  m_Name: Cylinder (16)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2110824445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4239336955070614, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110824444}
+  m_LocalRotation: {x: -0.3641869, y: -0.36418688, z: 0.6061089, w: 0.60610884}
+  m_LocalPosition: {x: 21.69, y: 1.4, z: -11.29}
+  m_LocalScale: {x: 0.099999994, y: 4, z: 0.09999999}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 90.00001}
+--- !u!23 &2110824447
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23830226118960760, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110824444}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &2110824448
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136804647415480600, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110824444}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2110824449
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33709015429967100, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110824444}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2140670931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1682357965368456, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2140670932}
+  - component: {fileID: 2140670936}
+  - component: {fileID: 2140670935}
+  - component: {fileID: 2140670934}
+  m_Layer: 0
+  m_Name: Cylinder (1)
+  m_TagString: ElectricWire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2140670932
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4550056369868254, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140670931}
+  m_LocalRotation: {x: -0.6864743, y: -0.68647426, z: 0.16956735, w: 0.16956733}
+  m_LocalPosition: {x: -10.81, y: 1.4, z: -22.17}
+  m_LocalScale: {x: 0.10000012, y: 4, z: 0.10000001}
+  m_Children: []
+  m_Father: {fileID: 1056161938}
+  m_RootOrder: 58
+  m_LocalEulerAnglesHint: {x: 0, y: 27.75, z: 90.00001}
+--- !u!23 &2140670934
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 23114975493968266, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140670931}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4b691219b95be474da006bb2291d91fe, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &2140670935
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 136044518298261682, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140670931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &2140670936
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 33704660939179132, guid: fdc996a8f371ab0469f8bd3e748aaf2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140670931}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
