@@ -175,6 +175,27 @@ namespace KyleGame
 				}
 			}
 		}
+
+		private class StateExplode : WalkerStateBase<Drone>
+		{
+			public StateExplode(Drone owner) : base(owner)
+			{
+			}
+
+			public override void Enter()
+			{
+				MovementSpeed = 0;
+
+				Owner._droneAnimation.Suicide().Subscribe(_ =>
+					{
+						Owner._damageArea.SetActive(true);
+					},
+					() =>
+					{
+						Destroy(Owner._damageArea);
+					});
+			}
+		}
 	}
 
 	public enum DroneState
@@ -183,6 +204,7 @@ namespace KyleGame
 		Idle,
 		Pursuit,
 		Attack,
-		Return
+		Return,
+		Explode
 	}
 }

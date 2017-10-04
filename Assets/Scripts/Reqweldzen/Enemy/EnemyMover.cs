@@ -3,22 +3,17 @@ using UnityEngine;
 
 namespace KyleGame
 {
-	[RequireComponent(typeof(EnemyCharacterController))]
 	public class EnemyMover : BaseEnemyComponent
 	{
 		private readonly BoolReactiveProperty _isRunning = new BoolReactiveProperty();
 
-		private EnemyCharacterController _playerCharacterController;
-
 		protected override void OnInitialize()
 		{
-			_playerCharacterController = GetComponent<EnemyCharacterController>();
-
 			InputEventProvider.MoveDirection
 				.Subscribe(x =>
 				{
 					var value = x.normalized * 10f;
-					_playerCharacterController.Move(value);
+					//_playerCharacterController.Move(value);
 				});
 
 			InputEventProvider.MoveDirection

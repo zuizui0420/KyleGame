@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UniRx;
 using UnityEngine;
 
 public class DroneAnimation : MonoBehaviour
@@ -19,24 +20,24 @@ public class DroneAnimation : MonoBehaviour
 	}
 
 	//攻撃
-	public void Suicide()
+	public IObservable<Unit> Suicide()
 	{
 		_animator.SetTrigger("Break");
 		_sparkEffect.Play();
 
-		StartCoroutine(Explosion());
+		return Observable.FromCoroutine<Unit>(Explosion);
 	}
 
-	private IEnumerator Explosion()
+	private IEnumerator Explosion(IObserver<Unit> observer)
 	{
-		// コルーチンの処理  
-		// 2秒待つ  
-		yield return new WaitForSeconds(2.0f);
-		//2秒後に爆発
-		_explosionEffect.Play();
+		yield return new WaitForSeconds(0.5f);
 
-		yield return new WaitForSeconds(1.0f);
-		//爆発後消去
-		Destroy(gameObject);
+		observer.OnNext(Unit.Default);
+		_explosionEffect.Play();
+		Debug.Log("Play Effect");
+
+		yield return new WaitForSeconds(_explosionEffect.main.duration);
+
+		observer.OnCompleted();
 	}
 }

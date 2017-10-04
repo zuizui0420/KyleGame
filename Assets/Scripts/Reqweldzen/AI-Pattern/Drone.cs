@@ -25,20 +25,19 @@ namespace KyleGame
 		[SerializeField, Header("弾丸を生成する座標")]
 		private Transform[] _shotPointList;
 
+		[SerializeField, Header("Damage Area")]
+		private GameObject _damageArea;
+
 		protected override Transform PlayerTransform
 		{
 			get { return _playerTransform; }
 		}
 
-		[Inject]
-		private void Construct(PlayerSystem player)
-		{
-			_playerTransform = player.transform;
-		}
-
 		protected override void OnInitialize()
 		{
 			base.OnInitialize();
+
+			_playerTransform = GameObject.Find("Player").transform;
 
 			_droneAnimation = GetComponent<DroneAnimation>();
 
@@ -95,6 +94,11 @@ namespace KyleGame
 
 				yield return this.Wait(TimeSpan.FromMilliseconds(shotIntervalTime)).ToYieldInstruction();
 			}
+		}
+
+		public void Dead()
+		{
+			ChangeState(DroneState.Explode);
 		}
 	}
 }

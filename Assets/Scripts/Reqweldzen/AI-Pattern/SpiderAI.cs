@@ -3,6 +3,7 @@ using System.Collections;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace KyleGame
 {
@@ -40,7 +41,18 @@ namespace KyleGame
 				Owner.UpdateAsObservable()
 					.Where(_ => OnObjectReflectedInOwnerEyes())
 					.TakeUntilDestroy(Owner)
-					.Subscribe(_ => { Owner.ChangeState(SpiderState.Pursuit); })
+					.Subscribe(_ => {  })
+					.AddTo(_disposableList);
+
+				Owner.UpdateAsObservable()
+					.Where(_ => OnObjectReflectedInOwnerEyes())
+					.ThrottleFirst(TimeSpan.FromMilliseconds(50))
+					.Where(_ => CanSetDestination())
+					.TakeUntilDestroy(Owner)
+					.Subscribe(_ =>
+					{
+						Owner.ChangeState(SpiderState.Pursuit);
+					})
 					.AddTo(_disposableList);
 
 				Observable.FromCoroutine(token => WandererCoroutine(WaitCoroutine, token)).TakeUntilDestroy(Owner).Subscribe().AddTo(_disposableList);
@@ -49,6 +61,12 @@ namespace KyleGame
 			private IEnumerator WaitCoroutine()
 			{
 				yield return new WaitForSeconds(4f);
+			}
+
+			private bool CanSetDestination()
+			{
+				var path = new NavMeshPath();
+				return Agent.CalculatePath(Player.position, path);
 			}
 		}
 
@@ -86,6 +104,7 @@ namespace KyleGame
 
 				Owner.UpdateAsObservable()
 					.Where(_ => GetDistance(Player) < RelativeDistance)
+					.Take(1)
 					.Subscribe(_ =>
 					{
 						Owner.ChangeState(SpiderState.Explode);
@@ -113,14 +132,30 @@ namespace KyleGame
 
 			public override void Enter()
 			{
+				MovementSpeed = 0;
+
 				switch (Owner._spiderType)
 				{
 					case SpiderType.InstantSpark:
-						Owner._spiderAnimation.Suicide();
+						Owner._spiderAnimation.Suicide().Subscribe(_ =>
+							{
+								Owner._damageArea.SetActive(true);
+							},
+							() =>
+							{
+								Destroy(Owner.gameObject);
+							});
 						break;
 					case SpiderType.TimerBomb:
 						Owner._spiderAnimation.Spark();
-						Owner._spiderAnimation.Suicide();
+						Owner._spiderAnimation.Suicide().Subscribe(_ =>
+							{
+								Owner._damageArea.SetActive(true);
+							},
+							() =>
+							{
+								Destroy(Owner.gameObject);
+							});
 						break;
 					default:
 						throw new ArgumentOutOfRangeException();
