@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using UniRx;
+using UniRx.Triggers;
 using UnityEditorInternal;
 using UnityEngine;
 using Zenject;
@@ -16,11 +17,6 @@ namespace KyleGame
 		private BossBarrier _bossBarrier;
 
 		private BossAnimatorControl _bossAnimatorControl;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private bool _isBarrierBroken;
 
 		[Inject]
 		private PlayerSystem _player;
@@ -61,18 +57,31 @@ namespace KyleGame
 
 		private void WeaponSetup()
 		{
-			var orbIsBroken = FindObjectsOfType<EnergyOrb>().Select(x => x.IsOrbBroken).Merge();
+			var orbIsBroken = Observable.Merge(FindObjectsOfType<EnergyOrb>().Select(x => x.IsOrbBroken));
 
 			// バリアが消えたら硬直させる
-			_bossBarrier.IsBrokeEvent.TakeUntilDestroy(this).Subscribe(_ => ChangeState(BossState.Freeze));
+			_bossBarrier.IsBrokeEvent.TakeUntilDestroy(this).Subscribe(_ =>
+			{
+				this.OnCollisionEnterAsObservable().Where(x => x.collider.CompareTag(TAGNAME.TAG_ELECTRICWIRE));
+
+				ChangeState(BossState.Freeze);
+			});
 
 			// 2つめの時にスパークを表示
-			var barrierHalfBroken = orbIsBroken.Skip(1).FirstOrDefault().Do(_ => { _bossBarrier.HalfBroken(); });
+			var barrierHalfBroken = orbIsBroken.Skip(1).FirstOrDefault().Do(_ =>
+			{
+				Debug.Log("2 break.");
+				_bossBarrier.HalfBroken();
+			});
 
 			// 4つめの時にバリアを消す
-			var barrierBroken = orbIsBroken.Skip(3).FirstOrDefault().Do(_ => { _bossBarrier.Broke(); });
+			var barrierBroken = orbIsBroken.Skip(3).FirstOrDefault().Do(_ =>
+			{
+				Debug.Log("4 break.");
+				_bossBarrier.Broke();
+			});
 
-			barrierHalfBroken.Merge(barrierBroken).TakeUntilDestroy(this).Subscribe();
+			Observable.Merge(barrierHalfBroken, barrierBroken).TakeUntilDestroy(this).Subscribe();
 		}
 
 		private IEnumerator SummonCoroutine()

@@ -8,6 +8,8 @@ TagManager:
   - Gimmick_Laser
   - Enemy
   - Gimmick_Enemy
+  - EnergyOrb
+  - ElectricWire
   layers:
   - Default
   - TransparentFX

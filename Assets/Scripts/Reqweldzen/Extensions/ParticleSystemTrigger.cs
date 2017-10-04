@@ -7,9 +7,6 @@ namespace KyleGame
 {
 	public class ParticleSystemTrigger : MonoBehaviour
 	{
-		private readonly AsyncSubject<Unit> _isFinishedSubject = new AsyncSubject<Unit>();
-		public IObservable<Unit> IsFinished { get { return _isFinishedSubject; } }
-
 		private ParticleSystem _particleSystem;
 
 		private void Awake()
@@ -17,11 +14,10 @@ namespace KyleGame
 			_particleSystem = GetComponent<ParticleSystem>();
 		}
 
-		private void Start()
+		public IObservable<Unit> Play()
 		{
-			Observable.Return(Unit.Default).Delay(TimeSpan.FromSeconds(_particleSystem.main.duration))
-				.TakeUntilDestroy(this)
-				.Subscribe(_isFinishedSubject);
+			_particleSystem.Play();
+			return Observable.Timer(TimeSpan.FromSeconds(_particleSystem.main.duration)).AsUnitObservable();
 		}
 	}
 }

@@ -13,12 +13,14 @@ namespace KyleGame
 
 		public void HalfBroken()
 		{
-			//_sparkEffect.Play();
+			_sparkEffect.Play();
 		}
 
 		public void Broke()
 		{
 			gameObject.SetActive(false);
+			_isBrokeSubject.OnNext(Unit.Default);
+			_isBrokeSubject.OnCompleted();
 		}
 	}
 }

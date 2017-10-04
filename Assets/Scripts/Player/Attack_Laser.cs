@@ -90,6 +90,10 @@ public class Attack_Laser : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<EnemyBase>().EnemyDamage();
             }
+			else if (hit.collider.CompareTag(TAGNAME.TAG_ENERGYORB))
+            {
+	            hit.collider.GetComponent<EnergyOrb>().Damage();
+            }
         }
         else
         {

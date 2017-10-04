@@ -27,7 +27,7 @@ namespace KyleGame
 
 			public override void Enter()
 			{
-				MovementSpeed = 1f;
+				MovementSpeed = 3f;
 				Agent.isStopped = false;
 				Owner._bossAnimatorControl.MovementSpeed = 0.2f;
 
@@ -44,7 +44,7 @@ namespace KyleGame
 					.AddTo(_compositeDisposable);
 
 				// 最長5秒後に行動を決定する
-				Observable.Timer(TimeSpan.FromSeconds(3))
+				Observable.Timer(TimeSpan.FromSeconds(5))
 					.TakeUntilDestroy(Owner)
 					.Subscribe(_ =>
 					{
@@ -146,6 +146,8 @@ namespace KyleGame
 			// 電気タックル
 			private IEnumerator Tackle()
 			{
+				var direction = GetDirection(Player);
+
 				yield return _animatorControl.TackleReady().ToYieldInstruction();
 
 				yield return new WaitForSeconds(0.5f);
@@ -161,7 +163,7 @@ namespace KyleGame
 					if (time >= 1f) break;
 					if (_isHit) break;
 
-					Agent.Move(GetDirection(Player) * 8f * Time.deltaTime);
+					Agent.Move(direction * 8f * Time.deltaTime);
 					yield return null;
 				}
 
