@@ -60,4 +60,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 713fe4e906f4ddb4ead004d09218b9ba, type: 3}
   - {fileID: 8300000, guid: 4d45eecb3e1507d4caea08439408923a, type: 3}
   - {fileID: 8300000, guid: 3a7f6ec893a624643b47264625e430ad, type: 3}
+  - {fileID: 8300000, guid: efef834cc0a1d4b4687d78ba4b45fcdf, type: 3}
   GenerateAudioClips: []

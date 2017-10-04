@@ -17,5 +17,6 @@ public class AUDIONAME : MonoBehaviour
     public static string SE_GUNSHOT = "Gunshot";
     public static string SE_EXPLOSION_1 = "Explosion_1";
     public static string SE_EXPLOSION_2 = "Explosion_2";
+	public static string SE_ELEVATOR = "Elevator";
 
 }

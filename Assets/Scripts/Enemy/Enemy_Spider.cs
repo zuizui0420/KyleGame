@@ -15,7 +15,7 @@ public class Enemy_Spider : EnemyBase
     /// </summary>
     protected override void EnemyDead()
     {
-        SpiderAnimation.Dead();
+		SpiderAnimation.Dead();
         base.EnemyDead();
     }
 }

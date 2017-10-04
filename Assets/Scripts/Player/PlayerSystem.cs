@@ -548,8 +548,11 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //ダメージエフェクトを表示する
         ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0.5f;
 
-        //体力減少
-        DATABASE.Life--;      
+		//音
+		AudioManager.Instance.Play(AUDIONAME.SE_EXPLOSION_1);
+
+		//体力減少
+		DATABASE.Life--;      
 
         //体力UIを点滅させる
         LifeIcon.StartBlink(DATABASE.Life);
@@ -566,7 +569,9 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
             Effect_Explosion.GetComponent<ParticleSystem>().Play();
 
-            PlayerAnim.SetBool("Death", true);
+			AudioManager.Instance.Play(AUDIONAME.SE_EXPLOSION_2, 0.8f, false, 180);
+
+			PlayerAnim.SetBool("Death", true);
 
             PlayerControle = false;
             PlayerCameraControle = false;
@@ -576,7 +581,9 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
             WaitAfter(3f, () =>
             {
                 SceneFader.Instance.LoadLevel(SCENENAME.SCENE_GAMEOVER);
+				AudioManager.Instance.AudioDelete(AUDIONAME.SE_EXPLOSION_2);
             });
+
         }
 
         //無敵状態にする
@@ -593,8 +600,10 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //初期値に設定
         ThirdPerson_Cam.GetComponent<DamageShader>().damageRatio = 0f;
 
-        //無敵状態を解除
-        WaitAfter(1f, () =>
+		AudioManager.Instance.AudioDelete(AUDIONAME.SE_EXPLOSION_1);
+
+		//無敵状態を解除
+		WaitAfter(1f, () =>
         {
             OnVisible = false;          
         });     

@@ -40,8 +40,11 @@ public class Enemy_Drone : EnemyBase
 
         Effect_Explosion.Play();
 
-        yield return new WaitForSeconds(1f);
+		AudioManager.Instance.Play(AUDIONAME.SE_EXPLOSION_2,0.6f,false,120);
 
-        Destroy(gameObject);
+		yield return new WaitForSeconds(1f);
+
+		AudioManager.Instance.AudioDelete(AUDIONAME.SE_EXPLOSION_2);
+		Destroy(gameObject);
     }
 }

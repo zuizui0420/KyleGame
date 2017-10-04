@@ -31,7 +31,12 @@ public class ElevatorDoor : MonoBehaviourExtension
 
                     //エレベーターを動かす
                     StartCoroutine(ElevatorMove());
-                });               
+
+					//音
+					AudioManager.Instance.Play(AUDIONAME.SE_ELEVATOR,0.8f,false,128);
+
+
+				});               
             }
         }        
     }

@@ -26,7 +26,9 @@ public class EnemyBase : MonoBehaviour
             {
                 Debug.Log(gameObject.name + "を撃破");
 
-                Dead = true;
+				AudioManager.Instance.Play(AUDIONAME.SE_EXPLOSION_1);
+
+				Dead = true;
 
                 EnemyDead();
             }
