@@ -200,7 +200,7 @@ public class TurretControle : GimmickBase
         {
             if (!AttackMode)
             {
-                break; ;
+                break;
             }
 
             AttackcurrentTime -= Time.deltaTime;
@@ -238,9 +238,10 @@ public class TurretControle : GimmickBase
 
         DefaultAngleBack = false;
 
-        yield return new WaitForSeconds(AttackInterval);
+		yield return new WaitForSeconds(AttackInterval);
 
-        AttackWaiting = false;              
+		AttackWaiting = false;
+
     }
     #endregion   
 

@@ -96,6 +96,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     bool MoveFlg = true;
 
+	bool DeadFlg = false;
+
     enum ANIMATION_MODE
     {
         AIM,
@@ -117,49 +119,52 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
     void Update()
     {
-        if (BatteryIcon.OverHeat && MoveFlg && !BatteryIcon.DummyOverHeat)
-        {
-            BatteryIcon.BatteryOverHeat();
-            MoveSpeed = DefaultSpeed;
+		if (!DeadFlg)
+		{
+			if (BatteryIcon.OverHeat && MoveFlg && !BatteryIcon.DummyOverHeat)
+			{
+				BatteryIcon.BatteryOverHeat();
+				MoveSpeed = DefaultSpeed;
 
-            Mode_Spark = false;
+				Mode_Spark = false;
 
-            if (BatteryIcon.ResetFlg)
-            {
-                Damage();
+				if (BatteryIcon.ResetFlg)
+				{
+					Damage();
 
-                foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
-                {
-                    effect.Stop();
-                }
+					foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+					{
+						effect.Stop();
+					}
 
-                SparkAttack = false;
-                AttackAnimation(false, ANIMATION_MODE.SPARK);
+					SparkAttack = false;
+					AttackAnimation(false, ANIMATION_MODE.SPARK);
 
-                BatteryIcon.ResetFlg = false;         
-            }
-        }
-        else if (!BatteryIcon.OverHeat && MoveFlg && BatteryIcon.DummyOverHeat)
-        {
-            BatteryIcon.BatteryDummyOverHeat();
-            MoveSpeed = ElectricModeSpeed;
-        }
-        else if (Mode_Spark && MoveFlg)
-        {
-            BatteryIcon.BatteryUse();
-            MoveSpeed = ElectricModeSpeed;
-        }
-        else if(MoveFlg)
-        {
-            BatteryIcon.BatteryCharge();
-            MoveSpeed = DefaultSpeed;
-        }
+					BatteryIcon.ResetFlg = false;
+				}
+			}
+			else if (!BatteryIcon.OverHeat && MoveFlg && BatteryIcon.DummyOverHeat)
+			{
+				BatteryIcon.BatteryDummyOverHeat();
+				MoveSpeed = ElectricModeSpeed;
+			}
+			else if (Mode_Spark && MoveFlg)
+			{
+				BatteryIcon.BatteryUse();
+				MoveSpeed = ElectricModeSpeed;
+			}
+			else if (MoveFlg)
+			{
+				BatteryIcon.BatteryCharge();
+				MoveSpeed = DefaultSpeed;
+			}
 
-        PlayerAnimation();
+			PlayerAnimation();
 
-        PlayerCommand();
+			PlayerCommand();
 
-        AimMode();
+			AimMode();
+		}     
     }
 
     private void FixedUpdate()
@@ -560,8 +565,12 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         //体力がない場合は死亡する
         if (DATABASE.Life == 0)
         {
+			DeadFlg = true;
+
             gameObject.tag = TAGNAME.TAG_UNTAGGED;
             gameObject.layer = LayerMask.NameToLayer("Default");
+
+            Reset();
 
             Debug.Log("死亡");
 
@@ -609,5 +618,35 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
         });     
     }
 
+    /// <summary>
+    /// 全ての状態をリセットする
+    /// </summary>
+    private void Reset()
+    {
+        foreach (ParticleSystem effect in Effect_Electric.GetComponentsInChildren<ParticleSystem>())
+        {
+            effect.Stop();
+        }
 
+		ReticleSystem.Instance.ReticleEnable(false);
+
+		ReticleSystem.Instance.ResetPosition();
+
+		AttackLaser(false);
+
+		Zooming = false;
+
+		MoveFlg = false;
+
+		Mode_Aim = false;
+        Mode_Spark = false;
+
+        LaserAttack = false;
+        SparkAttack = false;
+
+        AudioManager.Instance.AudioDelete(AUDIONAME.SE_LASER);
+        AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_1);
+        AudioManager.Instance.AudioDelete(AUDIONAME.SE_SPARK_2);
+       
+    }
 }

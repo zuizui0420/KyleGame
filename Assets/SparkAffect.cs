@@ -20,7 +20,7 @@ public class SparkAffect : MonoBehaviour
 
 	private void Start()
 	{
-		this.UpdateAsObservable().Select(_ => _playerSystem.LaserAttack)
+		this.UpdateAsObservable().Select(_ => _playerSystem.SparkAttack)
 			.Subscribe(x => _laserAttackReactiveProperty.Value = x);
 
 		_laserAttackReactiveProperty.TakeUntilDestroy(this).Subscribe(_sparkDamageArea.SetActive);
