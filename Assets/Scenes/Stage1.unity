@@ -7857,9 +7857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LIFE: 1
-  EnemyAnimation: {fileID: 1730411028}
-  Effect_Spark: {fileID: 887730863}
-  Effect_Explosion: {fileID: 785647103}
 --- !u!114 &344898872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7894,6 +7891,7 @@ MonoBehaviour:
   _isIdleMode: 1
   _shotPointList:
   - {fileID: 757354315}
+  _damageArea: {fileID: 0}
 --- !u!135 &344898874
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10159,6 +10157,11 @@ Prefab:
       propertyPath: BatteryIcon
       value: 
       objectReference: {fileID: 464172299}
+    - target: {fileID: 114031021390394148, guid: b6e8869bc7d81704fabff4234c39e957,
+        type: 2}
+      propertyPath: PlayIsGamePad
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
   m_IsPrefabParent: 0

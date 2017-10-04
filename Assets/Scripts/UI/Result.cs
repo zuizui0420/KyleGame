@@ -75,7 +75,8 @@ public class Result : MonoBehaviour
 	}
 
     void Update()
-    {       
+    {   
+
         if (SelectMode)
         { 
             //ゲームパッドのAxisを取得(右)

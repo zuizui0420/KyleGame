@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4744402165190414}
   - component: {fileID: 198021191933912168}
-  - component: {fileID: 114327918373775668}
+  - component: {fileID: 114890606234763908}
   m_Layer: 0
   m_Name: Explosion loop fallback_turret
   m_TagString: Untagged
@@ -165,7 +165,7 @@ Transform:
   m_Father: {fileID: 4744402165190414}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114327918373775668
+--- !u!114 &114890606234763908
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441271123489314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 6050621c5775479b92bcec2db1987ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198021191933912168
@@ -183,11 +183,11 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1441271123489314}
   serializedVersion: 5
-  lengthInSec: 50
+  lengthInSec: 5
   simulationSpeed: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0
@@ -3191,7 +3191,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0
@@ -6009,7 +6009,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0
@@ -8932,7 +8932,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0
@@ -11858,7 +11858,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     minMaxState: 0

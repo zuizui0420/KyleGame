@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4261338641215096}
   - component: {fileID: 198095247370482254}
-  - component: {fileID: 114028049765466676}
+  - component: {fileID: 114456897326887858}
   m_Layer: 0
   m_Name: Explosion loop fallback_player
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Transform:
   m_Father: {fileID: 4261338641215096}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114028049765466676
+--- !u!114 &114456897326887858
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1263650977704238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 6050621c5775479b92bcec2db1987ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198095247370482254

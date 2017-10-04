@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using KyleGame;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 /// <summary>
 /// 敵：タレット
@@ -40,8 +42,14 @@ public class TurretControle : GimmickBase
     [SerializeField, Header("マズルフラッシュのエフェクト")]
     GameObject Effect_hit;
 
-    //攻撃態勢かどうか
-    bool AttackMode = false;
+	[SerializeField, Header("故障のエフェクト")]
+	GameObject Effect_destroy;
+
+	[SerializeField, Header("電気のエフェクト")]
+	GameObject Effect_elect;
+
+	//攻撃態勢かどうか
+	bool AttackMode = false;
 
     //攻撃待機状態かどうか
     bool AttackWaiting = false;
@@ -137,7 +145,14 @@ public class TurretControle : GimmickBase
         //攻撃状態を解除
         AttackMode = false;
 
-        StartCoroutine(TurretAnimation(NotSetUpRot, false));
+		var trigger = Instantiate(Effect_destroy, EffectInsPoint.transform.position, Quaternion.identity).GetComponent<ParticleSystemTrigger>();
+		trigger.IsFinished.Subscribe(_ => Destroy(trigger.gameObject));
+
+		AudioManager.Instance.Play(AUDIONAME.SE_EXPLOSION_1, 0.5f, false, 110, false);
+
+		Effect_elect.SetActive(true);
+
+		StartCoroutine(TurretAnimation(NotSetUpRot, false));
     }
 
     /// <summary>
@@ -146,7 +161,9 @@ public class TurretControle : GimmickBase
     /// <returns></returns>
     private IEnumerator TurretAnimation(float AnimationAngle, bool starting)
     {
-        float currentTime = 2f;
+		AudioManager.Instance.AudioDelete(AUDIONAME.SE_EXPLOSION_1);
+
+        float currentTime = 5f;
 
         if (!starting) { Starting = starting; }
 
@@ -157,10 +174,16 @@ public class TurretControle : GimmickBase
             Turret.transform.localEulerAngles = new Vector3(
                 Mathf.Lerp(Turret.transform.localEulerAngles.x, AnimationAngle, 0.1f), 0f, 0f);
 
-            yield return null;
+			
+			yield return null;
         }
+		
+		Effect_elect.SetActive(false);
 
-        if (starting) { Starting = starting; }       
+        if (starting)
+		{			
+			Starting = starting;
+		}       
     }
 
     #region 攻撃
@@ -195,7 +218,7 @@ public class TurretControle : GimmickBase
                     Instantiate(Effect_hit, EffectInsPoint.transform.position, Quaternion.identity);
 
 					//サウンド再生
-					AudioManager.Instance.Play(AUDIONAME.SE_GUNSHOT, 1, false, 200, false);
+					AudioManager.Instance.Play(AUDIONAME.SE_GUNSHOT, 0.1f, false, 110, false);
                 }
 
                 BulletInsTime = 0.5f;
