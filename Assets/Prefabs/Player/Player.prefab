@@ -997,8 +997,8 @@ GameObject:
   - component: {fileID: 54678029975082820}
   - component: {fileID: 114031021390394148}
   - component: {fileID: 114022453613520952}
-  - component: {fileID: 114570265137259308}
   - component: {fileID: 114191221580831586}
+  - component: {fileID: 114570265137259308}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2072,7 +2072,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1906262914488206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.03, y: -2.98, z: -30}
+  m_LocalPosition: {x: -0.85, y: 0.3, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4443399232812848}
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af54367da0b7a244c8c1a438a0f72283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayIsGamePad: 0
+  PlayIsGamePad: 1
   ThirdPerson_Cam: {fileID: 20943434870277818}
   FirstPerson_Cam: {fileID: 20807364901864376}
   LifeIcon: {fileID: 0}
@@ -2311,7 +2311,6 @@ MonoBehaviour:
   FirstPerson_DebugTest: 0
   ElectricModeSpeed: 6
   Zooming: 0
-  LIFE: 3
 --- !u!114 &114191221580831586
 MonoBehaviour:
   m_ObjectHideFlags: 1

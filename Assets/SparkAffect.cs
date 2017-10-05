@@ -8,7 +8,7 @@ using UnityEngine;
 public class SparkAffect : MonoBehaviour
 {
 	private PlayerSystem _playerSystem;
-	private BoolReactiveProperty _laserAttackReactiveProperty = new BoolReactiveProperty();
+	private readonly BoolReactiveProperty _isSparkingRP = new BoolReactiveProperty();
 
 	[SerializeField]
 	private GameObject _sparkDamageArea;
@@ -21,9 +21,9 @@ public class SparkAffect : MonoBehaviour
 	private void Start()
 	{
 		this.UpdateAsObservable().Select(_ => _playerSystem.SparkAttack)
-			.Subscribe(x => _laserAttackReactiveProperty.Value = x);
+			.Subscribe(x => _isSparkingRP.Value = x);
 
-		_laserAttackReactiveProperty.TakeUntilDestroy(this).Subscribe(_sparkDamageArea.SetActive);
+		_isSparkingRP.TakeUntilDestroy(this).Subscribe(_sparkDamageArea.SetActive);
 
 		_sparkDamageArea.OnEnableAsObservable().Subscribe(_ =>
 		{

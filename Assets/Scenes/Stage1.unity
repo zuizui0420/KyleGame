@@ -10158,11 +10158,6 @@ Prefab:
       propertyPath: BatteryIcon
       value: 
       objectReference: {fileID: 464172299}
-    - target: {fileID: 114031021390394148, guid: b6e8869bc7d81704fabff4234c39e957,
-        type: 2}
-      propertyPath: PlayIsGamePad
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
   m_IsPrefabParent: 0
@@ -12368,7 +12363,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 123786443
+  randomSeed: 1638245762
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -19816,7 +19811,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1760520121}
   serializedVersion: 5
-  lengthInSec: 50
+  lengthInSec: 2
   simulationSpeed: 1
   looping: 1
   prewarm: 0
@@ -19864,7 +19859,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1327606874
+  randomSeed: -1889393460
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -25224,7 +25219,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -468067006
+  randomSeed: -269114614
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -50001,7 +49996,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1760520121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9e6a20494274d5045a1b36a770ea76b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1762777556
@@ -52717,7 +52712,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1511030566
+  randomSeed: 692154763
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -56323,7 +56318,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -438400066
+  randomSeed: -1557099685
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -60919,7 +60914,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1509740972
+  randomSeed: 1843193084
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -66734,7 +66729,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 403791073
+  randomSeed: -1905776262
   InitialModule:
     serializedVersion: 3
     enabled: 1
