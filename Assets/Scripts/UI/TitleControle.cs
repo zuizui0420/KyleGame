@@ -8,7 +8,7 @@ public class TitleControle : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneFader.Instance.LoadLevel(SCENENAME.SCENE_STAGE1);
+            SceneFader.Instance.LoadLevel(SCENENAME.SCENE_STAGE2);
         }       
     }
 }

@@ -96,6 +96,7 @@ namespace KyleGame
 
 				// 追跡座標を10Fごとに更新
 				Observable.IntervalFrame(10, FrameCountType.FixedUpdate)
+					.TakeUntilDestroy(Owner)
 					.Subscribe(_ =>
 					{
 						Destination = Player.position;
