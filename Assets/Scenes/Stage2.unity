@@ -50287,7 +50287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &765548791
 Transform:
   m_ObjectHideFlags: 0
@@ -83376,10 +83376,8 @@ GameObject:
   - component: {fileID: 1314370960}
   - component: {fileID: 1314370959}
   - component: {fileID: 1314370958}
-  - component: {fileID: 1314370957}
   - component: {fileID: 1314370956}
   - component: {fileID: 1314370955}
-  - component: {fileID: 1314370954}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Enemy
@@ -83403,20 +83401,6 @@ Transform:
   m_Father: {fileID: 127414358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1314370954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114616776888678342, guid: a3e893a897e5c82498acca1c50f28bb7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1314370952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0efd4b799cd7b41af96b56e5f4f372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 1868032593}
-  _sparkEffect: {fileID: 659550084}
 --- !u!114 &1314370955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83441,20 +83425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb219b23cdf4b314f94a27bca3cc8012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1314370957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114541616792701016, guid: a3e893a897e5c82498acca1c50f28bb7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1314370952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d0efd4b799cd7b41af96b56e5f4f372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 1868032593}
-  _sparkEffect: {fileID: 659550084}
 --- !u!114 &1314370958
 MonoBehaviour:
   m_ObjectHideFlags: 0
