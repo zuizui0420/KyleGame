@@ -10116,55 +10116,50 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.85
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0.3
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+    - target: {fileID: 4365281864232240, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114031021390394148, guid: b6e8869bc7d81704fabff4234c39e957,
+    - target: {fileID: 114909945253192532, guid: f9e5f8af70d7b6b49bc8f844868a1cd5,
         type: 2}
       propertyPath: LifeIcon
       value: 
       objectReference: {fileID: 49685517}
-    - target: {fileID: 114031021390394148, guid: b6e8869bc7d81704fabff4234c39e957,
+    - target: {fileID: 114909945253192532, guid: f9e5f8af70d7b6b49bc8f844868a1cd5,
         type: 2}
       propertyPath: BatteryIcon
       value: 
       objectReference: {fileID: 464172299}
-    - target: {fileID: 114031021390394148, guid: b6e8869bc7d81704fabff4234c39e957,
-        type: 2}
-      propertyPath: PlayIsGamePad
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: f9e5f8af70d7b6b49bc8f844868a1cd5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &464172298
 GameObject:

@@ -23,7 +23,7 @@ public class FirstPersonCamera : SingletonMonoBehaviour<FirstPersonCamera>
 	
 	void Update ()
     {
-        if (PlayerSystem.instance.Zooming)
+        if (PlayerSystem.instance.IsZooming)
         {
             GetComponent<Camera>().enabled = true;
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, FirstPersonPointPos, 0.2f);

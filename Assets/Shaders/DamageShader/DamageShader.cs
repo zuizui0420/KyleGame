@@ -1,27 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class DamageShader : MonoBehaviour {
-
+public class DamageShader : MonoBehaviour
+{
 	[SerializeField]
-	Material m_Material;
+	private Material _damageMaterial;
 
 	[Range(0, 1)]
 	public float damageRatio;
 
-	void Start() {
-		//m_Material = new Material(Shader.Find("Custom/Damage"));
-
+	private float DamageRatio
+	{
+		get { return _damageMaterial.GetFloat("_DamageRatio"); }
+		set { _damageMaterial.SetFloat("_DamageRatio", value); }
 	}
 
-	void MaterialUpdate() {
-
-		m_Material.SetFloat("_DamageRatio", damageRatio);
-	}
-
-	void OnRenderImage(RenderTexture src, RenderTexture dest) {
-
-		MaterialUpdate();
-		Graphics.Blit(src, dest, m_Material);
+	private void OnRenderImage(RenderTexture src, RenderTexture dest)
+	{
+		DamageRatio = damageRatio;
+		Graphics.Blit(src, dest, _damageMaterial);
 	}
 }
