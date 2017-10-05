@@ -100,11 +100,11 @@ public class Result : MonoBehaviour
                 switch (selectID)
                 {
                     case 0:
-                        SceneFader.Instance.LoadLevel(SCENENAME.SCENE_STAGE1);
+                        SceneFader.Instance.LoadLevel(SceneName.Stage1);
                         break;
 
                     case 1:
-                        SceneFader.Instance.LoadLevel(SCENENAME.SCENE_TITLE);
+                        SceneFader.Instance.LoadLevel(SceneName.Title);
                         break;
                 }
             }

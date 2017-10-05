@@ -99,6 +99,12 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(TransScene(scene));
     }
 
+	public void LoadLevel(SceneName scene)
+	{
+		var sceneName = Enum.GetName(typeof(SceneName), scene);
+		StartCoroutine(TransScene(sceneName));
+	}
+
     /// <summary>
     /// フェードオン
     /// </summary>

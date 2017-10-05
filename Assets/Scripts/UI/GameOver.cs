@@ -58,7 +58,7 @@ public class GameOver : MonoBehaviourExtension
                         break;
 
                     case 1:
-                        SceneFader.Instance.LoadLevel(SCENENAME.SCENE_TITLE);
+                        SceneFader.Instance.LoadLevel(SceneName.Title);
                         DATABASE.Life = 3;
                         break;
                 }

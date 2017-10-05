@@ -599,7 +599,7 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
 
             WaitAfter(3f, () =>
             {
-                SceneFader.Instance.LoadLevel(SCENENAME.SCENE_GAMEOVER);
+                SceneFader.Instance.LoadLevel(SceneName.GameOver);
 				AudioManager.Instance.AudioDelete(AUDIONAME.SE_EXPLOSION_2);
             });
 

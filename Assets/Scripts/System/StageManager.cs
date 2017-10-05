@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,16 +10,7 @@ using UnityEngine.SceneManagement;
 public class StageManager : SingletonMonoBehaviour<StageManager>
 {
     [SerializeField, Header("次に遷移するシーン名")]
-    STAGE NextSceneName;
-
-    public enum STAGE
-    {
-        Stage1,
-        Stage2,
-        Stage3,
-        Stage_Boss,
-        Result,
-    }
+    private SceneName NextSceneName;
 
     void Start()
     {
@@ -34,41 +26,40 @@ public class StageManager : SingletonMonoBehaviour<StageManager>
 
     public string ReturnNextSceneName()
     {
-        string name = "";
 
-        switch (NextSceneName)
-        {
-            case STAGE.Stage1:
+	    return Enum.GetName(typeof(SceneName), NextSceneName);
 
-                name = SCENENAME.SCENE_STAGE1;
+        //switch (NextSceneName)
+        //{
+        //    case STAGE.Stage1:
 
-                break;
+        //        name = SceneName.Stage1;
 
-            case STAGE.Stage2:
+        //        break;
 
-                name = SCENENAME.SCENE_STAGE2;
+        //    case STAGE.Stage2:
 
-                break;
+        //        name = SceneName.Stage2;
 
-            case STAGE.Stage3:
+        //        break;
 
-                name = SCENENAME.SCENE_STAGE3;
+        //    case STAGE.Stage3:
 
-                break;
+        //        name = SceneName.Stage3;
 
-            case STAGE.Stage_Boss:
+        //        break;
 
-                name = SCENENAME.SCENE_STAGE_BOSS;
+        //    case STAGE.Stage_Boss:
 
-                break;
+        //        name = SceneName.Stage_Boss;
 
-            case STAGE.Result:
+        //        break;
 
-                name = SCENENAME.SCENE_RESULT;
+        //    case STAGE.Result:
 
-                break;
-        }
+        //        name = SceneName.Result;
 
-        return name;
+        //        break;
+        //}
     }
 }
