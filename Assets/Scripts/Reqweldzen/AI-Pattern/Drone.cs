@@ -56,6 +56,7 @@ namespace KyleGame
 			StateList.Add(new StatePursuit(this));
 			StateList.Add(new StateAttack(this));
 			StateList.Add(new StateReturn(this));
+			StateList.Add(new StateExplode(this));
 
 			StateMachine = new StateMachine<Drone>();
 

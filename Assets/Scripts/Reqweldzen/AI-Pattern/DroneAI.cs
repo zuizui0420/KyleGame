@@ -101,13 +101,28 @@ namespace KyleGame
 					.AddTo(_compositeDisposable);
 
 				// 追跡座標を10Fごとに更新
-				Observable.IntervalFrame(10, FrameCountType.FixedUpdate)
-					.Subscribe(_ =>
-					{
-						var relativePos = GetDirection(Player) * RelativeDistance * -1;
-						Destination = Player.position + relativePos;
-					})
+				Observable.IntervalFrame(10)
+					.Where(_ => GetDistance(Player) > RelativeDistance)
+					.Subscribe(_ => UpdateDestination())
 					.AddTo(_compositeDisposable);
+
+				Observable.IntervalFrame(10)
+					.Where(_ => GetDistance(Player) <= RelativeDistance)
+					.Subscribe(_ => LookPlayer())
+					.AddTo(this);
+			}
+
+			private void UpdateDestination()
+			{
+				var relativePos = GetDirection(Player) * RelativeDistance * -1;
+				Destination = Player.position + relativePos;
+			}
+
+			private void LookPlayer()
+			{
+				var destination = Quaternion.LookRotation(GetDirection(Player));
+
+				Self.rotation = Quaternion.Slerp(Self.rotation, destination, Time.deltaTime);
 			}
 
 			public override void Exit()
