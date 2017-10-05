@@ -120,9 +120,11 @@ public class Result : MonoBehaviour
             currentTime++;
 
             //分数がある場合
-            if(currentTime / 60 != 0)
+            if(currentTime > 60)
             {
-                Timer_Text.text = (currentTime / 60).ToString() + ":" + (currentTime - 60).ToString();               
+	            var minute = currentTime / 60;
+	            var seconds = currentTime % 60;
+	            Timer_Text.text = string.Format("{0}:{1}", minute, seconds);
             }
             else
             {

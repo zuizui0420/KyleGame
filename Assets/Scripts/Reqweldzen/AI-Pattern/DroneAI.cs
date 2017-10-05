@@ -109,7 +109,7 @@ namespace KyleGame
 				Observable.IntervalFrame(10)
 					.Where(_ => GetDistance(Player) <= RelativeDistance)
 					.Subscribe(_ => LookPlayer())
-					.AddTo(this);
+					.AddTo(_compositeDisposable);
 			}
 
 			private void UpdateDestination()
@@ -122,7 +122,7 @@ namespace KyleGame
 			{
 				var destination = Quaternion.LookRotation(GetDirection(Player));
 
-				Self.rotation = Quaternion.Slerp(Self.rotation, destination, Time.deltaTime);
+				Self.rotation = Quaternion.Slerp(Self.rotation, destination, Time.deltaTime * 90);
 			}
 
 			public override void Exit()
@@ -207,7 +207,7 @@ namespace KyleGame
 					},
 					() =>
 					{
-						Destroy(Owner._damageArea);
+						Destroy(Owner.gameObject);
 					});
 			}
 		}

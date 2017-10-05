@@ -30,7 +30,7 @@ public class DroneAnimation : MonoBehaviour
 
 	private IEnumerator Explosion(IObserver<Unit> observer)
 	{
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(1f);
 
 		observer.OnNext(Unit.Default);
 		_explosionEffect.Play();
