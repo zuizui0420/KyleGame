@@ -16,8 +16,8 @@ public class PlayerSystem : SingletonMonoBehaviour<PlayerSystem>
     [SerializeField, Header("ゲームパッドでプレイをするか")]
     bool PlayIsGamePad;
 
-    [SerializeField, Header("LifeControl")]
-    LifeControl LifeIcon;
+    [SerializeField, Header("HealthManager")]
+    HealthManager LifeIcon;
 
     [SerializeField, Header("BatteryControl")]
     BatteryControl BatteryIcon;

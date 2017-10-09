@@ -38,6 +38,8 @@ public class BatteryControl : MonoBehaviour
 	private readonly FloatReactiveProperty _currentBatteryAmount = new FloatReactiveProperty();
 	public IReadOnlyReactiveProperty<float> CurrentBatteryAmount { get { return _currentBatteryAmount; } }
 
+	
+
     private void Start()
     {
 	    _batteryImage = GetComponent<Image>();
