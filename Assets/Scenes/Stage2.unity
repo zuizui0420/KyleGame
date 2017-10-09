@@ -5008,6 +5008,7 @@ MonoBehaviour:
   Gimmick: {fileID: 1174280280}
   Lamp: {fileID: 56387282}
   Laser_HitTime: 2
+  _wallLamp: {fileID: 0}
 --- !u!114 &56387282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25098,7 +25099,6 @@ GameObject:
   - component: {fileID: 426808947}
   - component: {fileID: 426808946}
   - component: {fileID: 426808945}
-  - component: {fileID: 426808944}
   m_Layer: 0
   m_Name: Elevetor_Door
   m_TagString: Untagged
@@ -25127,18 +25127,6 @@ Transform:
   m_Father: {fileID: 1359227684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &426808944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114026971511783398, guid: a3e893a897e5c82498acca1c50f28bb7,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 426808942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb219b23cdf4b314f94a27bca3cc8012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &426808945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25151,7 +25139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee42b00459e37c4b8bdd831a887e834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovePoint: {fileID: 601210533}
+  _movePoint: {fileID: 601210533}
 --- !u!114 &426808946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25167,7 +25155,7 @@ MonoBehaviour:
   _doorLeft: {fileID: 771723899}
   _doorRight: {fileID: 805917070}
   _isDoorOpenReactiveProperty:
-    value: 1
+    value: 0
 --- !u!65 &426808947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32149,12 +32137,13 @@ MonoBehaviour:
   ReStartTime: 0.1
   GimmickActive: 0
   Turret: {fileID: 109847439}
-  Starting: 0
+  _isActive: 0
   AroundCheck: 0
   Life: 2
   AttackTime: 5
   AttackInterval: 3
-  turretAngularSpeed: 30
+  _headRotationSpeed:
+    value: 0
   ShotPoint:
   - {fileID: 795510011}
   - {fileID: 397799107}
@@ -32165,6 +32154,7 @@ MonoBehaviour:
     type: 2}
   Effect_elect: {fileID: 1895020214141666, guid: c4c0b8c382afd7e41908e13266eee597,
     type: 2}
+  _isImmortal: 0
 --- !u!54 &598683760
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -52496,6 +52486,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114934071798866148, guid: b6e8869bc7d81704fabff4234c39e957,
+        type: 2}
+      propertyPath: _laserObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4923777399178336, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.03
@@ -52552,9 +52547,35 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114934071798866148, guid: b6e8869bc7d81704fabff4234c39e957,
+        type: 2}
+      propertyPath: _hitEffect
+      value: 
+      objectReference: {fileID: 1000010608348078, guid: acbe12d0b9c1c5d4faf2faf557ee0062,
+        type: 2}
+    - target: {fileID: 114934071798866148, guid: b6e8869bc7d81704fabff4234c39e957,
+        type: 2}
+      propertyPath: _laserObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 807837500}
+    - target: {fileID: 114934071798866148, guid: b6e8869bc7d81704fabff4234c39e957,
+        type: 2}
+      propertyPath: _laserObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 807837501}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6e8869bc7d81704fabff4234c39e957, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &807837500 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1216744979513450, guid: b6e8869bc7d81704fabff4234c39e957,
+    type: 2}
+  m_PrefabInternal: {fileID: 807837499}
+--- !u!1 &807837501 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1253833014090260, guid: b6e8869bc7d81704fabff4234c39e957,
+    type: 2}
+  m_PrefabInternal: {fileID: 807837499}
 --- !u!1 &812390816
 GameObject:
   m_ObjectHideFlags: 0
@@ -78136,12 +78157,13 @@ MonoBehaviour:
   ReStartTime: 0.1
   GimmickActive: 0
   Turret: {fileID: 1361840465}
-  Starting: 0
+  _isActive: 0
   AroundCheck: 0
   Life: 2
   AttackTime: 3
   AttackInterval: 5
-  turretAngularSpeed: 30
+  _headRotationSpeed:
+    value: 0
   ShotPoint:
   - {fileID: 207918349}
   - {fileID: 1341233402}
@@ -78152,6 +78174,7 @@ MonoBehaviour:
     type: 2}
   Effect_elect: {fileID: 1895020214141666, guid: c4c0b8c382afd7e41908e13266eee597,
     type: 2}
+  _isImmortal: 0
 --- !u!54 &1165273853
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -89016,6 +89039,7 @@ MonoBehaviour:
   Gimmick: {fileID: 1159192912}
   Lamp: {fileID: 1449509994}
   Laser_HitTime: 2
+  _wallLamp: {fileID: 0}
 --- !u!114 &1449509994
 MonoBehaviour:
   m_ObjectHideFlags: 0
